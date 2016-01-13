@@ -3,7 +3,7 @@
     <header id="mainHeader" class="row">
       <nav id="topNav">
         <ul>
-          <li class="companies"><img src="<?php echo base_url();?>images/tavares-new.png" alt="Tavares Logo"></li>
+          <li class="companies"><a href="http://tavaresgroupconsulting.com" target="_blank"><img src="<?php echo base_url();?>images/tavares-new.png" alt="Tavares Logo"></a></li>
           <li><a href="#">Tool Kit</a></li>
           <li><a href="#">Principles &amp; Criteria</a></li>
           <li><a href="#">Action Plan &amp; Assessment</a></li>
