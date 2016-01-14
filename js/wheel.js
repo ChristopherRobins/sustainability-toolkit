@@ -1,6 +1,6 @@
 var stem, stick, leave, botLeaf, bud, white, active, title;
 
-var base_url = 'http://localhost/tavares/sustainability-toolkit/';
+var base_url = 'http://localhost:8888/sustainability-toolkit/';
 
 var criteria = new Array(["Environment","environment",0,"criteria1","colour1"],["Community","community",100,"criteria2","colour2"],["Operating Practices","operatingPractices",50,"criteria3","colour3"],["Products & Services","productsServices",10,"criteria4","colour4"]);
 var metrics = new Array(["0","community","colour1"],["20","environment","colour2"],["50","community","colour1"],["18","operatingPractices","colour3"],["100","productsServices","colour4"],["75","operatingPractices","colour3"],["80","operatingPractices","colour3"],["35","productsServices","colour4"],["25","environment","colour2"],["10","environment","colour2"],["46","community","colour1"],["64","productsServices","colour4"]);
@@ -1002,7 +1002,8 @@ function init() {
 		budHolder.src = base_url + "images/bud.png";
 		budHolder.addEventListener("click", function() {
 			a = this.id;
-			wheelScreen(this.className);
+			console.log('bud clicked');
+			wheelScreen();
 			displayMetric(this.id);
 		},false);
 
@@ -1012,8 +1013,14 @@ function init() {
 
 		stickHolder = document.createElement("img");
 		stickHolder.setAttribute("class","stick");
+		stickHolder.setAttribute("id",criteria[i][1]);
 		stickHolder.src = base_url + "images/stem.png";
 		stickHolder.style.height = 600+"px";
+		stickHolder.addEventListener("click", function() {
+			console.log('stick clicked');
+			wheelScreen();
+			displayMetric(this.id);
+		},false);
 
 		leafOne = document.createElement("img");
 		leafOne.setAttribute("class","leaf");
@@ -1355,7 +1362,7 @@ function grow() {
 
 // Reveals the wheel
 // IMPORTANT: this area holds front end css properties for many elements!!
-function wheelScreen(e) {
+function wheelScreen() {
 	hide.restart();
 
 	TweenMax.to(metricFlowers, 1, { css: {opacity: 0}, delay: 0.5 });
@@ -1470,7 +1477,7 @@ function swapHeaderBG(e){
 		data: getData,
 		dataType: 'json',
 		success: function(data) {
-			console.log(data);
+			//console.log(data);
 			titleHeader.textContent = data[0]["criteria_name"];
 			for(i=0; i<data.length; i++){
 				var node = document.createElement("li");
@@ -1483,15 +1490,15 @@ function swapHeaderBG(e){
 				metricList.appendChild(node);
 			}
 			theMetrics = document.querySelectorAll("#metrics li a");
-			console.log(theMetrics);
+			//console.log(theMetrics);
 
 			[].forEach.call(theMetrics, function(el){
-					console.log(el);
+					//console.log(el);
 					el.addEventListener("click", swapMetrics, false);
 				});
 		},
 		error: function(data){
-		console.log(data);
+		//console.log(data);
 		//alert("failed");
 		}
 	});
@@ -1555,7 +1562,7 @@ function swapHeaderBG(e){
 
 // Applies the selected class to desired metric in order to properly update/pull from database
 function swapMetrics(e){
-	console.log(e.target.innerHTML);
+	//console.log(e.target.innerHTML);
 	for(i=0; i<theMetrics.length; i++){
 		theMetrics[i].classList.remove("selected");
 	}
@@ -1569,7 +1576,7 @@ function swapMetrics(e){
 
 // Changes the form content when switching between "A" levels
 function changeLevel(){
-	console.log(n);
+	//console.log(n);
 	if(this.classList.contains('next')){
 		console.log("goin' up");
 		if(currLevel.innerHTML == "A"){
