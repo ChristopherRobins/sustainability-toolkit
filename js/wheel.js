@@ -390,7 +390,7 @@ function init() {
 	exitWheel.addEventListener("click", grow, false);
 
 	step1desc.addEventListener("mouseover", function() {
-		textfield.innerHTML = "Assess Stakeholder Priorities";
+		textfield.innerHTML = "Assess Stakeholder Priorities and Benchmark";
 		TweenMax.to(textfield, 0.5, { css:{opacity: 1}});
 	}, false);
 
@@ -399,7 +399,7 @@ function init() {
 	}, false);
 
 	step1desc.addEventListener("click", function() {
-		i = "1. Assess Stakeholder Priorities";
+		i = "1. Assess Stakeholder Priorities and Benchmark";
 		switch(currLevel.innerHTML){
 			case "A":
 				d = objSteps["levelA"][0]["step"];
@@ -1242,7 +1242,7 @@ function init() {
 function changeToColour() {
 	closePopUp();
 	switch(i) {
-		case "1. Assess Stakeholder Priorities":
+		case "1. Assess Stakeholder Priorities and Benchmark":
 			TweenMax.to(colpiece, 1.5, { css:{opacity: 0.3}, delay: 1 });
 			break;
 		case "2. Prioritize Risk and Define Material Metrics":

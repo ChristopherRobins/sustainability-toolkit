@@ -318,6 +318,10 @@ nav ul li a:hover {
   z-index: 97;
 }
 
+.stick:hover {
+	cursor: pointer;
+}
+
 .bud {
 	width: 30px;
 	height: 30px;
