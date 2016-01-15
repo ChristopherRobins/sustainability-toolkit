@@ -1271,7 +1271,7 @@ nav ul li a:hover {
 	color: #a2ce45 !important;
 }
 
-@media screen and (max-width: 1120px) {
+@media screen and (max-width: 1120px), screen and (max-height: 730px) {
 	.active {
 		width: 448px;
 		height: 448px;
