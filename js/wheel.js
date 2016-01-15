@@ -10,283 +10,283 @@ var communityMetrics = ["Stakeholder Engagement", "Community Development", "Phil
 var opMetrics = ["Diversity and Equal Opportunity", "Employment", "Ethics", "Human Rights", "Labor Relations", "Occupational Health and Safety", "Training and Education"];
 var pnsMetrics = ["Consumer Health & Safety", "Life Cycle Considerations", "Responsible Sourcing", "Supplier Engagement"];
 var stepsA = ['Identify stakeholders and assess their sustainability priorities:<br>• Stakeholder needs<br>• Benchmark', "Assess and prioritize risk of each criteria and define / identify relevant metrics", "Establish baseline for each metric", "Develop supporting policies for each criteria", "Develop action plan for all / each criteria and / or metric and set targets", "Implement processes / procedures for each sustainability metric, assigning responsibility and authority", "Implement communication / training to support processes for each sustainability metric", "Monitor metrics / indicators", "Audit policies, plans, procedures and self-correct", "Report results of objectives / plans, performance and audits internally to senior management", "Influence supply chain by advising of your policies and procedures and encourage their participation in similar programs", "Report results to stakeholders via website, CSR / investor reports, community engagement, etc.", "Internal / External Recognition"];
-// var objMetrics = {
-// 					environmentMetrics: [
-// 										{
-// 											metricNum: "1",
-// 											metricName: "Air Emissions"
-// 										},
-// 										{
-// 											metricNum: "2",
-// 											metricName: "Biodiversity"
-// 										},
-// 										{
-// 											metricNum: "3",
-// 											metricName: "Energy"
-// 										},
-// 										{
-// 											metricNum: "4",
-// 											metricName: "Greenhouse Gas (GHG) Emissions"
-// 										},
-// 										{
-// 											metricNum: "5",
-// 											metricName: "Hazardous Substances"
-// 										},
-// 										{
-// 											metricNum: "6",
-// 											metricName: "Materials"
-// 										},
-// 										{
-// 											metricNum: "7",
-// 											metricName: "Waste"
-// 										},
-// 										{
-// 											metricNum: "8",
-// 											metricName: "Water"
-// 										},
-// 										{
-// 											metricNum: "9",
-// 											metricName: "Other Considerations"
-// 										}
-// 									   ],
-//
-// 					communityMetrics: [
-// 										{
-// 											metricNum: "10",
-// 											metricName: "Stakeholder Engagement"
-// 										},
-// 										{
-// 											metricNum: "11",
-// 											metricName: "Community Development"
-// 										},
-// 										{
-// 											metricNum: "12",
-// 											metricName: "Philanthropy"
-// 										},
-// 										{
-// 											metricNum: "13",
-// 											metricName: "Volunteerism"
-// 										}
-// 									  ],
-//
-// 							opMetrics: [
-// 										{
-// 											metricNum: "14",
-// 											metricName: "Diversity and Equal Opportunity"
-// 										},
-// 										{
-// 											metricNum: "15",
-// 											metricName: "Employment"
-// 										},
-// 										{
-// 											metricNum: "16",
-// 											metricName: "Ethics"
-// 										},
-// 										{
-// 											metricNum: "17",
-// 											metricName: "Human Rights"
-// 										},
-// 										{
-// 											metricNum: "18",
-// 											metricName: "Labor Relations"
-// 										},
-// 										{
-// 											metricNum: "19",
-// 											metricName: "Occupational Health and Safety"
-// 										},
-// 										{
-// 											metricNum: "20",
-// 											metricName: "Training and Education"
-// 										}
-// 									  ],
-//
-// 							pnsMetrics: [
-// 										{
-// 											metricNum: "21",
-// 											metricName: "Consumer Health & Safety"
-// 										},
-// 										{
-// 											metricNum: "22",
-// 											metricName: "Life Cycle Considerations"
-// 										},
-// 										{
-// 											metricNum: "23",
-// 											metricName: "Responsible Sourcing"
-// 										},
-// 										{
-// 											metricNum: "24",
-// 											metricName: "Supplier Engagement"
-// 										}
-// 									  ]
-// }
-//
-// var objSteps = {
-// 					levelA: [
-// 						   		{
-// 						   			stepNum: "1",
-// 						   			step: "Identify stakeholders and assess their sustainability priorities:<br>• Stakeholder needs<br>• Benchmark"
-// 						   		},
-// 						   		{
-// 						   			stepNum: "2",
-// 						   			step: "Assess and prioritize risk of each criteria and define / identify relevant metrics"
-// 						   		},
-// 						   		{
-// 						   			stepNum: "3",
-// 						   			step: "Establish baseline for each metric"
-// 						   		},
-// 						   		{
-// 						   			stepNum: "4",
-// 						   			step: "Develop supporting policies for each criteria"
-// 						   		},
-// 						   		{
-// 						   			stepNum: "5",
-// 						   			step: "Develop action plan for all / each criteria and / or metric and set targets"
-// 						   		},
-// 						   		{
-// 						   			stepNum: "6",
-// 						   			step: "Implement processes / procedures for each sustainability metric, assigning responsibility and authority"
-// 						   		},
-// 						   		{
-// 						   			stepNum: "7",
-// 						   			step: "Implement communication / training to support processes for each sustainability metric"
-// 						   		},
-// 						   		{
-// 						   			stepNum: "8",
-// 						   			step: "Monitor metrics / indicators"
-// 						   		},
-// 						   		{
-// 						   			stepNum: "9",
-// 						   			step: "Audit policies, plans, procedures and self-correct"
-// 						   		},
-// 						   		{
-// 						   			stepNum: "10",
-// 						   			step: "Report results of objectives / plans, performance and audits internally to senior management"
-// 						   		},
-// 						   		{
-// 						   			stepNum: "11",
-// 						   			step: "Influence supply chain by advising of your policies and procedures and encourage their participation in similar programs"
-// 						   		},
-// 						   		{
-// 						   			stepNum: "12",
-// 						   			step: "Report results to stakeholders via website, CSR / investor reports, community engagement, etc."
-// 						   		},
-// 						   		{
-// 						   			stepNum: "13",
-// 						   			step: "Internal / External Recognition"
-// 						   		}
-// 						   ],
-//
-// 					levelAA:   [
-// 						   		{
-// 						   			stepNum: "14",
-// 						   			step: "Review the following on a regular basis:<br>• Relevance of stakeholders<br>• Sustainability priorities of stakeholders<br>• Benchmarking assessment"
-// 						   		},
-// 						   		{
-// 						   			stepNum: "15",
-// 						   			step: "Assessment and prioritization of risk is regularly reviewed and revised as necessary"
-// 						   		},
-// 						   		{
-// 						   			stepNum: "16",
-// 						   			step: "Regular re-evaluation of metrics to ensure relevant risks are being addressed"
-// 						   		},
-// 						   		{
-// 						   			stepNum: "17",
-// 						   			step: "Policies are reviewed regularly and updated as required"
-// 						   		},
-// 						   		{
-// 						   			stepNum: "18",
-// 						   			step: "Regular review and update of Action Plan"
-// 						   		},
-// 						   		{
-// 						   			stepNum: "19",
-// 						   			step: "Processes / procedures are reviewed for accuracy and updated as required"
-// 						   		},
-// 						   		{
-// 						   			stepNum: "20",
-// 						   			step: "Formal assessments of core competency are conducted on a regular basis"
-// 						   		},
-// 						   		{
-// 						   			stepNum: "21",
-// 						   			step: "Performance reviewed regularly and programs developed / adjusted to ensure attainment of targets"
-// 						   		},
-// 						   		{
-// 						   			stepNum: "22",
-// 						   			step: "Audits are carried out annually and an audit programme developed"
-// 						   		},
-// 						   		{
-// 						   			stepNum: "23",
-// 						   			step: "Management of criteria / metrics have been integrated into formal business planning and reporting"
-// 						   		},
-// 						   		{
-// 						   			stepNum: "24",
-// 						   			step: "Request relevant sustainability information from suppliers"
-// 						   		},
-// 						   		{
-// 						   			stepNum: "25",
-// 						   			step: "Enhanced voluntary progress reporting through public corporate sustainability report or webpage"
-// 						   		},
-// 						   		{
-// 						   			stepNum: "26",
-// 						   			step: "Performance-based incentives (e.g. staff bonuses) in place to recognize progress"
-// 						   		}
-// 						   ],
-//
-// 					levelAAA:   [
-// 						   		{
-// 						   			stepNum: "27",
-// 						   			step: "Procedures are in place to actively and regularly engage with stakeholders and consider their interests in decision-making"
-// 						   		},
-// 						   		{
-// 						   			stepNum: "28",
-// 						   			step: "Metrics that incorporate the life cycle impacts of products and/or services are identified and managed through engagement with suppliers and other value chain components"
-// 						   		},
-// 						   		{
-// 						   			stepNum: "29",
-// 						   			step: "Baseline data is established for the life cycle impacts of products and/or services through engagement with suppliers and other value chain components"
-// 						   		},
-// 						   		{
-// 						   			stepNum: "30",
-// 						   			step: "Corporate policies are communicated to major suppliers as a requirement that must be adopted and monitored accordingly"
-// 						   		},
-// 						   		{
-// 						   			stepNum: "31",
-// 						   			step: "Action plan incorporates processes to manage the life cycle impacts of products and/or services"
-// 						   		},
-// 						   		{
-// 						   			stepNum: "32",
-// 						   			step: "Support is provided to suppliers developing processes to manage relevant sustainability metrics"
-// 						   		},
-// 						   		{
-// 						   			stepNum: "33",
-// 						   			step: "• Staff are provided with continuing education opportunities to increase skills and competency<br>• Education of value chain on sustainability issues"
-// 						   		},
-// 						   		{
-// 						   			stepNum: "34",
-// 						   			step: "Performance targets are aligned with industry sector leaders"
-// 						   		},
-// 						   		{
-// 						   			stepNum: "35",
-// 						   			step: "Systems are externally audited / certified"
-// 						   		},
-// 						   		{
-// 						   			stepNum: "36",
-// 						   			step: "Life cycle impacts of products and/or services are a consideration in business planning decisions of senior management"
-// 						   		},
-// 						   		{
-// 						   			stepNum: "37",
-// 						   			step: "• Integrate supplier sustainability performance into purchasing decisions<br>• Audit supplier to confirm sustainability information"
-// 						   		},
-// 						   		{
-// 						   			stepNum: "38",
-// 						   			step: "• Results are reported through public sustainability reporting programs (e.g. Carbon Disclosure Project, GRI)<br>• External assurance of reporting"
-// 						   		},
-// 						   		{
-// 						   			stepNum: "39",
-// 						   			step: "Recognition from external organizations (e.g. government agency programs, associations, community organizations, NGOs, etc.)"
-// 						   		}
-// 						   ]
-//
-// 				}
+ var objMetrics = {
+ 					environmentMetrics: [
+ 										{
+											metricNum: "1",
+											metricName: "Air Emissions"
+										},
+										{
+											metricNum: "2",
+											metricName: "Biodiversity"
+										},
+										{
+											metricNum: "3",
+											metricName: "Energy"
+										},
+										{
+											metricNum: "4",
+											metricName: "Greenhouse Gas (GHG) Emissions"
+										},
+										{
+											metricNum: "5",
+											metricName: "Hazardous Substances"
+										},
+										{
+											metricNum: "6",
+											metricName: "Materials"
+										},
+										{
+											metricNum: "7",
+											metricName: "Waste"
+										},
+										{
+											metricNum: "8",
+											metricName: "Water"
+										},
+										{
+											metricNum: "9",
+											metricName: "Other Considerations"
+										}
+									   ],
+
+					communityMetrics: [
+										{
+											metricNum: "10",
+											metricName: "Stakeholder Engagement"
+										},
+										{
+											metricNum: "11",
+											metricName: "Community Development"
+										},
+										{
+											metricNum: "12",
+											metricName: "Philanthropy"
+										},
+										{
+											metricNum: "13",
+											metricName: "Volunteerism"
+										}
+									  ],
+
+							opMetrics: [
+										{
+											metricNum: "14",
+											metricName: "Diversity and Equal Opportunity"
+										},
+										{
+											metricNum: "15",
+											metricName: "Employment"
+										},
+										{
+											metricNum: "16",
+											metricName: "Ethics"
+										},
+										{
+											metricNum: "17",
+											metricName: "Human Rights"
+										},
+										{
+											metricNum: "18",
+											metricName: "Labor Relations"
+										},
+										{
+											metricNum: "19",
+											metricName: "Occupational Health and Safety"
+										},
+										{
+											metricNum: "20",
+											metricName: "Training and Education"
+										}
+									  ],
+
+							pnsMetrics: [
+										{
+											metricNum: "21",
+											metricName: "Consumer Health & Safety"
+										},
+										{
+											metricNum: "22",
+											metricName: "Life Cycle Considerations"
+										},
+										{
+											metricNum: "23",
+											metricName: "Responsible Sourcing"
+										},
+										{
+											metricNum: "24",
+											metricName: "Supplier Engagement"
+										}
+									  ]
+}
+
+var objSteps = {
+					levelA: [
+						   		{
+						   			stepNum: "1",
+						   			step: "Identify stakeholders and assess their sustainability priorities:<br>• Stakeholder needs<br>• Benchmark"
+						   		},
+						   		{
+						   			stepNum: "2",
+						   			step: "Assess and prioritize risk of each criteria and define / identify relevant metrics"
+						   		},
+						   		{
+						   			stepNum: "3",
+						   			step: "Establish baseline for each metric"
+						   		},
+						   		{
+						   			stepNum: "4",
+						   			step: "Develop supporting policies for each criteria"
+						   		},
+						   		{
+						   			stepNum: "5",
+						   			step: "Develop action plan for all / each criteria and / or metric and set targets"
+						   		},
+						   		{
+						   			stepNum: "6",
+						   			step: "Implement processes / procedures for each sustainability metric, assigning responsibility and authority"
+						   		},
+						   		{
+						   			stepNum: "7",
+						   			step: "Implement communication / training to support processes for each sustainability metric"
+						   		},
+						   		{
+						   			stepNum: "8",
+						   			step: "Monitor metrics / indicators"
+						   		},
+						   		{
+						   			stepNum: "9",
+						   			step: "Audit policies, plans, procedures and self-correct"
+						   		},
+						   		{
+						   			stepNum: "10",
+						   			step: "Report results of objectives / plans, performance and audits internally to senior management"
+						   		},
+						   		{
+						   			stepNum: "11",
+						   			step: "Influence supply chain by advising of your policies and procedures and encourage their participation in similar programs"
+						   		},
+						   		{
+						   			stepNum: "12",
+						   			step: "Report results to stakeholders via website, CSR / investor reports, community engagement, etc."
+						   		},
+						   		{
+						   			stepNum: "13",
+						   			step: "Internal / External Recognition"
+						   		}
+						   ],
+
+					levelAA:   [
+						   		{
+						   			stepNum: "14",
+						   			step: "Review the following on a regular basis:<br>• Relevance of stakeholders<br>• Sustainability priorities of stakeholders<br>• Benchmarking assessment"
+						   		},
+						   		{
+						   			stepNum: "15",
+						   			step: "Assessment and prioritization of risk is regularly reviewed and revised as necessary"
+						   		},
+						   		{
+						   			stepNum: "16",
+						   			step: "Regular re-evaluation of metrics to ensure relevant risks are being addressed"
+						   		},
+						   		{
+						   			stepNum: "17",
+						   			step: "Policies are reviewed regularly and updated as required"
+						   		},
+						   		{
+						   			stepNum: "18",
+						   			step: "Regular review and update of Action Plan"
+						   		},
+						   		{
+						   			stepNum: "19",
+						   			step: "Processes / procedures are reviewed for accuracy and updated as required"
+						   		},
+						   		{
+						   			stepNum: "20",
+						   			step: "Formal assessments of core competency are conducted on a regular basis"
+						   		},
+						   		{
+						   			stepNum: "21",
+						   			step: "Performance reviewed regularly and programs developed / adjusted to ensure attainment of targets"
+						   		},
+						   		{
+						   			stepNum: "22",
+						   			step: "Audits are carried out annually and an audit programme developed"
+						   		},
+						   		{
+						   			stepNum: "23",
+						   			step: "Management of criteria / metrics have been integrated into formal business planning and reporting"
+						   		},
+						   		{
+						   			stepNum: "24",
+						   			step: "Request relevant sustainability information from suppliers"
+						   		},
+						   		{
+						   			stepNum: "25",
+						   			step: "Enhanced voluntary progress reporting through public corporate sustainability report or webpage"
+						   		},
+						   		{
+						   			stepNum: "26",
+						   			step: "Performance-based incentives (e.g. staff bonuses) in place to recognize progress"
+						   		}
+						   ],
+
+					levelAAA:   [
+						   		{
+						   			stepNum: "27",
+						   			step: "Procedures are in place to actively and regularly engage with stakeholders and consider their interests in decision-making"
+						   		},
+						   		{
+						   			stepNum: "28",
+						   			step: "Metrics that incorporate the life cycle impacts of products and/or services are identified and managed through engagement with suppliers and other value chain components"
+						   		},
+						   		{
+						   			stepNum: "29",
+						   			step: "Baseline data is established for the life cycle impacts of products and/or services through engagement with suppliers and other value chain components"
+						   		},
+						   		{
+						   			stepNum: "30",
+						   			step: "Corporate policies are communicated to major suppliers as a requirement that must be adopted and monitored accordingly"
+						   		},
+						   		{
+						   			stepNum: "31",
+						   			step: "Action plan incorporates processes to manage the life cycle impacts of products and/or services"
+						   		},
+						   		{
+						   			stepNum: "32",
+						   			step: "Support is provided to suppliers developing processes to manage relevant sustainability metrics"
+						   		},
+						   		{
+						   			stepNum: "33",
+						   			step: "• Staff are provided with continuing education opportunities to increase skills and competency<br>• Education of value chain on sustainability issues"
+						   		},
+						   		{
+						   			stepNum: "34",
+						   			step: "Performance targets are aligned with industry sector leaders"
+						   		},
+						   		{
+						   			stepNum: "35",
+						   			step: "Systems are externally audited / certified"
+						   		},
+						   		{
+						   			stepNum: "36",
+						   			step: "Life cycle impacts of products and/or services are a consideration in business planning decisions of senior management"
+						   		},
+						   		{
+						   			stepNum: "37",
+						   			step: "• Integrate supplier sustainability performance into purchasing decisions<br>• Audit supplier to confirm sustainability information"
+						   		},
+						   		{
+						   			stepNum: "38",
+						   			step: "• Results are reported through public sustainability reporting programs (e.g. Carbon Disclosure Project, GRI)<br>• External assurance of reporting"
+						   		},
+						   		{
+						   			stepNum: "39",
+						   			step: "Recognition from external organizations (e.g. government agency programs, associations, community organizations, NGOs, etc.)"
+						   		}
+						   ]
+
+				}
 
 var overlay1 = document.querySelector(".overlay1");
 var overlay2 = document.querySelector(".overlay2");
@@ -1448,8 +1448,7 @@ function popupstart() {
 // Animation for closing the form
 function closePopUp() {
 	form = document.querySelector("#form input");
-	console.log(form);
-
+	//console.log(form);
 	if(form == null) {
 		TweenMax.to(pop, 1, {opacity: 0, scaleX: 0, scaleY: 0});
 		TweenMax.to(pop, 0, { css:{ zIndex: 0}, delay: 1 });
