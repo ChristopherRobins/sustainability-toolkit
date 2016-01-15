@@ -1447,10 +1447,22 @@ function popupstart() {
 
 // Animation for closing the form
 function closePopUp() {
-	TweenMax.to(pop, 1, {opacity: 0, scaleX: 0, scaleY: 0});
-	TweenMax.to(pop, 0, { css:{ zIndex: 0}, delay: 1 });
-	TweenMax.to(overlay2, 1, { css:{opacity: 0} });
-	TweenMax.to(overlay2, 0, { css:{zIndex: 0}, delay: 1 });
+	form = document.querySelector("#form input");
+	console.log(form);
+
+	if(form == null) {
+		TweenMax.to(pop, 1, {opacity: 0, scaleX: 0, scaleY: 0});
+		TweenMax.to(pop, 0, { css:{ zIndex: 0}, delay: 1 });
+		TweenMax.to(overlay2, 1, { css:{opacity: 0} });
+		TweenMax.to(overlay2, 0, { css:{zIndex: 0}, delay: 1 });
+	}else {
+		if(confirm("You are about to close the window without saving your changes. Do you want to continue?")) {
+			TweenMax.to(pop, 1, {opacity: 0, scaleX: 0, scaleY: 0});
+			TweenMax.to(pop, 0, { css:{ zIndex: 0}, delay: 1 });
+			TweenMax.to(overlay2, 1, { css:{opacity: 0} });
+			TweenMax.to(overlay2, 0, { css:{zIndex: 0}, delay: 1 });
+		} else {}
+	}
 }
 
 // Swaps the header and metric list content depending on which criteria was selected

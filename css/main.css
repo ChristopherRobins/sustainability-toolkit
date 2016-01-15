@@ -425,8 +425,10 @@ nav ul li a:hover {
 #metricHeader {
 	margin-bottom: 10px;
 	width: 100%;
-	height: 199px;
-	padding: 14px 0px;
+	/*height: 199px;*/
+	height: 150px;
+	/*padding: 14px 0px;*/
+	padding-top: 14px;
 	/*background: #c8c9cb;
 	background: -moz-linear-gradient(left,  #c8c9cb 0%, #fffcfc 100%);
 	background: -webkit-gradient(linear, left top, right top, color-stop(0%,#c8c9cb), color-stop(100%,#fffcfc));
@@ -1184,7 +1186,8 @@ nav ul li a:hover {
 }
 
 #text {
-	padding: 20px 80px;
+	padding: 0px 80px;
+	/*padding: 20px 80px;*/
 	position: absolute;
 	z-index: 2;
 }
@@ -1235,7 +1238,7 @@ nav ul li a:hover {
 #metrics {
 	position: relative;
 	z-index: 7;
-	margin-top: 40px;
+	/*margin-top: 40px;*/
 	font-size: 1em;
 	border: 2px solid #dadbdd;
 	width: 30.5%;
