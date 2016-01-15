@@ -390,7 +390,7 @@ function init() {
 	exitWheel.addEventListener("click", grow, false);
 
 	step1desc.addEventListener("mouseover", function() {
-		textfield.innerHTML = "Assess Stakeholder Priorities";
+		textfield.innerHTML = "Assess Stakeholder Priorities and Benchmark";
 		TweenMax.to(textfield, 0.5, { css:{opacity: 1}});
 	}, false);
 
@@ -399,7 +399,7 @@ function init() {
 	}, false);
 
 	step1desc.addEventListener("click", function() {
-		i = "1. Assess Stakeholder Priorities";
+		i = "1. Assess Stakeholder Priorities and Benchmark";
 		switch(currLevel.innerHTML){
 			case "A":
 				d = objSteps["levelA"][0]["step"];
@@ -1242,7 +1242,7 @@ function init() {
 function changeToColour() {
 	closePopUp();
 	switch(i) {
-		case "1. Assess Stakeholder Priorities":
+		case "1. Assess Stakeholder Priorities and Benchmark":
 			TweenMax.to(colpiece, 1.5, { css:{opacity: 0.3}, delay: 1 });
 			break;
 		case "2. Prioritize Risk and Define Material Metrics":
@@ -1447,10 +1447,22 @@ function popupstart() {
 
 // Animation for closing the form
 function closePopUp() {
-	TweenMax.to(pop, 1, {opacity: 0, scaleX: 0, scaleY: 0});
-	TweenMax.to(pop, 0, { css:{ zIndex: 0}, delay: 1 });
-	TweenMax.to(overlay2, 1, { css:{opacity: 0} });
-	TweenMax.to(overlay2, 0, { css:{zIndex: 0}, delay: 1 });
+	form = document.querySelector("#form input");
+	console.log(form);
+
+	if(form == null) {
+		TweenMax.to(pop, 1, {opacity: 0, scaleX: 0, scaleY: 0});
+		TweenMax.to(pop, 0, { css:{ zIndex: 0}, delay: 1 });
+		TweenMax.to(overlay2, 1, { css:{opacity: 0} });
+		TweenMax.to(overlay2, 0, { css:{zIndex: 0}, delay: 1 });
+	}else {
+		if(confirm("You are about to close the window without saving your changes. Do you want to continue?")) {
+			TweenMax.to(pop, 1, {opacity: 0, scaleX: 0, scaleY: 0});
+			TweenMax.to(pop, 0, { css:{ zIndex: 0}, delay: 1 });
+			TweenMax.to(overlay2, 1, { css:{opacity: 0} });
+			TweenMax.to(overlay2, 0, { css:{zIndex: 0}, delay: 1 });
+		} else {}
+	}
 }
 
 // Swaps the header and metric list content depending on which criteria was selected
