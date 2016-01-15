@@ -950,6 +950,7 @@ nav ul li a:hover {
 
 #inner-popup {
 	height: 100%;
+	position: relative;
 }
 
 #form {
@@ -957,8 +958,9 @@ nav ul li a:hover {
 }
 
 #form-content {
-	overflow-y: auto;
-	height:70%;
+	overflow-y: scroll;
+	position: relative;
+	height: 75%;
 }
 
 #stage {
@@ -1024,9 +1026,10 @@ nav ul li a:hover {
 }
 
 .pages {
+	position: absolute;
+	bottom: 0;
 	text-align: center;
 	margin-top: 20px;
-	margin-bottom: 10px;
 }
 
 .next {
@@ -1540,4 +1543,55 @@ nav ul li a:hover {
 		width: 675px;
 	}*/
 
+}
+
+
+#companyTitle
+{
+	text-align: center;
+	margin-top: 20px;
+}
+
+#companyForm
+{
+	margin: 0 auto;
+	width: 80%;
+	height: 50%;
+	overflow: hidden;
+	background: -moz-linear-gradient(left,  rgba(255,255,255,0.9) 0%, rgba(206,206,208,0.9) 100%);
+	background: -webkit-gradient(linear, left top, right top, color-stop(0%,rgba(255,255,255,0.9)), color-stop(100%,rgba(206,206,208,0.9)));
+	background: -webkit-linear-gradient(left,  rgba(255,255,255,0.9) 0%,rgba(206,206,208,0.9) 100%);
+	background: -o-linear-gradient(left,  rgba(255,255,255,0.9) 0%,rgba(206,206,208,0.9) 100%)
+	background: -ms-linear-gradient(left,  rgba(255,255,255,0.9) 0%,rgba(206,206,208,0.9) 100%);
+	background: linear-gradient(to right,  rgba(255,255,255,0.9) 0%,rgba(206,206,208,0.9) 100%);
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#80ffffff', endColorstr='#80ceced0',GradientType=1 );
+	border: 2px solid #67686a;
+	-webkit-border-radius: 20px;
+	-moz-border-radius: 20px;
+	border-radius: 20px;
+}
+
+#innerCompanyForm
+{
+	height: 80%;
+	margin: 30px;
+	padding: 5px;
+	overflow-y: scroll; 
+	position: relative;
+}
+
+#innerCompanyForm label
+{
+	font-size: 1.2em;
+	margin-bottom: 7px;
+}
+
+#companySend
+{
+	padding: 10px 20px;
+	-webkit-border-radius: 10px;
+	-moz-border-radius: 10px;
+	border-radius: 10px;
+	background-color: #89AC76;
+	font-size: 1.2em;
 }
