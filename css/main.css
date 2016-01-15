@@ -1556,7 +1556,8 @@ nav ul li a:hover {
 #companyTitle
 {
 	text-align: center;
-	margin-top: 20px;
+	/*margin-top: 20px;*/
+	margin:0;
 }
 
 #companyForm
@@ -1599,6 +1600,15 @@ nav ul li a:hover {
 	-webkit-border-radius: 10px;
 	-moz-border-radius: 10px;
 	border-radius: 10px;
-	background-color: #89AC76;
+	background-color: #4DBD33;
 	font-size: 1.2em;
+	float: right;
+	margin-right: 20px;
+	border: none;
+}
+
+#companySend:hover
+{
+	background-color: #3A6629;
+	color: white;
 }
