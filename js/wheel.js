@@ -1447,22 +1447,29 @@ function popupstart() {
 
 // Animation for closing the form
 function closePopUp() {
-	form = document.querySelector("#form input");
-	//console.log(form);
-	if(form == null) {
+	if(unsaved) {
+		if(confirm("You are about to close the window without saving your changes. Do you want to continue?")) {
+				TweenMax.to(pop, 1, {opacity: 0, scaleX: 0, scaleY: 0});
+				TweenMax.to(pop, 0, { css:{ zIndex: 0}, delay: 1 });
+				TweenMax.to(overlay2, 1, { css:{opacity: 0} });
+				TweenMax.to(overlay2, 0, { css:{zIndex: 0}, delay: 1 });
+				unsaved = false;
+		}
+	} else {
 		TweenMax.to(pop, 1, {opacity: 0, scaleX: 0, scaleY: 0});
 		TweenMax.to(pop, 0, { css:{ zIndex: 0}, delay: 1 });
 		TweenMax.to(overlay2, 1, { css:{opacity: 0} });
 		TweenMax.to(overlay2, 0, { css:{zIndex: 0}, delay: 1 });
-	}else {
-		if(confirm("You are about to close the window without saving your changes. Do you want to continue?")) {
-			TweenMax.to(pop, 1, {opacity: 0, scaleX: 0, scaleY: 0});
-			TweenMax.to(pop, 0, { css:{ zIndex: 0}, delay: 1 });
-			TweenMax.to(overlay2, 1, { css:{opacity: 0} });
-			TweenMax.to(overlay2, 0, { css:{zIndex: 0}, delay: 1 });
-		} else {}
 	}
 }
+
+var unsaved = false;
+
+$(document).on('change', ':input', function(){ //triggers change in all input fields including text type
+  unsaved = true;
+});
+
+
 
 // Swaps the header and metric list content depending on which criteria was selected
 function swapHeaderBG(e){
