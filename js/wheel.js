@@ -1,6 +1,6 @@
 var stem, stick, leave, botLeaf, bud, white, active, title;
 
-var base_url = 'http://localhost:8888/sustainability-toolkit/';
+var base_url = 'http://localhost/sustainability-toolkit/';
 
 var criteria = new Array(["Environment","environment",0,"criteria1","colour1"],["Community","community",100,"criteria2","colour2"],["Operating Practices","operatingPractices",50,"criteria3","colour3"],["Products & Services","productsServices",10,"criteria4","colour4"]);
 var metrics = new Array(["0","community","colour1"],["20","environment","colour2"],["50","community","colour1"],["18","operatingPractices","colour3"],["100","productsServices","colour4"],["75","operatingPractices","colour3"],["80","operatingPractices","colour3"],["35","productsServices","colour4"],["25","environment","colour2"],["10","environment","colour2"],["46","community","colour1"],["64","productsServices","colour4"]);
@@ -10,115 +10,116 @@ var communityMetrics = ["Stakeholder Engagement", "Community Development", "Phil
 var opMetrics = ["Diversity and Equal Opportunity", "Employment", "Ethics", "Human Rights", "Labor Relations", "Occupational Health and Safety", "Training and Education"];
 var pnsMetrics = ["Consumer Health & Safety", "Life Cycle Considerations", "Responsible Sourcing", "Supplier Engagement"];
 var stepsA = ['Identify stakeholders and assess their sustainability priorities:<br>• Stakeholder needs<br>• Benchmark', "Assess and prioritize risk of each criteria and define / identify relevant metrics", "Establish baseline for each metric", "Develop supporting policies for each criteria", "Develop action plan for all / each criteria and / or metric and set targets", "Implement processes / procedures for each sustainability metric, assigning responsibility and authority", "Implement communication / training to support processes for each sustainability metric", "Monitor metrics / indicators", "Audit policies, plans, procedures and self-correct", "Report results of objectives / plans, performance and audits internally to senior management", "Influence supply chain by advising of your policies and procedures and encourage their participation in similar programs", "Report results to stakeholders via website, CSR / investor reports, community engagement, etc.", "Internal / External Recognition"];
- var objMetrics = {
- 					environmentMetrics: [
- 										{
-											metricNum: "1",
-											metricName: "Air Emissions"
-										},
-										{
-											metricNum: "2",
-											metricName: "Biodiversity"
-										},
-										{
-											metricNum: "3",
-											metricName: "Energy"
-										},
-										{
-											metricNum: "4",
-											metricName: "Greenhouse Gas (GHG) Emissions"
-										},
-										{
-											metricNum: "5",
-											metricName: "Hazardous Substances"
-										},
-										{
-											metricNum: "6",
-											metricName: "Materials"
-										},
-										{
-											metricNum: "7",
-											metricName: "Waste"
-										},
-										{
-											metricNum: "8",
-											metricName: "Water"
-										},
-										{
-											metricNum: "9",
-											metricName: "Other Considerations"
-										}
-									   ],
 
-					communityMetrics: [
-										{
-											metricNum: "10",
-											metricName: "Stakeholder Engagement"
-										},
-										{
-											metricNum: "11",
-											metricName: "Community Development"
-										},
-										{
-											metricNum: "12",
-											metricName: "Philanthropy"
-										},
-										{
-											metricNum: "13",
-											metricName: "Volunteerism"
-										}
-									  ],
+// var objMetrics = {
+// 					environmentMetrics: [
+// 										{
+// 											metricNum: "1",
+// 											metricName: "Air Emissions"
+// 										},
+// 										{
+// 											metricNum: "2",
+// 											metricName: "Biodiversity"
+// 										},
+// 										{
+// 											metricNum: "3",
+// 											metricName: "Energy"
+// 										},
+// 										{
+// 											metricNum: "4",
+// 											metricName: "Greenhouse Gas (GHG) Emissions"
+// 										},
+// 										{
+// 											metricNum: "5",
+// 											metricName: "Hazardous Substances"
+// 										},
+// 										{
+// 											metricNum: "6",
+// 											metricName: "Materials"
+// 										},
+// 										{
+// 											metricNum: "7",
+// 											metricName: "Waste"
+// 										},
+// 										{
+// 											metricNum: "8",
+// 											metricName: "Water"
+// 										},
+// 										{
+// 											metricNum: "9",
+// 											metricName: "Other Considerations"
+// 										}
+// 									   ],
 
-							opMetrics: [
-										{
-											metricNum: "14",
-											metricName: "Diversity and Equal Opportunity"
-										},
-										{
-											metricNum: "15",
-											metricName: "Employment"
-										},
-										{
-											metricNum: "16",
-											metricName: "Ethics"
-										},
-										{
-											metricNum: "17",
-											metricName: "Human Rights"
-										},
-										{
-											metricNum: "18",
-											metricName: "Labor Relations"
-										},
-										{
-											metricNum: "19",
-											metricName: "Occupational Health and Safety"
-										},
-										{
-											metricNum: "20",
-											metricName: "Training and Education"
-										}
-									  ],
+// 					communityMetrics: [
+// 										{
+// 											metricNum: "10",
+// 											metricName: "Stakeholder Engagement"
+// 										},
+// 										{
+// 											metricNum: "11",
+// 											metricName: "Community Development"
+// 										},
+// 										{
+// 											metricNum: "12",
+// 											metricName: "Philanthropy"
+// 										},
+// 										{
+// 											metricNum: "13",
+// 											metricName: "Volunteerism"
+// 										}
+// 									  ],
 
-							pnsMetrics: [
-										{
-											metricNum: "21",
-											metricName: "Consumer Health & Safety"
-										},
-										{
-											metricNum: "22",
-											metricName: "Life Cycle Considerations"
-										},
-										{
-											metricNum: "23",
-											metricName: "Responsible Sourcing"
-										},
-										{
-											metricNum: "24",
-											metricName: "Supplier Engagement"
-										}
-									  ]
-}
+// 							opMetrics: [
+// 										{
+// 											metricNum: "14",
+// 											metricName: "Diversity and Equal Opportunity"
+// 										},
+// 										{
+// 											metricNum: "15",
+// 											metricName: "Employment"
+// 										},
+// 										{
+// 											metricNum: "16",
+// 											metricName: "Ethics"
+// 										},
+// 										{
+// 											metricNum: "17",
+// 											metricName: "Human Rights"
+// 										},
+// 										{
+// 											metricNum: "18",
+// 											metricName: "Labor Relations"
+// 										},
+// 										{
+// 											metricNum: "19",
+// 											metricName: "Occupational Health and Safety"
+// 										},
+// 										{
+// 											metricNum: "20",
+// 											metricName: "Training and Education"
+// 										}
+// 									  ],
+
+// 							pnsMetrics: [
+// 										{
+// 											metricNum: "21",
+// 											metricName: "Consumer Health & Safety"
+// 										},
+// 										{
+// 											metricNum: "22",
+// 											metricName: "Life Cycle Considerations"
+// 										},
+// 										{
+// 											metricNum: "23",
+// 											metricName: "Responsible Sourcing"
+// 										},
+// 										{
+// 											metricNum: "24",
+// 											metricName: "Supplier Engagement"
+// 										}
+// 									  ]
+// }
 
 var objSteps = {
 					levelA: [
