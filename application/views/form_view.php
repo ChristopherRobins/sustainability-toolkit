@@ -6,11 +6,12 @@
           <h1 id="stage">1. Assess Stakeholder Priorities</h1>
           <p id="close">X</p>
         </div>
+        
+      </div>
+      <div id="form-content">
         <div class="large-12 columns">
           <p class="step-desc"></p>
         </div>
-      </div>
-      <div id="form-content">
         <div class="row">
           <div class="principles">
             <input name="principle" type="checkbox" value="1">

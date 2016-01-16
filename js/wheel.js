@@ -10,6 +10,7 @@ var communityMetrics = ["Stakeholder Engagement", "Community Development", "Phil
 var opMetrics = ["Diversity and Equal Opportunity", "Employment", "Ethics", "Human Rights", "Labor Relations", "Occupational Health and Safety", "Training and Education"];
 var pnsMetrics = ["Consumer Health & Safety", "Life Cycle Considerations", "Responsible Sourcing", "Supplier Engagement"];
 var stepsA = ['Identify stakeholders and assess their sustainability priorities:<br>• Stakeholder needs<br>• Benchmark', "Assess and prioritize risk of each criteria and define / identify relevant metrics", "Establish baseline for each metric", "Develop supporting policies for each criteria", "Develop action plan for all / each criteria and / or metric and set targets", "Implement processes / procedures for each sustainability metric, assigning responsibility and authority", "Implement communication / training to support processes for each sustainability metric", "Monitor metrics / indicators", "Audit policies, plans, procedures and self-correct", "Report results of objectives / plans, performance and audits internally to senior management", "Influence supply chain by advising of your policies and procedures and encourage their participation in similar programs", "Report results to stakeholders via website, CSR / investor reports, community engagement, etc.", "Internal / External Recognition"];
+
 // var objMetrics = {
 // 					environmentMetrics: [
 // 										{
@@ -49,7 +50,7 @@ var stepsA = ['Identify stakeholders and assess their sustainability priorities:
 // 											metricName: "Other Considerations"
 // 										}
 // 									   ],
-//
+
 // 					communityMetrics: [
 // 										{
 // 											metricNum: "10",
@@ -68,7 +69,7 @@ var stepsA = ['Identify stakeholders and assess their sustainability priorities:
 // 											metricName: "Volunteerism"
 // 										}
 // 									  ],
-//
+
 // 							opMetrics: [
 // 										{
 // 											metricNum: "14",
@@ -99,7 +100,7 @@ var stepsA = ['Identify stakeholders and assess their sustainability priorities:
 // 											metricName: "Training and Education"
 // 										}
 // 									  ],
-//
+
 // 							pnsMetrics: [
 // 										{
 // 											metricNum: "21",
@@ -119,7 +120,7 @@ var stepsA = ['Identify stakeholders and assess their sustainability priorities:
 // 										}
 // 									  ]
 // }
-//
+
 var objSteps = {
 					levelA: [
 						   		{
@@ -390,7 +391,7 @@ function init() {
 	exitWheel.addEventListener("click", grow, false);
 
 	step1desc.addEventListener("mouseover", function() {
-		textfield.innerHTML = "Assess Stakeholder Priorities";
+		textfield.innerHTML = "Assess Stakeholder Priorities and Benchmark";
 		TweenMax.to(textfield, 0.5, { css:{opacity: 1}});
 	}, false);
 
@@ -399,7 +400,7 @@ function init() {
 	}, false);
 
 	step1desc.addEventListener("click", function() {
-		i = "1. Assess Stakeholder Priorities";
+		i = "1. Assess Stakeholder Priorities and Benchmark";
 		switch(currLevel.innerHTML){
 			case "A":
 				d = objSteps["levelA"][0]["step"];
@@ -1242,7 +1243,7 @@ function init() {
 function changeToColour() {
 	closePopUp();
 	switch(i) {
-		case "1. Assess Stakeholder Priorities":
+		case "1. Assess Stakeholder Priorities and Benchmark":
 			TweenMax.to(colpiece, 1.5, { css:{opacity: 0.3}, delay: 1 });
 			break;
 		case "2. Prioritize Risk and Define Material Metrics":
@@ -1447,11 +1448,29 @@ function popupstart() {
 
 // Animation for closing the form
 function closePopUp() {
-	TweenMax.to(pop, 1, {opacity: 0, scaleX: 0, scaleY: 0});
-	TweenMax.to(pop, 0, { css:{ zIndex: 0}, delay: 1 });
-	TweenMax.to(overlay2, 1, { css:{opacity: 0} });
-	TweenMax.to(overlay2, 0, { css:{zIndex: 0}, delay: 1 });
+	if(unsaved) {
+		if(confirm("You are about to close the window without saving your changes. Do you want to continue?")) {
+				TweenMax.to(pop, 1, {opacity: 0, scaleX: 0, scaleY: 0});
+				TweenMax.to(pop, 0, { css:{ zIndex: 0}, delay: 1 });
+				TweenMax.to(overlay2, 1, { css:{opacity: 0} });
+				TweenMax.to(overlay2, 0, { css:{zIndex: 0}, delay: 1 });
+				unsaved = false;
+		}
+	} else {
+		TweenMax.to(pop, 1, {opacity: 0, scaleX: 0, scaleY: 0});
+		TweenMax.to(pop, 0, { css:{ zIndex: 0}, delay: 1 });
+		TweenMax.to(overlay2, 1, { css:{opacity: 0} });
+		TweenMax.to(overlay2, 0, { css:{zIndex: 0}, delay: 1 });
+	}
 }
+
+var unsaved = false;
+
+$(document).on('change', ':input', function(){ //triggers change in all input fields including text type
+  unsaved = true;
+});
+
+
 
 // Swaps the header and metric list content depending on which criteria was selected
 function swapHeaderBG(e){
