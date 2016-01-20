@@ -6,6 +6,10 @@
 			<label>Company Name: </label>
 			<input name="companyName" type="text">            
 		</div>
+		<div id="companyContact">
+			<label>Company Contact: </label>
+			<input name="companyContact" type="text">
+		</div>
 		<div id="companySize">
 			<label>Company Size: </label>
 			<select name="companySize">
@@ -14,6 +18,13 @@
 			    <option value="101-500">101 - 500 employees</option>
 			    <option value="500+">More than 500 employees</option>
 			</select>            
+		</div>
+		<div id="companyFacilities">
+			<label>Multiple Facilities?</label>
+			<input type="radio" name="companyFacilities" value="0" checked> No<br>
+			<input type="radio" name="companyFacilities" value="1" checked> Yes
+			<label>How many?</label>
+			<input type="number" name="facilitiesCount" min="1">  
 		</div>
 		<div id="sector">
 			<label>Sector: </label>
@@ -26,9 +37,20 @@
 			    <option value="healthcare">Health Care</option>
 			</select>            
 		</div>
+		<div id="revenue">
+			<label>Market Cap/Revenue:</label>
+			<select name="revenue">
+			    <option>Under 1 million</option>
+			    <option>1-5 million</option>
+			    <option>5-10 million</option>
+			    <option>10-20 million</option>
+			    <option>20-50 million</option>
+			    <option>Over 50 million</option>
+			</select>            
+		</div>
 		<div id="country">
 			<label>Country: </label>
-			<select>
+			<select name="companyCountry">
 				<option value="AF">Afghanistan</option>
 				<option value="AX">Åland Islands</option>
 				<option value="AL">Albania</option>
@@ -280,16 +302,23 @@
 				<option value="ZW">Zimbabwe</option>
 			</select>           
 		</div>
-		<div id="revenue">
-			<label>Market Cap/Revenue:</label>
-			<select name="revenue">
-			    <option value="under1mil">Under 1 million</option>
-			    <option value="1-5mil">1-5 million</option>
-			    <option value="5-10mil">5-10 million</option>
-			    <option value="10-20mil">10-20 million</option>
-			    <option value="20-50mil">20-50 million</option>
-			    <option value="over50mil">Over 50 million</option>
-			</select>            
+		<div id="companyAddress">
+			<label>Company Address: </label>
+			<input name="companyAddress" type="text">Company Address: </input>
+		</div>
+		<div id="companyPhone">
+			<label>Company Phone: </label>
+			<input name="companyPhone" type="text">Company Phone: </input>
+		</div>
+		<div id="companyEmail">
+			<label>Company Email: </label>
+			<input name="companyEmail" type="text">Company Email: </input>
+		</div>
+		<div id="companyLanguage">
+			<label>Company Language: </label>
+			<select name="companyLanguage">
+				<option>English</option>
+			</select>
 		</div>
 		<div id="companyDesc">
 			<label>Company Description:</label>
