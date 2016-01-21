@@ -6,7 +6,7 @@
 			parent::__construct();
 		}
 
-	public function add_user() {
+	public function add_company() {
 		$data = array(
 			'company_name'=>$this->input->post('companyName'),
 			'company_contact'=>$this->input->post('companyContact'),
@@ -18,7 +18,8 @@
 			'company_address'=>$this->input->post('companyAddress'),
 			'company_phone'=>$this->input->post('companyPhone'),
 			'company_email'=>$this->input->post('companyEmail'),
-			'company_language'=>$this->input->post('companyLanguage')
+			'company_language'=>$this->input->post('companyLanguage'),
+			'company_desc'=>$this->input->post('companyDesc')
 		);
 		$this->db->insert('tbl_company', $data);
 	}

@@ -13,7 +13,7 @@ class Registration extends CI_Controller {
      $data['company_name'] = $session_data['company_name'];
      $data['user_privileges'] = $session_data['user_privileges'];
      $data['facility_id'] = $session_data['facility_id'];
-     if($data['user_privileges'] == 2){
+     if($data['user_privileges'] == 1){
        $this->load->helper(array('form'));
        $this->load->view('head', $data);
        $this->load->view('header');

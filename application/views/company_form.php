@@ -1,6 +1,8 @@
 <h2 id="companyTitle">Company Profile</h2>
-
-<div id="companyForm">
+<?php
+   $attributes = array('id' => 'companyForm');
+   echo validation_errors(); ?>
+   <?php echo form_open('verifyregistration/company', $attributes); ?>
 	<div id="innerCompanyForm">
 		<div id="companyName">
 			<label>Company Name: </label>
@@ -304,15 +306,15 @@
 		</div>
 		<div id="companyAddress">
 			<label>Company Address: </label>
-			<input name="companyAddress" type="text">Company Address: </input>
+			<input name="companyAddress" type="text"></input>
 		</div>
 		<div id="companyPhone">
 			<label>Company Phone: </label>
-			<input name="companyPhone" type="text">Company Phone: </input>
+			<input name="companyPhone" type="text"></input>
 		</div>
 		<div id="companyEmail">
 			<label>Company Email: </label>
-			<input name="companyEmail" type="text">Company Email: </input>
+			<input name="companyEmail" type="text"></input>
 		</div>
 		<div id="companyLanguage">
 			<label>Company Language: </label>
@@ -322,8 +324,8 @@
 		</div>
 		<div id="companyDesc">
 			<label>Company Description:</label>
-			<textarea rows="4" cols="50" name="description">Company Description...</textarea>
+			<textarea rows="4" cols="50" name="companyDesc"></textarea>
 		</div>
 		<input id="companySend" type="submit" name="submit" value="Send"></input>
 	</div>
-</div>
+</form>

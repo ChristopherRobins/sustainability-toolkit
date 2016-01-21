@@ -8,7 +8,7 @@ class Home extends CI_Controller {
         parent::__construct();
         $this->load->helper('form');
         $this->load->model('form_model');
-				$this->load->model('criteria_model');
+		$this->load->model('criteria_model');
         $this->load->helper('url');
     }
 
