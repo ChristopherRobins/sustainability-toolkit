@@ -32,15 +32,15 @@ class Home extends CI_Controller {
 			$this->load->view('close');
 		} else {
 			//If no session, redirect to login page
-     redirect('login', 'refresh');
+     		redirect('login', 'refresh');
 		}
 	}
 
 	function logout(){
-   $this->session->unset_userdata('logged_in');
-   session_destroy();
-   redirect('home', 'refresh');
- }
+	   $this->session->unset_userdata('logged_in');
+	   session_destroy();
+	   redirect('home', 'refresh');
+	 }
 
 	// Grabs information to populate the form with
 	public function input() {

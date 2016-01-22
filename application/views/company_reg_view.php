@@ -1,9 +1,10 @@
 <h2 id="companyTitle">Company Profile</h2>
 <?php
    $attributes = array('id' => 'companyForm');
-   echo validation_errors(); ?>
-   <?php echo form_open('verifyregistration/company', $attributes); ?>
+   echo form_open('verifyregistration/company', $attributes);
+    ?>
 	<div id="innerCompanyForm">
+		<?php echo validation_errors('<p class="errors">'); ?>
 		<div id="companyName">
 			<label>Company Name: </label>
 			<input name="companyName" type="text">            
@@ -23,20 +24,22 @@
 		</div>
 		<div id="companyFacilities">
 			<label>Multiple Facilities?</label>
-			<input type="radio" name="companyFacilities" value="0" checked> No<br>
-			<input type="radio" name="companyFacilities" value="1" checked> Yes
-			<label>How many?</label>
-			<input type="number" name="facilitiesCount" min="1">  
+			<input type="radio" name="facilityRadio" value="0" checked> No
+			<input type="radio" name="facilityRadio" value="1"> Yes
+			<div id="facilitiesCount" class="hidden">
+				<label>How many?</label>
+				<input type="number" name="facilitiesCount" min="1" value="1">
+			</div>  
 		</div>
 		<div id="sector">
 			<label>Sector: </label>
 			<select name="sector">
-			    <option value="auto">Auto</option>
-			    <option value="education">Education</option>
-			    <option value="telecommunications">Telecommunications</option>
-			    <option value="financial">Financial</option>
-			    <option value="retail">Retail</option>
-			    <option value="healthcare">Health Care</option>
+			    <option>Auto</option>
+			    <option>Education</option>
+			    <option>Telecommunications</option>
+			    <option>Financial</option>
+			    <option>Retail</option>
+			    <option>Health Care</option>
 			</select>            
 		</div>
 		<div id="revenue">
@@ -329,3 +332,5 @@
 		<input id="companySend" type="submit" name="submit" value="Send"></input>
 	</div>
 </form>
+
+<script src="<?php echo base_url();?>js/registration_form.js"></script>

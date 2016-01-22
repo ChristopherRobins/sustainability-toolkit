@@ -1,7 +1,8 @@
 <?php
    $attributes = array('id' => 'login', 'class' => 'small-10 small-offset-1 medium-8 medium-offset-2 columns');
-   echo validation_errors(); ?>
-   <?php echo form_open('verifyregistration/user', $attributes); ?>
+   echo form_open('verifyregistration/user', $attributes);
+   echo validation_errors('<p class="errors">');
+    ?>
     <div class="small-12 medium-6 columns">
       <label for="username">Username:</label>
       <input type="text" size="20" id="username" name="username"/>
@@ -29,9 +30,11 @@
     <div class="small-12 medium-6 columns">
      <label for="privileges">Privileges:</label>
      <select name="privileges">
-       <option value="2">Administrator</option>
-       <option value="3">Data Entry</option>
-       <option value="4">Read Only</option>
+       <option value="1">Tavares</option>
+       <option value="2">Organization Admin</option>
+       <option value="3">Facility Admin</option>
+       <option value="4">Data Entry</option>
+       <option value="5">Read Only</option>
      </select>
     </div>
     <div class="small-12 medium-6 columns">

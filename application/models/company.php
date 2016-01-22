@@ -10,7 +10,7 @@
 		$data = array(
 			'company_name'=>$this->input->post('companyName'),
 			'company_contact'=>$this->input->post('companyContact'),
-			'company_facilities'=>$this->input->post('companyFacilities'),
+			'company_facilities'=>$this->input->post('facilitiesCount'),
 			'company_size'=>$this->input->post('companySize'),
 			'company_sector'=>$this->input->post('sector'),
 			'company_revenues'=>$this->input->post('revenue'),

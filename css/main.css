@@ -15,6 +15,10 @@ img {
 	-ms-interpolation-mode: bicubic;
 }
 
+.hidden {
+	display: none;
+}
+
 .errors {
 	color: red;
 }
@@ -1050,6 +1054,23 @@ nav ul li a:hover {
 .prev {
 	margin-right: 40px;
 	cursor: pointer;
+}
+
+#companyFacilities input[type=radio] {
+	display: inline;
+}
+
+#facilitiesCount {
+	float: right;
+}
+
+#facilitiesCount input[type=number] {
+	float: right;
+	width: 60px;
+}
+
+#facilitiesCount label {
+	float: left;
 }
 
 #metricFlowers {
