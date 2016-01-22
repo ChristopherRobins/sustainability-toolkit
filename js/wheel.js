@@ -1,6 +1,6 @@
 var stem, stick, leave, botLeaf, bud, white, active, title;
 
-var base_url = 'http://localhost/tavares/sustainability-toolkit/';
+var base_url = 'http://localhost/sustainability-toolkit/';
 
 var criteria = new Array(["Environment","environment",0,"criteria1","colour1"],["Community","community",100,"criteria2","colour2"],["Operating Practices","operatingPractices",50,"criteria3","colour3"],["Products & Services","productsServices",10,"criteria4","colour4"]);
 var metrics = new Array(["0","community","colour1"],["20","environment","colour2"],["50","community","colour1"],["18","operatingPractices","colour3"],["100","productsServices","colour4"],["75","operatingPractices","colour3"],["80","operatingPractices","colour3"],["35","productsServices","colour4"],["25","environment","colour2"],["10","environment","colour2"],["46","community","colour1"],["64","productsServices","colour4"]);
@@ -623,7 +623,7 @@ function init() {
 	}, false);
 
 	step9desc.addEventListener("mouseover", function() {
-		textfield.innerHTML = "Audit and Self-Correct";
+		textfield.innerHTML = "Audit Procedures and Self-Correct";
 		TweenMax.to(textfield, 0.5, { css:{opacity: 1}});
 	}, false);
 

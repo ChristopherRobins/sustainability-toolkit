@@ -7,6 +7,13 @@
       <li><a href="#">Action Plan &amp; Assessment</a></li>
       <li><a href="#">About</a></li>
       <li><a href="#">Resources</a></li>
+      <?php if(isset($user_privileges) && $user_privileges == 2) {
+            echo "<li><a href=";
+            echo base_url('index.php/registration');
+            echo ">Register User</a></li>";
+          }
+          ?>
+          <li><a href="<?php echo base_url('index.php/home/logout')?>">Logout</a></li>
     </ul>
   </nav>
   <div class="row">

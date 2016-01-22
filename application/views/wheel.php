@@ -65,7 +65,7 @@
     <img class="colpieces" id="colpiece13" src="<?php echo base_url();?>images/pieces/col-piece13.png" alt="Step 13">
   </div>
 
-  <img id="bud" src="<?php echo base_url();?>images/outer-w-white.png" alt="bud">
+  <img id="bud" src="<?php echo base_url();?>images/outer-w-white-v2.png" alt="bud">
 </div>
 <div class="overlay1">
 </div>
