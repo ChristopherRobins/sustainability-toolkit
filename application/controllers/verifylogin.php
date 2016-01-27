@@ -41,6 +41,7 @@ class VerifyLogin extends CI_Controller {
          'user_username' => $row->user_username,
          'user_privileges' => $row->user_privileges,
          'company_name' => $row->company_name,
+         'company_name' => $row->company_id,
          'facility_name' => $row->facility_name,
          'facility_id' => $row->facility_id
        );

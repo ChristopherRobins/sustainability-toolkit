@@ -6,6 +6,13 @@
 			parent::__construct();
 		}
 
+	public function getCompanies() {
+		$query = $this->db->get('tbl_company');
+		foreach($query->result() as $row){
+			echo $row->company_name;
+		}
+	}
+
 	public function add_company() {
 		$data = array(
 			'company_name'=>$this->input->post('companyName'),

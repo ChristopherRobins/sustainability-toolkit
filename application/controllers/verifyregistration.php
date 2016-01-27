@@ -51,7 +51,7 @@ class VerifyRegistration extends CI_Controller {
     $this->form_validation->set_rules('companyEmail', 'Company Email', 'trim|required|valid_email|is_unique[tbl_company.company_email]');
 
     if($this->form_validation->run() == FALSE) {
-      $this->index('company_form');
+      $this->index('company_reg_view');
     }else{
       $this->company->add_company();
       redirect('home', 'refresh');

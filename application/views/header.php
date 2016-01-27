@@ -16,7 +16,7 @@
           }
           if(isset($user_privileges) && $user_privileges <= 2) {
             echo "<li><a href=";
-            echo base_url('index.php/facility');
+            echo base_url('index.php/registration/facility');
             echo ">Register Facility</a></li>";
           }
           if(isset($user_privileges) && $user_privileges <= 3) {
