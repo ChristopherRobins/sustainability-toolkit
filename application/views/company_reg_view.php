@@ -1,8 +1,9 @@
-<h2 id="companyTitle">Company Profile</h2>
+
 <?php
    $attributes = array('id' => 'companyForm');
    echo form_open('verifyregistration/company', $attributes);
     ?>
+    <h2 id="companyTitle">Company Profile</h2>
 	<div id="innerCompanyForm">
 		<?php echo validation_errors('<p class="errors">'); ?>
 		<div id="companyName">

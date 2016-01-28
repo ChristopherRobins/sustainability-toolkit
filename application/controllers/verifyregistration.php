@@ -6,6 +6,7 @@ class VerifyRegistration extends CI_Controller {
     parent::__construct();
     $this->load->model('user','',TRUE);
     $this->load->model('company','',TRUE);
+    $this->load->model('facility','',TRUE);
   }
 
   function index($url) {
@@ -16,10 +17,11 @@ class VerifyRegistration extends CI_Controller {
      $data['user_privileges'] = $session_data['user_privileges'];
      $data['facility_id'] = $session_data['facility_id'];
      if($data['user_privileges'] == 1){
+       $data['companies'] = $this->company->getCompanies();
        $this->load->helper(array('form'));
        $this->load->view('head', $data);
        $this->load->view('header');
-       $this->load->view($url);
+       $this->load->view($url, $data);
        $this->load->view('close');
      }else{
        redirect('home', 'refresh');
@@ -55,6 +57,25 @@ class VerifyRegistration extends CI_Controller {
     }else{
       $this->company->add_company();
       redirect('home', 'refresh');
+    }
+  }
+
+  public function facility() {
+
+    $this->load->library('form_validation');
+    $this->form_validation->set_rules('facilityName', 'Facility Company', 'required');
+    $this->form_validation->set_rules('facilityCompany', 'Facility Company', 'required|integer');
+    $this->form_validation->set_rules('facilityAddress', 'Facility Address', 'required');
+    $this->form_validation->set_rules('facilityPhone', 'Facility Phone', 'required');
+    $this->form_validation->set_rules('facilityCity', 'Facility City', 'required');
+    $this->form_validation->set_rules('facilityProvince', 'Facility Province', 'required');
+    $this->form_validation->set_rules('facilityPostal', 'Facility Postal code', 'required');
+
+    if($this->form_validation->run() == FALSE) {
+      $this->index('facility_reg_view');
+    }else{
+      $this->facility->add_facility();
+      $this->index('form_success');
     }
   }
 }

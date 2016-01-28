@@ -58,11 +58,11 @@ class Registration extends CI_Controller {
      $data['user_privileges'] = $session_data['user_privileges'];
      $data['facility_id'] = $session_data['facility_id'];
      if($data['user_privileges'] == 1){
-       $companies = $this->company->getCompanies();
+       $data['companies'] = $this->company->getCompanies();
        $this->load->helper(array('form'));
        $this->load->view('head', $data);
        $this->load->view('header');
-       $this->load->view('facility_reg_view', $companies);
+       $this->load->view('facility_reg_view', $data);
        $this->load->view('close');
      }else{
        redirect('home', 'refresh');

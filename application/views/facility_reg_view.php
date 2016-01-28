@@ -1,18 +1,23 @@
-<h2 id="facilityTitle">Facility Profile</h2>
 <?php
-echo $company_name;
    $attributes = array('id' => 'companyForm');
    echo form_open('verifyregistration/facility', $attributes);
     ?>
+    <h2 id="facilityTitle">Facility Profile</h2>
 	<div id="innerCompanyForm">
 		<?php echo validation_errors('<p class="errors">'); ?>
 		<div id="facilityCompany">
 			<label>Facility Company: </label>
-			<input name="facilityCompany" type="text">            
+			<select name="facilityCompany">
+				<option value=''>Select a company</option>
+				<?php foreach($companies as $company){
+					echo '<option value="'.$company->company_id.'">'.$company->company_name.'</option>';
+				}
+				?>
+			</select>           
 		</div>
 		<div id="facilityName">
 			<label>Facility Name: </label>
-			<input name="facilityName" type="text">            
+			<input name="facilityName" type="text">
 		</div>
 		<div id="facilityContact">
 			<label>Facility Contact: </label>
@@ -273,8 +278,38 @@ echo $company_name;
 			</select>           
 		</div>
 		<div id="facilityAddress">
-			<label>Facility Address: </label>
+			<label>Street Address: </label>
 			<input name="facilityAddress" type="text"></input>
+		</div>
+		<div id="facilityAddress">
+			<label>Street Address 2: </label>
+			<input name="facilityAddress2" type="text"></input>
+		</div>
+		<div id="facilityCity">
+			<label>City: </label>
+			<input name="facilityCity" type="text"></input>
+		</div>
+		<div id="facilityProvince">
+			<label>Province: </label>
+			<select name="facilityProvince">
+				<option value="AB">Alberta</option>
+				<option value="BC">British Columbia</option>
+				<option value="MB">Manitoba</option>
+				<option value="NB">New Brunswick</option>
+				<option value="NL">Newfoundland and Labrador</option>
+				<option value="NS">Nova Scotia</option>
+				<option value="ON">Ontario</option>
+				<option value="PE">Prince Edward Island</option>
+				<option value="QC">Quebec</option>
+				<option value="SK">Saskatchewan</option>
+				<option value="NT">Northwest Territories</option>
+				<option value="NU">Nunavut</option>
+				<option value="YT">Yukon</option>
+			</select>
+		</div>
+		<div id="facilityPostal">
+			<label>Postal Code: </label>
+			<input name="facilityPostal" type="text"></input>
 		</div>
 		<div id="facilityPhone">
 			<label>Facility Phone: </label>

@@ -7,10 +7,7 @@
 		}
 
 	public function getCompanies() {
-		$query = $this->db->get('tbl_company');
-		foreach($query->result() as $row){
-			echo $row->company_name;
-		}
+		return $this->db->get('tbl_company')->result();
 	}
 
 	public function add_company() {

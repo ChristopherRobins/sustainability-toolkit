@@ -1604,6 +1604,23 @@ nav ul li a:hover {
 	border-radius: 20px;
 }
 
+#successBox {
+	width: 200px;
+	margin: 0 auto;
+	overflow: hidden;
+	background: -moz-linear-gradient(left,  rgba(255,255,255,0.9) 0%, rgba(206,206,208,0.9) 100%);
+	background: -webkit-gradient(linear, left top, right top, color-stop(0%,rgba(255,255,255,0.9)), color-stop(100%,rgba(206,206,208,0.9)));
+	background: -webkit-linear-gradient(left,  rgba(255,255,255,0.9) 0%,rgba(206,206,208,0.9) 100%);
+	background: -o-linear-gradient(left,  rgba(255,255,255,0.9) 0%,rgba(206,206,208,0.9) 100%)
+	background: -ms-linear-gradient(left,  rgba(255,255,255,0.9) 0%,rgba(206,206,208,0.9) 100%);
+	background: linear-gradient(to right,  rgba(255,255,255,0.9) 0%,rgba(206,206,208,0.9) 100%);
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#80ffffff', endColorstr='#80ceced0',GradientType=1 );
+	border: 2px solid #67686a;
+	-webkit-border-radius: 20px;
+	-moz-border-radius: 20px;
+	border-radius: 20px;
+}
+
 #innerCompanyForm
 {
 	height: 80%;
