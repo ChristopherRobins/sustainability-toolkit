@@ -63,7 +63,6 @@ class VerifyRegistration extends CI_Controller {
   public function facility() {
 
     $this->load->library('form_validation');
-    $this->form_validation->set_rules('facilityName', 'Facility Company', 'required');
     $this->form_validation->set_rules('facilityCompany', 'Facility Company', 'required|integer');
     $this->form_validation->set_rules('facilityAddress', 'Facility Address', 'required');
     $this->form_validation->set_rules('facilityPhone', 'Facility Phone', 'required');

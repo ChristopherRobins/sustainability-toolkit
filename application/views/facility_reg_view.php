@@ -8,16 +8,18 @@
 		<div id="facilityCompany">
 			<label>Facility Company: </label>
 			<select name="facilityCompany">
-				<option value=''>Select a company</option>
+				<?php if($user_privileges == 1): ?>
+					<option value=''>Select a company</option>;
+				<?php endif; ?>
 				<?php foreach($companies as $company){
 					echo '<option value="'.$company->company_id.'">'.$company->company_name.'</option>';
 				}
 				?>
 			</select>           
 		</div>
-		<div id="facilityName">
-			<label>Facility Name: </label>
-			<input name="facilityName" type="text">
+		<div class="hidden" id="facilityCompanyName">
+			<label>Company Name: </label>
+			<input name="facilityCompanyName" type="text">          
 		</div>
 		<div id="facilityContact">
 			<label>Facility Contact: </label>
@@ -322,3 +324,5 @@
 		<input id="facilitySend" type="submit" name="submit" value="Send"></input>
 	</div>
 </form>
+
+<script src="<?php echo base_url();?>js/registration_form.js"></script>

@@ -6,6 +6,12 @@
 			parent::__construct();
 		}
 
+	public function getCompany($id) {
+		//echo $id;
+		return $this->db->get_where('tbl_company', array('company_id' => $id))->result();
+		//print_r($result);
+	}
+
 	public function getCompanies() {
 		return $this->db->get('tbl_company')->result();
 	}

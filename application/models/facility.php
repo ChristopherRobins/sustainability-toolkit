@@ -6,13 +6,19 @@
 			parent::__construct();
 		}
 
+	public function getCompanyFacilities($id) {
+		//echo $id;
+		return $this->db->get_where('tbl_facility', array('company_id' => $id))->result();
+		//print_r($result);
+	}
+
 	public function getFacilities() {
 		return $this->db->get('tbl_facility')->result();
 	}
 
 	public function add_facility() {
 		$data = array(
-			'facility_name'=>$this->input->post('facilityName'),
+			'facility_name'=>$this->input->post('facilityCompanyName'),
 			'facility_contact'=>$this->input->post('facilityContact'),
 			'facility_country'=>$this->input->post('facilityCountry'),
 			'facility_address'=>$this->input->post('facilityAddress'),
