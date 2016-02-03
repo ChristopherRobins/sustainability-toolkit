@@ -16,12 +16,16 @@ class Registration extends CI_Controller {
      $data['company_name'] = $session_data['company_name'];
      $data['user_privileges'] = $session_data['user_privileges'];
      $data['facility_id'] = $session_data['facility_id'];
-     if($data['user_privileges'] <= 2){
+     $data['facility_name'] = $session_data['facility_id'];
+     if($data['user_privileges'] <= 3){
        if($data['user_privileges'] == 1){
         $data['companies'] = $this->company->getCompanies();
-       }else{
+       }else if($data['user_privileges'] == 2){
         $data['companies'] = $this->company->getCompany($data['company_id']);
         $data['facilities'] = $this->facility->getCompanyFacilities($data['company_id']);
+       } else {
+        $data['companies'] = $this->company->getCompany($data['company_id']);
+        $data['facilities'] = $this->facility->getFacility($data['facility_id']);
        }
        $this->load->helper(array('form'));
        $this->load->view('head', $data);

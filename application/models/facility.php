@@ -6,6 +6,10 @@
 			parent::__construct();
 		}
 
+	public function getFacility($id){
+		return $this->db->get_where('tbl_facility', array('facility_id' => $id))->result();
+	}
+
 	public function getCompanyFacilities($id) {
 		//echo $id;
 		return $this->db->get_where('tbl_facility', array('company_id' => $id))->result();

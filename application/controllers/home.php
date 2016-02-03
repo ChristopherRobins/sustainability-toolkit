@@ -9,6 +9,7 @@ class Home extends CI_Controller {
         $this->load->helper('form');
         $this->load->model('form_model');
 		$this->load->model('criteria_model');
+		$this->load->model('facility','',TRUE);
         $this->load->helper('url');
     }
 
@@ -81,6 +82,12 @@ class Home extends CI_Controller {
 	public function criteriaMetrics(){
 		$name = $this->input->post('theName');
 		$query = $this->criteria_model->getMetrics($name);
+		echo json_encode($query);
+	}
+
+	public function getFacilities(){
+		$id = $this->input->post('companyId');
+		$query = $this->facility->getCompanyFacilities($id);
 		echo json_encode($query);
 	}
 }

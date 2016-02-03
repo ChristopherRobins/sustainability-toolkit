@@ -1,4 +1,4 @@
-
+<?php if($user_privileges == 1): ?>
 <?php
    $attributes = array('id' => 'companyForm');
    echo form_open('verifyregistration/company', $attributes);
@@ -335,3 +335,6 @@
 </form>
 
 <script src="<?php echo base_url();?>js/registration_form.js"></script>
+<?php else: ?>
+	<h2 id="companyTitle">Access Denied</h2>
+<?php endif; ?>

@@ -1,3 +1,4 @@
+<?php if($user_privileges <= 2): ?>
 <?php
    $attributes = array('id' => 'companyForm');
    echo form_open('verifyregistration/facility', $attributes);
@@ -19,7 +20,7 @@
 		</div>
 		<div class="hidden" id="facilityCompanyName">
 			<label>Company Name: </label>
-			<input name="facilityCompanyName" type="text">          
+			<input name="facilityCompanyName" type="hidden">          
 		</div>
 		<div id="facilityContact">
 			<label>Facility Contact: </label>
@@ -326,3 +327,6 @@
 </form>
 
 <script src="<?php echo base_url();?>js/registration_form.js"></script>
+<?php else: ?>
+	<h2 id="companyTitle">Access Denied</h2>
+<?php endif; ?>
