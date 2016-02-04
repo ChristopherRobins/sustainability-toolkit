@@ -1581,7 +1581,7 @@ function swapHeaderBG(e){
 
 // Applies the selected class to desired metric in order to properly update/pull from database
 function swapMetrics(e){
-	//console.log(e.target.innerHTML);
+	console.log(e.target);
 	for(i=0; i<theMetrics.length; i++){
 		theMetrics[i].classList.remove("selected");
 	}
@@ -1590,6 +1590,28 @@ function swapMetrics(e){
 		e.target.classList.add("selected");
 	}
 
+	/*stepLevel
+	metricLevel*/
+	var metricData = {
+		metricLevel: $('.selected').parent().attr("class"),
+		stepLevel: 14
+	};
+	console.log(metricData);
+
+	$.ajax({
+		type: "POST",
+		url: base_url + "index.php/home/getProgress",
+		data: metricData,
+		success: function(data) {
+			console.log(data);
+			console.log("metricData works " + metricData);
+			var progress = (data/13) * 100;
+			console.log(progress);
+		},
+		error: function(){
+		alert("failed");
+		}
+	});
 	switchFormContent(s);
 }
 

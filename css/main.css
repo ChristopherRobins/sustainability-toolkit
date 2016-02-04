@@ -15,6 +15,10 @@ img {
 	-ms-interpolation-mode: bicubic;
 }
 
+.errors {
+	color: red;
+}
+
 #holder {
 	max-width: 1440px;
 	width: 100%;

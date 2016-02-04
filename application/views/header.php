@@ -9,7 +9,17 @@
           <li><a href="#">Action Plan &amp; Assessment</a></li>
           <li><a href="#">About</a></li>
           <li><a href="#">Resources</a></li>
-          <?php if(isset($user_privileges) && $user_privileges == 2) {
+          <?php if(isset($user_privileges) && $user_privileges == 1) {
+            echo "<li><a href=";
+            echo base_url('index.php/company');
+            echo ">Register Company</a></li>";
+          }
+          if(isset($user_privileges) && $user_privileges <= 2) {
+            echo "<li><a href=";
+            echo base_url('index.php/facility');
+            echo ">Register Facility</a></li>";
+          }
+          if(isset($user_privileges) && $user_privileges <= 3) {
             echo "<li><a href=";
             echo base_url('index.php/registration');
             echo ">Register User</a></li>";

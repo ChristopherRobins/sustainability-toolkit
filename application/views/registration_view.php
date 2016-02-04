@@ -1,7 +1,7 @@
 <?php
    $attributes = array('id' => 'login', 'class' => 'small-10 small-offset-1 medium-8 medium-offset-2 columns');
    echo validation_errors(); ?>
-   <?php echo form_open('verifyregistration', $attributes); ?>
+   <?php echo form_open('verifyregistration/user', $attributes); ?>
     <div class="small-12 medium-6 columns">
       <label for="username">Username:</label>
       <input type="text" size="20" id="username" name="username"/>

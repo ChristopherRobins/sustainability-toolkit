@@ -60,4 +60,12 @@
 		   }*/
 		}
 
+		public function levelProgress($step, $metric){
+			$this->db->where('metric_id',$metric);
+			$this->db->where('step_id <',$step);
+			$count = $this->db->count_all_results('tbl_form_input');
+
+			return $count;
+		}
+
 	}

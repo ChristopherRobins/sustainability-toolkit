@@ -8,7 +8,7 @@ class Home extends CI_Controller {
         parent::__construct();
         $this->load->helper('form');
         $this->load->model('form_model');
-				$this->load->model('criteria_model');
+		$this->load->model('criteria_model');
         $this->load->helper('url');
     }
 
@@ -23,12 +23,13 @@ class Home extends CI_Controller {
 			$data['facility_id'] = $session_data['facility_id'];
 			//print_r($session_data);
 			$data['input'] = $this->form_model->getInput($id, 1, 1);
+			$data['progress'] = $this->form_model->levelProgress(1,14);
 			$this->load->view('head', $data);
 			$this->load->view('header');
 			$this->load->view('flowers');
 			$this->load->view('wheel');
 			$this->load->view('form_view', $data);
-			$this->load->view('metrics_view');
+			$this->load->view('metrics_view', $data);
 			$this->load->view('close');
 		} else {
 			//If no session, redirect to login page
@@ -81,6 +82,14 @@ class Home extends CI_Controller {
 	public function criteriaMetrics(){
 		$name = $this->input->post('theName');
 		$query = $this->criteria_model->getMetrics($name);
+		echo json_encode($query);
+	}
+
+	public function getProgress(){
+		$step = $this->input->post('stepLevel');
+		$metric = $this->input->post('metricLevel');
+
+		$query = $this->form_model->levelProgress($step, $metric);
 		echo json_encode($query);
 	}
 }
