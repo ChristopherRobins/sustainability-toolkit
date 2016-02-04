@@ -1606,7 +1606,9 @@ function swapMetrics(e){
 			console.log(data);
 			console.log("metricData works " + metricData);
 			var progress = (data/13) * 100;
-			console.log(progress);
+			console.log("progress %: "+progress);
+			var progressBar = document.querySelector("#levelview");
+			progressBar.style.width = progress + "%";
 		},
 		error: function(){
 		alert("failed");

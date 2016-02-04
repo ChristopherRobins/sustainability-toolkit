@@ -91,6 +91,7 @@ class Home extends CI_Controller {
 		$metric = $this->input->post('metricLevel');
 
 		$query = $this->form_model->levelProgress($step, $metric);
+		echo json_encode($query);
 	}
 
 	public function getFacilities(){
