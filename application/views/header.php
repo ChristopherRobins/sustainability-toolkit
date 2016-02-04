@@ -1,7 +1,5 @@
 <body>
-  <div id="headerWrap" class="large-12 columns">
-    <header id="mainHeader" class="row">
-      <nav id="topNav">
+  <nav id="topNav">
         <ul>
           <li class="companies"><a href="http://tavaresgroupconsulting.com" target="_blank"><img src="<?php echo base_url();?>images/tavares-new.png" alt="Tavares Logo"></a></li>
           <li><a href="<?php echo base_url('index.php/home/index')?>">Tool Kit</a></li>
@@ -28,6 +26,8 @@
           <li><a href="<?php echo base_url('index.php/home/logout')?>">Logout</a></li>
         </ul>
       </nav>
+  <div id="headerWrap" class="large-12 columns">
+    <header id="mainHeader" class="row">
       <div id="title" class="small-12 columns">
         <img id="decor" src="<?php echo base_url();?>images/buildings.png" alt="buildings decor">
         <h1>Sustainability Toolkit</h1>
@@ -35,12 +35,5 @@
         <img id="decor" src="<?php echo base_url();?>images/buildings.png" alt="buildings decor">
       </div>
     </header>
-    <!--<nav id="secondary" class="row">
-        <ul class="small-6 columns">
-            <li><a href="#">Company Profile</a></li>
-            <li><a href="#">AAA Standing</a></li>
-            <li><a href="#">Set Up Metric</a></li>
-          </ul>
-        </nav>-->
   </div>
   <div id="holder">

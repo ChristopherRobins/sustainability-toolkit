@@ -19,6 +19,7 @@ class Home extends CI_Controller {
 			$session_data = $this->session->userdata('logged_in');
 			//$user_data['user_id'] = $session_data['user_id'];
 			$id = $session_data['user_id'];
+			$data['company_id'] = $session_data['company_id'];
 			$data['company_name'] = $session_data['company_name'];
 			$data['user_privileges'] = $session_data['user_privileges'];
 			$data['facility_id'] = $session_data['facility_id'];
@@ -81,8 +82,10 @@ class Home extends CI_Controller {
 	}
 
 	public function criteriaMetrics(){
+		$session_data = $this->session->userdata('logged_in');
+		$companyId = $session_data['company_id'];
 		$name = $this->input->post('theName');
-		$query = $this->criteria_model->getMetrics($name);
+		$query = $this->criteria_model->getMetrics($name, $companyId);
 		echo json_encode($query);
 	}
 
