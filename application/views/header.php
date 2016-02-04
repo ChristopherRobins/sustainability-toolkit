@@ -4,24 +4,24 @@
       <nav id="topNav">
         <ul>
           <li class="companies"><a href="http://tavaresgroupconsulting.com" target="_blank"><img src="<?php echo base_url();?>images/tavares-new.png" alt="Tavares Logo"></a></li>
-          <li><a href="#">Tool Kit</a></li>
+          <li><a href="<?php echo base_url('index.php/home/index')?>">Tool Kit</a></li>
           <li><a href="#">Principles &amp; Criteria</a></li>
           <li><a href="#">Action Plan &amp; Assessment</a></li>
           <li><a href="#">About</a></li>
           <li><a href="#">Resources</a></li>
           <?php if(isset($user_privileges) && $user_privileges == 1) {
             echo "<li><a href=";
-            echo base_url('index.php/company');
+            echo base_url('index.php/registration/company');
             echo ">Register Company</a></li>";
           }
           if(isset($user_privileges) && $user_privileges <= 2) {
             echo "<li><a href=";
-            echo base_url('index.php/facility');
+            echo base_url('index.php/registration/facility');
             echo ">Register Facility</a></li>";
           }
           if(isset($user_privileges) && $user_privileges <= 3) {
             echo "<li><a href=";
-            echo base_url('index.php/registration');
+            echo base_url('index.php/registration/user');
             echo ">Register User</a></li>";
           }
           ?>

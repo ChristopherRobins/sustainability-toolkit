@@ -1,58 +1,34 @@
-<h2 id="companyTitle">Company Profile</h2>
+<?php if($user_privileges <= 2): ?>
 <?php
    $attributes = array('id' => 'companyForm');
-   echo validation_errors(); ?>
-   <?php echo form_open('verifyregistration/company', $attributes); ?>
+   echo form_open('verifyregistration/facility', $attributes);
+    ?>
+    <h2 id="facilityTitle">Facility Profile</h2>
 	<div id="innerCompanyForm">
-		<div id="companyName">
+		<?php echo validation_errors('<p class="errors">'); ?>
+		<div id="facilityCompany">
+			<label>Facility Company: </label>
+			<select name="facilityCompany">
+				<?php if($user_privileges == 1): ?>
+					<option value=''>Select a company</option>;
+				<?php endif; ?>
+				<?php foreach($companies as $company){
+					echo '<option value="'.$company->company_id.'">'.$company->company_name.'</option>';
+				}
+				?>
+			</select>           
+		</div>
+		<div class="hidden" id="facilityCompanyName">
 			<label>Company Name: </label>
-			<input name="companyName" type="text">            
+			<input name="facilityCompanyName" type="hidden">          
 		</div>
-		<div id="companyContact">
-			<label>Company Contact: </label>
-			<input name="companyContact" type="text">
-		</div>
-		<div id="companySize">
-			<label>Company Size: </label>
-			<select name="companySize">
-			    <option value="0-50">0 - 50 employees</option>
-			    <option value="51-100">51 - 100 employees</option>
-			    <option value="101-500">101 - 500 employees</option>
-			    <option value="500+">More than 500 employees</option>
-			</select>            
-		</div>
-		<div id="companyFacilities">
-			<label>Multiple Facilities?</label>
-			<input type="radio" name="companyFacilities" value="0" checked> No<br>
-			<input type="radio" name="companyFacilities" value="1" checked> Yes
-			<label>How many?</label>
-			<input type="number" name="facilitiesCount" min="1">  
-		</div>
-		<div id="sector">
-			<label>Sector: </label>
-			<select name="sector">
-			    <option value="auto">Auto</option>
-			    <option value="education">Education</option>
-			    <option value="telecommunications">Telecommunications</option>
-			    <option value="financial">Financial</option>
-			    <option value="retail">Retail</option>
-			    <option value="healthcare">Health Care</option>
-			</select>            
-		</div>
-		<div id="revenue">
-			<label>Market Cap/Revenue:</label>
-			<select name="revenue">
-			    <option>Under 1 million</option>
-			    <option>1-5 million</option>
-			    <option>5-10 million</option>
-			    <option>10-20 million</option>
-			    <option>20-50 million</option>
-			    <option>Over 50 million</option>
-			</select>            
+		<div id="facilityContact">
+			<label>Facility Contact: </label>
+			<input name="facilityContact" type="text">
 		</div>
 		<div id="country">
 			<label>Country: </label>
-			<select name="companyCountry">
+			<select name="facilityCountry">
 				<option value="AF">Afghanistan</option>
 				<option value="AX">Åland Islands</option>
 				<option value="AL">Albania</option>
@@ -304,28 +280,53 @@
 				<option value="ZW">Zimbabwe</option>
 			</select>           
 		</div>
-		<div id="companyAddress">
-			<label>Company Address: </label>
-			<input name="companyAddress" type="text"></input>
+		<div id="facilityAddress">
+			<label>Street Address: </label>
+			<input name="facilityAddress" type="text"></input>
 		</div>
-		<div id="companyPhone">
-			<label>Company Phone: </label>
-			<input name="companyPhone" type="text"></input>
+		<div id="facilityAddress">
+			<label>Street Address 2: </label>
+			<input name="facilityAddress2" type="text"></input>
 		</div>
-		<div id="companyEmail">
-			<label>Company Email: </label>
-			<input name="companyEmail" type="text"></input>
+		<div id="facilityCity">
+			<label>City: </label>
+			<input name="facilityCity" type="text"></input>
 		</div>
-		<div id="companyLanguage">
-			<label>Company Language: </label>
-			<select name="companyLanguage">
-				<option>English</option>
+		<div id="facilityProvince">
+			<label>Province: </label>
+			<select name="facilityProvince">
+				<option value="AB">Alberta</option>
+				<option value="BC">British Columbia</option>
+				<option value="MB">Manitoba</option>
+				<option value="NB">New Brunswick</option>
+				<option value="NL">Newfoundland and Labrador</option>
+				<option value="NS">Nova Scotia</option>
+				<option value="ON">Ontario</option>
+				<option value="PE">Prince Edward Island</option>
+				<option value="QC">Quebec</option>
+				<option value="SK">Saskatchewan</option>
+				<option value="NT">Northwest Territories</option>
+				<option value="NU">Nunavut</option>
+				<option value="YT">Yukon</option>
 			</select>
 		</div>
-		<div id="companyDesc">
-			<label>Company Description:</label>
-			<textarea rows="4" cols="50" name="companyDesc"></textarea>
+		<div id="facilityPostal">
+			<label>Postal Code: </label>
+			<input name="facilityPostal" type="text"></input>
 		</div>
-		<input id="companySend" type="submit" name="submit" value="Send"></input>
+		<div id="facilityPhone">
+			<label>Facility Phone: </label>
+			<input name="facilityPhone" type="text"></input>
+		</div>
+		<div id="facilityEmail">
+			<label>Facility Email: </label>
+			<input name="facilityEmail" type="text"></input>
+		</div>
+		<input id="facilitySend" type="submit" name="submit" value="Send"></input>
 	</div>
 </form>
+
+<script src="<?php echo base_url();?>js/registration_form.js"></script>
+<?php else: ?>
+	<h2 id="companyTitle">Access Denied</h2>
+<?php endif; ?>

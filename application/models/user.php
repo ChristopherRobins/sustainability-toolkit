@@ -31,11 +31,13 @@
 				'user_firstname'=>$this->input->post('fname'),
 				'user_lastname'=>$this->input->post('lname'),
 				'user_position'=>$this->input->post('position'),
-				'user_department'=>$this->input->post('depertment'),
+				'user_department'=>$this->input->post('department'),
+				'user_phone'=>$this->input->post('phone'),
 				'user_email'=>$this->input->post('email'),
 				'user_privileges'=>$this->input->post('privileges'),
 				'user_password'=>$this->input->post('password'),
-				'facility_id'=>$this->input->post('facility')
+				'facility_id'=>$this->input->post('userFacility'),
+				'company_id'=>$this->input->post('userCompany')
 			);
 			$this->db->insert('tbl_user', $data);
 		}

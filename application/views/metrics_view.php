@@ -1,23 +1,4 @@
-
-
 <div id="metricHolder">
-  <nav id="primary" class="row">
-    <ul class="small-12 columns">
-      <li class="companies"><a href="http://tavaresgroupconsulting.com" target="_blank"><img src="<?php echo base_url();?>images/tavares-new.png" alt="Tavares Logo"></a></li>
-      <li><a href="#">Tool Kit</a></li>
-      <li><a href="#">Principles &amp; Criteria</a></li>
-      <li><a href="#">Action Plan &amp; Assessment</a></li>
-      <li><a href="#">About</a></li>
-      <li><a href="#">Resources</a></li>
-      <?php if(isset($user_privileges) && $user_privileges == 2) {
-            echo "<li><a href=";
-            echo base_url('index.php/registration');
-            echo ">Register User</a></li>";
-          }
-          ?>
-          <li><a href="<?php echo base_url('index.php/home/logout')?>">Logout</a></li>
-    </ul>
-  </nav>
   <div class="row">
     <div id="metricHeader" class="large-12 columns">
       <div id="text" class="large-12 columns">
@@ -42,3 +23,16 @@
   <ul id="metrics">
   </ul>
 </div>
+<div id="background">
+      <img id="grass" src="<?php echo base_url();?>images/GrassSeparate.png" alt="Background">
+      <img id="frontHill" src="<?php echo base_url();?>images/FrontHill.png" alt="Background">
+      <ul id="metricFlowers">
+      </ul>
+    </div>
+    <div id="exitWheel">
+      <p>Return</p>
+      <img src="<?php echo base_url();?>images/flower-link.png" alt="exit wheel">
+    </div>
+  </div>
+
+<script src="<?php echo base_url();?>js/wheel.js"></script>

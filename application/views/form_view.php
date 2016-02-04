@@ -39,7 +39,7 @@
             <!--<label>Principle Name</label>
             <input type="text" placeholder="principle name">-->
             <label>Principle Description</label>
-            <?php echo form_textarea('inputDesc', $input->metricstep_description); ?>
+            <textarea name="inputDesc"><?php echo $input->metricstep_description; ?></textarea>
             <!--<textarea name="inputDesc"><?php $inputmetricstep_description; ?></textarea>-->
           </div>
         </div>

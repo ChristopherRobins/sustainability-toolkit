@@ -9,6 +9,7 @@ class Home extends CI_Controller {
         $this->load->helper('form');
         $this->load->model('form_model');
 		$this->load->model('criteria_model');
+		$this->load->model('facility','',TRUE);
         $this->load->helper('url');
     }
 
@@ -33,15 +34,15 @@ class Home extends CI_Controller {
 			$this->load->view('close');
 		} else {
 			//If no session, redirect to login page
-     redirect('login', 'refresh');
+     		redirect('login', 'refresh');
 		}
 	}
 
 	function logout(){
-   $this->session->unset_userdata('logged_in');
-   session_destroy();
-   redirect('home', 'refresh');
- }
+	   $this->session->unset_userdata('logged_in');
+	   session_destroy();
+	   redirect('home', 'refresh');
+	 }
 
 	// Grabs information to populate the form with
 	public function input() {
@@ -90,6 +91,11 @@ class Home extends CI_Controller {
 		$metric = $this->input->post('metricLevel');
 
 		$query = $this->form_model->levelProgress($step, $metric);
+	}
+
+	public function getFacilities(){
+		$id = $this->input->post('companyId');
+		$query = $this->facility->getCompanyFacilities($id);
 		echo json_encode($query);
 	}
 }
