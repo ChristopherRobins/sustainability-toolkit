@@ -455,7 +455,7 @@ nav ul li a:hover {
 	max-width: 100%;
 }*/
 
-#level {
+/*#level {
 	text-align: center;
 	font-size: 1em;
 	width: 100%;
@@ -464,9 +464,43 @@ nav ul li a:hover {
 	margin-left: 0;
 	position: absolute;
 	z-index: 2;
+}*/
+
+.levelA, .levelAA, .levelAAA {
+	text-align: center;
+	font-size: 1em;
+	width: 32%;
+	height: 30px;
+	border-radius: 8px;
+	margin-left: 0;
+	position: absolute;
+	float: left;
+	background: rgba(0,0,0,0.05);
+	color: white;
+	border: none;
+	border-radius: 8px;
+	border-left: 1px solid rgba(255,255,255,0.4);
+	border-right: 1px solid rgba(255,255,255,0.4);
 }
 
-#levelview {
+.levelAA{
+	left: 36%;
+}
+
+.levelAAA{
+	right:0;
+}
+
+.levelA > div {
+	background: #7ACCD0;
+	opacity: 0.4;
+	border-radius: 8px;
+    height: 30px;
+    width: 0%; 
+    position: absolute;
+}
+
+/*#levelview {
 	background: rgba(149,218,247,1);
 	width: 0%;
 	height: 30px;
@@ -475,9 +509,9 @@ nav ul li a:hover {
 	position: absolute;
 	top: 0;
 	z-index: 1;
-}
+}*/
 
-#level li {
+/*#level li {
 	list-style-type: none;
 	background: rgba(0,0,0,0.05);
 	color: rgba(255,255,255,0.4);
@@ -488,7 +522,7 @@ nav ul li a:hover {
 	float: left;
 	width: 33.333333333333%;
 	padding: 3px 0px;
-}
+}*/
 
 #midWheel {
 	position: absolute;

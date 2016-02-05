@@ -6,13 +6,16 @@
         <h3></h3>
         <div class="row">
           <div class="large-4 columns">
-            <ul id="level">
+            <!-- <ul id="level">
               <li>A</li>
               <li>AA</li>
               <li>AAA</li>
-            </ul>
-            <div id="levelview">
-            </div>
+            </ul> -->
+            <div class="levelA"><div></div>A</div>
+            <div class="levelAA"><div></div>AA</div>
+            <div class="levelAAA"><div></div>AAA</div>
+            <!-- <div id="levelview">
+            </div> -->
           </div>
         </div>
       </div>

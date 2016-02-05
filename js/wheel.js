@@ -1592,10 +1592,24 @@ function swapMetrics(e){
 
 	/*stepLevel
 	metricLevel*/
-	var metricData = {
+	var metricDataA = {
 		metricLevel: $('.selected').parent().attr("class"),
 		stepLevel: 14
 	};
+	//console.log(metricData);
+
+	var metricDataAA = {
+		metricLevel: $('.selected').parent().attr("class"),
+		stepLevel: 27
+	};
+	//console.log(metricDataAA);
+
+	var metricDataAAA = {
+		metricLevel: $('.selected').parent().attr("class"),
+		stepLevel: 40
+	};
+
+	var metricData = [metricDataA, metricDataAA, metricDataAAA];
 	console.log(metricData);
 
 	$.ajax({
@@ -1603,11 +1617,12 @@ function swapMetrics(e){
 		url: base_url + "index.php/home/getProgress",
 		data: metricData,
 		success: function(data) {
-			console.log(data);
-			console.log("metricData works " + metricData);
-			var progress = (data/13) * 100;
+			console.log("data: "+data);
+			//console.log("metricData works " + metricData);
+			console.log(data[0]);
+			var progress = (data[0]/13) * 100;
 			console.log("progress %: "+progress);
-			var progressBar = document.querySelector("#levelview");
+			var progressBar = document.querySelector(".levelA div");
 			progressBar.style.width = progress + "%";
 		},
 		error: function(){
