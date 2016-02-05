@@ -1,6 +1,6 @@
 var stem, stick, leave, botLeaf, bud, white, active, title;
 
-var base_url = 'http://localhost/sustainability-toolkit/';
+var base_url = 'http://localhost:8888/sustainability-toolkit/';
 
 var criteria = new Array(["Environment","environment",0,"criteria1","colour1"],["Community","community",100,"criteria2","colour2"],["Operating Practices","operatingPractices",50,"criteria3","colour3"],["Products & Services","productsServices",10,"criteria4","colour4"]);
 var metrics = new Array(["0","community","colour1"],["20","environment","colour2"],["50","community","colour1"],["18","operatingPractices","colour3"],["100","productsServices","colour4"],["75","operatingPractices","colour3"],["80","operatingPractices","colour3"],["35","productsServices","colour4"],["25","environment","colour2"],["10","environment","colour2"],["46","community","colour1"],["64","productsServices","colour4"]);
@@ -1241,7 +1241,8 @@ function init() {
 
 // Changes the pie piece colour on the wheel when the correlating form information is accepted
 function changeToColour() {
-	closePopUp();
+	var unsaved = true;
+	closePopUp(unsaved);
 	switch(i) {
 		case "1. Assess Stakeholder Priorities and Benchmark":
 			TweenMax.to(colpiece, 1.5, { css:{opacity: 0.3}, delay: 1 });
@@ -1447,8 +1448,9 @@ function popupstart() {
 }
 
 // Animation for closing the form
-function closePopUp() {
-	if(unsaved) {
+function closePopUp(unsaved) {
+	
+	if(unsaved != true) {
 		if(confirm("You are about to close the window without saving your changes. Do you want to continue?")) {
 				TweenMax.to(pop, 1, {opacity: 0, scaleX: 0, scaleY: 0});
 				TweenMax.to(pop, 0, { css:{ zIndex: 0}, delay: 1 });
