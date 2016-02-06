@@ -1592,25 +1592,30 @@ function swapMetrics(e){
 
 	/*stepLevel
 	metricLevel*/
-	var metricDataA = {
+	// var metricDataA = {
+	// 	metricLevel: $('.selected').parent().attr("class"),
+	// 	stepLevel: 14
+	// };
+	// //console.log(metricData);
+
+	// var metricDataAA = {
+	// 	metricLevel: $('.selected').parent().attr("class"),
+	// 	stepLevel: 27
+	// };
+	// //console.log(metricDataAA);
+
+	// var metricDataAAA = {
+	// 	metricLevel: $('.selected').parent().attr("class"),
+	// 	stepLevel: 40
+	// };
+
+	// var metricData = [metricDataA, metricDataAA, metricDataAAA];
+	// console.log(metricData);
+
+	var metricData = {
 		metricLevel: $('.selected').parent().attr("class"),
 		stepLevel: 14
 	};
-	//console.log(metricData);
-
-	var metricDataAA = {
-		metricLevel: $('.selected').parent().attr("class"),
-		stepLevel: 27
-	};
-	//console.log(metricDataAA);
-
-	var metricDataAAA = {
-		metricLevel: $('.selected').parent().attr("class"),
-		stepLevel: 40
-	};
-
-	var metricData = [metricDataA, metricDataAA, metricDataAAA];
-	console.log(metricData);
 
 	$.ajax({
 		type: "POST",
@@ -1619,11 +1624,24 @@ function swapMetrics(e){
 		success: function(data) {
 			console.log("data: "+data);
 			//console.log("metricData works " + metricData);
-			console.log(data[0]);
-			var progress = (data[0]/13) * 100;
-			console.log("progress %: "+progress);
-			var progressBar = document.querySelector(".levelA div");
-			progressBar.style.width = progress + "%";
+			var percentA = parseInt(data[5]);
+			var percentAA = parseInt(data[12]);
+			var percentAAA = parseInt(data[20]);
+
+			var progressA = (percentA/13) * 100;
+			console.log("progress %: "+progressA);
+			var progressBarA = document.querySelector(".levelA div");
+			progressBarA.style.width = progressA + "%";
+
+			var progressAA = (percentAA/13) * 100;
+			console.log("progressAA %: "+progressAA);
+			var progressBarAA = document.querySelector(".levelAA div");
+			progressBarAA.style.width = progressAA + "%";
+			
+			var progressAAA = (percentAAA/13) * 100;
+			console.log("progressAAA %: "+progressAAA);
+			var progressBarAAA = document.querySelector(".levelAAA div");
+			progressBarAAA.style.width = progressAAA + "%";
 		},
 		error: function(){
 		alert("failed");

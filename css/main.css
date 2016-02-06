@@ -500,6 +500,24 @@ nav ul li a:hover {
     position: absolute;
 }
 
+.levelAA > div {
+	background: #7ACCD0;
+	opacity: 0.4;
+	border-radius: 8px;
+    height: 30px;
+    width: 0%; 
+    position: absolute;
+}
+
+.levelAAA > div {
+	background: #7ACCD0;
+	opacity: 0.4;
+	border-radius: 8px;
+    height: 30px;
+    width: 0%; 
+    position: absolute;
+}
+
 /*#levelview {
 	background: rgba(149,218,247,1);
 	width: 0%;
