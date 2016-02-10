@@ -84,17 +84,19 @@ class Home extends CI_Controller {
 	public function criteriaMetrics(){
 		$session_data = $this->session->userdata('logged_in');
 		$companyId = $session_data['company_id'];
-		$name = $this->input->post('theName');
-		$query = $this->criteria_model->getMetrics($name, $companyId);
+		$criteria = $this->input->post('criteriaId');
+		$query = $this->criteria_model->getMetrics($criteria, $companyId);
 		echo json_encode($query);
 	}
 
 	public function addMetrics(){
 		$session_data = $this->session->userdata('logged_in');
-		$data['company'] = $session_data['company_id'];
-		$data['newMetric'] = $this->input->post('theName');
-		$data['criteria'] = $this->input->post('theCriteria');
-		$this->criteria_model->addMetric($data);
+		$metricData = array(
+			'metric_name' => $this->input->post('theName'),
+			'criteria_id' => $this->input->post('theCriteria'),
+			'company_id' => $session_data['company_id']
+		);
+		$this->criteria_model->addMetric($metricData);
 	}
 
 	public function getProgress(){

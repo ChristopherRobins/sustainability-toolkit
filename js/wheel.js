@@ -1,8 +1,8 @@
 var stem, stick, leave, botLeaf, bud, white, active, title;
 
-var base_url = 'http://localhost/sustainability-toolkit/';
+var base_url = 'http://localhost:8888/sustainability-toolkit/';
 
-var criteria = new Array(["Environment","environment",0,"criteria1","colour1"],["Community","community",100,"criteria2","colour2"],["Operating Practices","operatingPractices",50,"criteria3","colour3"],["Products & Services","productsServices",10,"criteria4","colour4"]);
+var criteria = new Array(["Environment","environment",0,"1","colour1"],["Community","community",100,"2","colour2"],["Operating Practices","operatingPractices",50,"3","colour3"],["Products & Services","productsServices",10,"4","colour4"]);
 var metrics = new Array(["0","community","colour1"],["20","environment","colour2"],["50","community","colour1"],["18","operatingPractices","colour3"],["100","productsServices","colour4"],["75","operatingPractices","colour3"],["80","operatingPractices","colour3"],["35","productsServices","colour4"],["25","environment","colour2"],["10","environment","colour2"],["46","community","colour1"],["64","productsServices","colour4"]);
 var steps = new Array(["1"],["2"],["3"],["4"],["5"],["6"],["7"],["8"],["9"],["10"],["11"],["12"],["13"]);
 var environmentMetrics = ["Air Emissions", "Biodiversity", "Energy", "Greenhouse Gas (GHG) Emissions", "Hazardous Substances", "Materials", "Waste", "Water", "Other Considerations"];
@@ -941,7 +941,7 @@ function init() {
 
 		titleTextHolder = document.createElement("h2");
 		titleTextHolder.setAttribute("class","text");
-		titleTextHolder.setAttribute("id",criteria[i][3]);
+		titleTextHolder.setAttribute("criteria",criteria[i][3]);
 		titleText = document.createTextNode(criteria[i][0]);
 
 		titleTextHolder.appendChild(titleText);
@@ -1370,33 +1370,33 @@ $(document).on('change', ':input', function(){ //triggers change in all input fi
 // Swaps the header and metric list content depending on which criteria was selected
 function swapHeaderBG(e){
 
+	titleMetric.innerHTML = '';
+
+	//console.log(e.firstChild.firstChild.textContent);
+
+    console.log(e.firstChild.firstChild.firstChild.getAttribute('criteria'));
+	getMetrics(e.firstChild.firstChild.firstChild.getAttribute('criteria'));
+}
+
+function getMetrics(n){
 	if (metricList) {
 		while (metricList.firstChild) {
 	    	metricList.removeChild(metricList.firstChild);
 	  }
 	}
-
-	titleMetric.innerHTML = '';
-
-	//console.log(e.firstChild.firstChild.textContent);
-	var n = e.firstChild.firstChild.textContent;
-
-	var nameData = {
-		theName: n
+	var criteriaData = {
+		criteriaId: n
     };
-	getMetrics(nameData);
-}
-
-function getMetrics(n){
-	console.log(n);
+    console.log(criteriaData);
 	$.ajax({
 		type: "POST",
 		url: base_url + "index.php/home/criteriaMetrics",
-		data: n,
+		data: criteriaData,
 		dataType: 'json',
 		success: function(data) {
-			//console.log(data);
+			console.log(data);
 			titleHeader.textContent = data[0]["criteria_name"];
+			titleHeader.setAttribute('criteria', data[0]["criteria_id"]);
 			for(i=0; i<data.length; i++){
 				var node = document.createElement("li");
 				var anchor = document.createElement("a");
@@ -1404,6 +1404,7 @@ function getMetrics(n){
 				anchor.setAttribute("href", "#");
 				node.appendChild(anchor);
 				node.setAttribute("class", data[i]["metric_id"]);
+				node.setAttribute("editable", data[i]["company_id"]);
 				anchor.appendChild(textnode);
 				metricList.appendChild(node);
 			}
@@ -1425,9 +1426,10 @@ function getMetrics(n){
 function addMetric(){
 	if(addMetricInput.value != ''){
 		console.log(addMetricInput.value);
+		console.log(titleHeader.getAttribute("criteria"));
 		metricData = {
 			theName: addMetricInput.value,
-			theCriteria: titleHeader.textContent
+			theCriteria: titleHeader.getAttribute("criteria")
 	    };
 	    console.log(metricData);
 		if(confirm("Are you sure you'd like to add '"+addMetricInput.value+"' as a new metric?")) {
@@ -1438,7 +1440,7 @@ function addMetric(){
 				data: metricData,
 				success: function(data) {
 					console.log('added '+data);
-					swapHeaderBG(e);
+					getMetrics(titleHeader.getAttribute('criteria'));
 				},
 				error: function(data){
 				console.log('failed');
@@ -1618,7 +1620,9 @@ function switchFormContent(s){
 	});
 }
 
-addMetricButton.addEventListener("click", addMetric, false);
+if(addMetricButton != null) {
+	addMetricButton.addEventListener("click", addMetric, false);
+}
 prevButton.addEventListener("click", changeLevel, false);
 nextButton.addEventListener("click", changeLevel, false);
 window.addEventListener("load", popupstart, false);
