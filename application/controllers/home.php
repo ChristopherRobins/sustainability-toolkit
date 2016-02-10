@@ -89,6 +89,14 @@ class Home extends CI_Controller {
 		echo json_encode($query);
 	}
 
+	public function addMetrics(){
+		$session_data = $this->session->userdata('logged_in');
+		$data['company'] = $session_data['company_id'];
+		$data['newMetric'] = $this->input->post('theName');
+		$data['criteria'] = $this->input->post('theCriteria');
+		$this->criteria_model->addMetric($data);
+	}
+
 	public function getProgress(){
 		$step = $this->input->post('stepLevel');
 		$metric = $this->input->post('metricLevel');

@@ -1,6 +1,6 @@
 var stem, stick, leave, botLeaf, bud, white, active, title;
 
-var base_url = 'http://localhost:8888/sustainability-toolkit/';
+var base_url = 'http://localhost/sustainability-toolkit/';
 
 var criteria = new Array(["Environment","environment",0,"criteria1","colour1"],["Community","community",100,"criteria2","colour2"],["Operating Practices","operatingPractices",50,"criteria3","colour3"],["Products & Services","productsServices",10,"criteria4","colour4"]);
 var metrics = new Array(["0","community","colour1"],["20","environment","colour2"],["50","community","colour1"],["18","operatingPractices","colour3"],["100","productsServices","colour4"],["75","operatingPractices","colour3"],["80","operatingPractices","colour3"],["35","productsServices","colour4"],["25","environment","colour2"],["10","environment","colour2"],["46","community","colour1"],["64","productsServices","colour4"]);
@@ -10,116 +10,6 @@ var communityMetrics = ["Stakeholder Engagement", "Community Development", "Phil
 var opMetrics = ["Diversity and Equal Opportunity", "Employment", "Ethics", "Human Rights", "Labor Relations", "Occupational Health and Safety", "Training and Education"];
 var pnsMetrics = ["Consumer Health & Safety", "Life Cycle Considerations", "Responsible Sourcing", "Supplier Engagement"];
 var stepsA = ['Identify stakeholders and assess their sustainability priorities:<br>• Stakeholder needs<br>• Benchmark', "Assess and prioritize risk of each criteria and define / identify relevant metrics", "Establish baseline for each metric", "Develop supporting policies for each criteria", "Develop action plan for all / each criteria and / or metric and set targets", "Implement processes / procedures for each sustainability metric, assigning responsibility and authority", "Implement communication / training to support processes for each sustainability metric", "Monitor metrics / indicators", "Audit policies, plans, procedures and self-correct", "Report results of objectives / plans, performance and audits internally to senior management", "Influence supply chain by advising of your policies and procedures and encourage their participation in similar programs", "Report results to stakeholders via website, CSR / investor reports, community engagement, etc.", "Internal / External Recognition"];
-
-// var objMetrics = {
-// 					environmentMetrics: [
-// 										{
-// 											metricNum: "1",
-// 											metricName: "Air Emissions"
-// 										},
-// 										{
-// 											metricNum: "2",
-// 											metricName: "Biodiversity"
-// 										},
-// 										{
-// 											metricNum: "3",
-// 											metricName: "Energy"
-// 										},
-// 										{
-// 											metricNum: "4",
-// 											metricName: "Greenhouse Gas (GHG) Emissions"
-// 										},
-// 										{
-// 											metricNum: "5",
-// 											metricName: "Hazardous Substances"
-// 										},
-// 										{
-// 											metricNum: "6",
-// 											metricName: "Materials"
-// 										},
-// 										{
-// 											metricNum: "7",
-// 											metricName: "Waste"
-// 										},
-// 										{
-// 											metricNum: "8",
-// 											metricName: "Water"
-// 										},
-// 										{
-// 											metricNum: "9",
-// 											metricName: "Other Considerations"
-// 										}
-// 									   ],
-
-// 					communityMetrics: [
-// 										{
-// 											metricNum: "10",
-// 											metricName: "Stakeholder Engagement"
-// 										},
-// 										{
-// 											metricNum: "11",
-// 											metricName: "Community Development"
-// 										},
-// 										{
-// 											metricNum: "12",
-// 											metricName: "Philanthropy"
-// 										},
-// 										{
-// 											metricNum: "13",
-// 											metricName: "Volunteerism"
-// 										}
-// 									  ],
-
-// 							opMetrics: [
-// 										{
-// 											metricNum: "14",
-// 											metricName: "Diversity and Equal Opportunity"
-// 										},
-// 										{
-// 											metricNum: "15",
-// 											metricName: "Employment"
-// 										},
-// 										{
-// 											metricNum: "16",
-// 											metricName: "Ethics"
-// 										},
-// 										{
-// 											metricNum: "17",
-// 											metricName: "Human Rights"
-// 										},
-// 										{
-// 											metricNum: "18",
-// 											metricName: "Labor Relations"
-// 										},
-// 										{
-// 											metricNum: "19",
-// 											metricName: "Occupational Health and Safety"
-// 										},
-// 										{
-// 											metricNum: "20",
-// 											metricName: "Training and Education"
-// 										}
-// 									  ],
-
-// 							pnsMetrics: [
-// 										{
-// 											metricNum: "21",
-// 											metricName: "Consumer Health & Safety"
-// 										},
-// 										{
-// 											metricNum: "22",
-// 											metricName: "Life Cycle Considerations"
-// 										},
-// 										{
-// 											metricNum: "23",
-// 											metricName: "Responsible Sourcing"
-// 										},
-// 										{
-// 											metricNum: "24",
-// 											metricName: "Supplier Engagement"
-// 										}
-// 									  ]
-// }
 
 var objSteps = {
 					levelA: [
@@ -286,7 +176,6 @@ var objSteps = {
 						   			step: "Recognition from external organizations (e.g. government agency programs, associations, community organizations, NGOs, etc.)"
 						   		}
 						   ]
-
 				}
 
 var overlay1 = document.querySelector(".overlay1");
@@ -369,11 +258,14 @@ var actImg = document.getElementById('act');
 var prevButton = document.querySelector('.prev');
 var nextButton = document.querySelector('.next');
 var currLevel = document.querySelector('.page');
+var addMetricInput = document.querySelector('#addMetric input');
+var addMetricButton = document.querySelector('#addMetric button');
 
 var randTopPos = Math.floor(Math.random()*200+250);
 var randScale = Math.random()*0.35+0.35;
 var leafPos = 20;
 var growBud;
+var unsaved = false;
 
 var budTL = new TimelineMax();
 var whiteTL = new TimelineMax();
@@ -1242,8 +1134,8 @@ function init() {
 
 // Changes the pie piece colour on the wheel when the correlating form information is accepted
 function changeToColour() {
-	var unsaved = true;
-	closePopUp(unsaved);
+	unsaved = false;
+	closePopUp();
 	switch(i) {
 		case "1. Assess Stakeholder Priorities and Benchmark":
 			TweenMax.to(colpiece, 1.5, { css:{opacity: 0.3}, delay: 1 });
@@ -1449,9 +1341,9 @@ function popupstart() {
 }
 
 // Animation for closing the form
-function closePopUp(unsaved) {
+function closePopUp() {
 	
-	if(unsaved != true) {
+	if(unsaved == true) {
 		if(confirm("You are about to close the window without saving your changes. Do you want to continue?")) {
 				TweenMax.to(pop, 1, {opacity: 0, scaleX: 0, scaleY: 0});
 				TweenMax.to(pop, 0, { css:{ zIndex: 0}, delay: 1 });
@@ -1489,14 +1381,18 @@ function swapHeaderBG(e){
 	//console.log(e.firstChild.firstChild.textContent);
 	var n = e.firstChild.firstChild.textContent;
 
-	var getData = {
-			theName: n
-        };
-			//console.log(getData);
+	var nameData = {
+		theName: n
+    };
+	getMetrics(nameData);
+}
+
+function getMetrics(n){
+	console.log(n);
 	$.ajax({
 		type: "POST",
 		url: base_url + "index.php/home/criteriaMetrics",
-		data: getData,
+		data: n,
 		dataType: 'json',
 		success: function(data) {
 			//console.log(data);
@@ -1524,62 +1420,34 @@ function swapHeaderBG(e){
 		//alert("failed");
 		}
 	});
+}
 
-	// if(this.classList.contains('environment')){
-	// 	//titleBG.style.backgroundImage = "url('images/headers/EnvironmentHeader.png')";
-	// 	titleHeader.textContent = "Environment";
-	// 	for(i=0; i<environmentMetrics.length; i++){
-	// 		var node = document.createElement("li");
-	// 		var anchor = document.createElement("a");
-	// 		var textnode = document.createTextNode(objMetrics["environmentMetrics"][i]["metricName"]);
-	// 		anchor.setAttribute("href", "#");
-	// 		node.appendChild(anchor);
-	// 		node.setAttribute("class", objMetrics["environmentMetrics"][i]["metricNum"]);
-	// 		anchor.appendChild(textnode);
-	// 		metricList.appendChild(node);
-	// 	}
-	// }else if(this.classList.contains('community')){
-	// 	//titleBG.style.backgroundImage = "url('images/headers/CommunityHeader.png')";
-	// 	titleHeader.textContent = "Community";
-	// 	for(i=0; i<communityMetrics.length; i++){
-	// 		var node = document.createElement("li");
-	// 		var anchor = document.createElement("a");
-	// 		var textnode = document.createTextNode(objMetrics["communityMetrics"][i]["metricName"]);
-	// 		anchor.setAttribute("href", "#");
-	// 		node.appendChild(anchor);
-	// 		node.setAttribute("class", objMetrics["communityMetrics"][i]["metricNum"]);
-	// 		anchor.appendChild(textnode);
-	// 		metricList.appendChild(node);
-	// 	}
-	// }else if(this.classList.contains('operatingPractices')){
-	// 	//titleBG.style.backgroundImage = "url('images/headers/OperatingPracticesHeader.png')";
-	// 	titleHeader.textContent = "Operating Practices";
-	// 	for(i=0; i<opMetrics.length; i++){
-	// 		var node = document.createElement("li");
-	// 		var anchor = document.createElement("a");
-	// 		var textnode = document.createTextNode(objMetrics["opMetrics"][i]["metricName"]);
-	// 		anchor.setAttribute("href", "#");
-	// 		node.appendChild(anchor);
-	// 		node.setAttribute("class", objMetrics["opMetrics"][i]["metricNum"]);
-	// 		anchor.appendChild(textnode);
-	// 		metricList.appendChild(node);
-	// 	}
-	// }else if(this.classList.contains('productsServices')){
-	// 	//titleBG.style.backgroundImage = "url('images/headers/Products&ServicesHeader.png')";
-	// 	titleHeader.textContent = "Products & Services";
-	// 	for(i=0; i<pnsMetrics.length; i++){
-	// 		var node = document.createElement("li");
-	// 		var anchor = document.createElement("a");
-	// 		var textnode = document.createTextNode(objMetrics["pnsMetrics"][i]["metricName"]);
-	// 		anchor.setAttribute("href", "#");
-	// 		node.appendChild(anchor);
-	// 		node.setAttribute("class", objMetrics["pnsMetrics"][i]["metricNum"]);
-	// 		anchor.appendChild(textnode);
-	// 		metricList.appendChild(node);
-	// 	}
-	// }else{
-	// 	//titleBG.style.backgroundImage = "url('images/headers/DashBoard_BlueHeader.png')";
-	// }
+function addMetric(){
+	if(addMetricInput.value != ''){
+		console.log(addMetricInput.value);
+		metricData = {
+			theName: addMetricInput.value,
+			theCriteria: titleHeader.textContent
+	    };
+	    console.log(metricData);
+		if(confirm("Are you sure you'd like to add '"+addMetricInput.value+"' as a new metric?")) {
+			console.log('confirmed');
+			$.ajax({
+				type: "POST",
+				url: base_url + "index.php/home/addMetrics",
+				data: metricData,
+				success: function(data) {
+					console.log('added '+data);
+					swapHeaderBG(e);
+				},
+				error: function(data){
+				console.log('failed');
+				}
+			});
+		}
+	}else{
+		console.log('nothing to see here');
+	}
 }
 
 // Applies the selected class to desired metric in order to properly update/pull from database
@@ -1750,6 +1618,7 @@ function switchFormContent(s){
 	});
 }
 
+addMetricButton.addEventListener("click", addMetric, false);
 prevButton.addEventListener("click", changeLevel, false);
 nextButton.addEventListener("click", changeLevel, false);
 window.addEventListener("load", popupstart, false);

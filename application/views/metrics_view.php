@@ -23,8 +23,16 @@
     <div class="large-3 columns">
     </div>
   </div>
-  <ul id="metrics">
-  </ul>
+  <div id="metricWrap" class="clearfix">
+    <ul id="metrics">
+    </ul>
+    <?php if($user_privileges == 2): ?>
+    <div id="addMetric">
+      <input type="text" placeholder="Add New Metric"></input>
+      <button type="button" id="search">+</button>
+    </div>
+    <?php endif; ?>
+  </div>
 </div>
 <div id="background">
       <img id="grass" src="<?php echo base_url();?>images/GrassSeparate.png" alt="Background">

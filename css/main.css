@@ -15,6 +15,15 @@ img {
 	-ms-interpolation-mode: bicubic;
 }
 
+.clearfix:after {
+     visibility: hidden;
+     display: block;
+     font-size: 0;
+     content: " ";
+     clear: both;
+     height: 0;
+}
+
 .hidden {
 	display: none;
 }
@@ -1321,7 +1330,7 @@ nav ul li a:hover {
 	z-index: 7;
 }
 
-#metrics {
+#metricWrap {
 	position: relative;
 	z-index: 7;
 	/*margin-top: 40px;*/
@@ -1349,6 +1358,27 @@ nav ul li a:hover {
 
 #metrics ul li:hover a {
 	color: #a2ce45;
+}
+
+#addMetric {
+	float: right;
+	clear: both;
+}
+
+#addMetric input {
+	float: left;
+	width: 140px;
+	margin: 0;
+}
+
+#addMetric button {
+	width: 37px;
+	float: left;
+	font-size: 1.2em;
+	font-weight: bold;
+	line-height: 37px;
+	padding: 0;
+	margin: 0;
 }
 
 .page {

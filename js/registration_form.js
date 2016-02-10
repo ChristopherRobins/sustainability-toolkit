@@ -4,7 +4,7 @@ console.log('reg.js fired');
  * Company Form Section
  */
 
- var base_url = 'http://localhost:8888/sustainability-toolkit/';
+ var base_url = 'http://localhost/sustainability-toolkit/';
 
  var facilitiesRadios = document.querySelectorAll('#companyFacilities input[name=facilityRadio]');
  var facilitiesCountDiv = document.querySelector('#facilitiesCount');
