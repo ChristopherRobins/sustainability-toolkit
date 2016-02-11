@@ -32,6 +32,18 @@ img {
 	color: red;
 }
 
+#cmsIcon {
+	position: absolute;
+  right: 12px;
+  opacity: 0.7;
+	transition: all .3s ease;
+}
+
+#cmsIcon:hover {
+	cursor: pointer;
+	opacity: 0.9;
+}
+
 #holder {
 	max-width: 1440px;
 	width: 100%;
@@ -505,7 +517,7 @@ nav ul li a:hover {
 	opacity: 0.4;
 	border-radius: 8px;
     height: 30px;
-    width: 0%; 
+    width: 0%;
     position: absolute;
 }
 
@@ -514,7 +526,7 @@ nav ul li a:hover {
 	opacity: 0.4;
 	border-radius: 8px;
     height: 30px;
-    width: 0%; 
+    width: 0%;
     position: absolute;
 }
 
@@ -523,7 +535,7 @@ nav ul li a:hover {
 	opacity: 0.4;
 	border-radius: 8px;
     height: 30px;
-    width: 0%; 
+    width: 0%;
     position: absolute;
 }
 
@@ -1381,6 +1393,16 @@ nav ul li a:hover {
 	margin: 0;
 }
 
+.removeMetric {
+	width: 27px;
+	float: right;
+	font-size: 1.2em;
+	font-weight: bold;
+	line-height: 27px;
+	padding: 0;
+	margin: 0;
+}
+
 .page {
 }
 
@@ -1718,7 +1740,7 @@ nav ul li a:hover {
 	height: 80%;
 	margin: 30px;
 	padding: 5px;
-	overflow-y: scroll; 
+	overflow-y: scroll;
 	position: relative;
 }
 

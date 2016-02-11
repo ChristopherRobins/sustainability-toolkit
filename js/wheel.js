@@ -1,6 +1,6 @@
 var stem, stick, leave, botLeaf, bud, white, active, title;
 
-var base_url = 'http://localhost:8888/sustainability-toolkit/';
+var base_url = 'http://localhost/sustainability-toolkit/';
 
 var criteria = new Array(["Environment","environment",0,"1","colour1"],["Community","community",100,"2","colour2"],["Operating Practices","operatingPractices",50,"3","colour3"],["Products & Services","productsServices",10,"4","colour4"]);
 var metrics = new Array(["0","community","colour1"],["20","environment","colour2"],["50","community","colour1"],["18","operatingPractices","colour3"],["100","productsServices","colour4"],["75","operatingPractices","colour3"],["80","operatingPractices","colour3"],["35","productsServices","colour4"],["25","environment","colour2"],["10","environment","colour2"],["46","community","colour1"],["64","productsServices","colour4"]);
@@ -258,8 +258,6 @@ var actImg = document.getElementById('act');
 var prevButton = document.querySelector('.prev');
 var nextButton = document.querySelector('.next');
 var currLevel = document.querySelector('.page');
-var addMetricInput = document.querySelector('#addMetric input');
-var addMetricButton = document.querySelector('#addMetric button');
 
 var randTopPos = Math.floor(Math.random()*200+250);
 var randScale = Math.random()*0.35+0.35;
@@ -1342,7 +1340,7 @@ function popupstart() {
 
 // Animation for closing the form
 function closePopUp() {
-	
+
 	if(unsaved == true) {
 		if(confirm("You are about to close the window without saving your changes. Do you want to continue?")) {
 				TweenMax.to(pop, 1, {opacity: 0, scaleX: 0, scaleY: 0});
@@ -1403,8 +1401,8 @@ function getMetrics(n){
 				var textnode = document.createTextNode(data[i]["metric_name"]);
 				anchor.setAttribute("href", "#");
 				node.appendChild(anchor);
-				node.setAttribute("class", data[i]["metric_id"]);
-				node.setAttribute("editable", data[i]["company_id"]);
+				node.setAttribute("data-metric", data[i]["metric_id"]);
+				node.setAttribute("data-editable", data[i]["company_id"]);
 				anchor.appendChild(textnode);
 				metricList.appendChild(node);
 			}
@@ -1421,35 +1419,6 @@ function getMetrics(n){
 		//alert("failed");
 		}
 	});
-}
-
-function addMetric(){
-	if(addMetricInput.value != ''){
-		console.log(addMetricInput.value);
-		console.log(titleHeader.getAttribute("criteria"));
-		metricData = {
-			theName: addMetricInput.value,
-			theCriteria: titleHeader.getAttribute("criteria")
-	    };
-	    console.log(metricData);
-		if(confirm("Are you sure you'd like to add '"+addMetricInput.value+"' as a new metric?")) {
-			console.log('confirmed');
-			$.ajax({
-				type: "POST",
-				url: base_url + "index.php/home/addMetrics",
-				data: metricData,
-				success: function(data) {
-					console.log('added '+data);
-					getMetrics(titleHeader.getAttribute('criteria'));
-				},
-				error: function(data){
-				console.log('failed');
-				}
-			});
-		}
-	}else{
-		console.log('nothing to see here');
-	}
 }
 
 // Applies the selected class to desired metric in order to properly update/pull from database
@@ -1510,7 +1479,7 @@ function swapMetrics(e){
 			console.log("progressAA %: "+progressAA);
 			var progressBarAA = document.querySelector(".levelAA div");
 			progressBarAA.style.width = progressAA + "%";
-			
+
 			var progressAAA = (percentAAA/13) * 100;
 			console.log("progressAAA %: "+progressAAA);
 			var progressBarAAA = document.querySelector(".levelAAA div");
@@ -1620,9 +1589,6 @@ function switchFormContent(s){
 	});
 }
 
-if(addMetricButton != null) {
-	addMetricButton.addEventListener("click", addMetric, false);
-}
 prevButton.addEventListener("click", changeLevel, false);
 nextButton.addEventListener("click", changeLevel, false);
 window.addEventListener("load", popupstart, false);

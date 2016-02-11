@@ -24,10 +24,13 @@
     </div>
   </div>
   <div id="metricWrap" class="clearfix">
+    <?php if($user_privileges == 2): ?>
+      <img src="<?php echo base_url();?>images/gear.png" alt="Gear Icon" id="cmsIcon" data-cms="closed">
+    <?php endif; ?>
     <ul id="metrics">
     </ul>
     <?php if($user_privileges == 2): ?>
-    <div id="addMetric">
+    <div id="addMetric" class="hidden">
       <input type="text" placeholder="Add New Metric"></input>
       <button type="button" id="search">+</button>
     </div>
@@ -47,3 +50,6 @@
   </div>
 
 <script src="<?php echo base_url();?>js/wheel.js"></script>
+<?php if($user_privileges == 2): ?>
+<script src="<?php echo base_url();?>js/metric_cms.js"></script>
+<?php endif; ?>

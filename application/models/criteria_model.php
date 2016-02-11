@@ -11,7 +11,7 @@
 		$this->db->from('tbl_criteria c, tbl_metric m');
 		$this->db->where('c.criteria_id = m.criteria_id');
 		$this->db->where('c.criteria_id', $criteria);
-		//$this->db->where('m.company_id', $companyId);
+		$this->db->where('m.metric_disabled', '0');
 		$where = '(m.company_id = '.$companyId.' OR m.company_id = 0)';
 		$this->db->where($where);
 		$query = $this->db->get();
@@ -22,4 +22,12 @@
 		$this->db->insert('tbl_metric', $data);
 	}
 
-  }
+	public function disableMetric($id){
+		$data = array(
+               'metric_disabled' => '1'
+            );
+		$this->db->where('metric_id', $id);
+		$this->db->update('tbl_metric', $data);
+	}
+
+}

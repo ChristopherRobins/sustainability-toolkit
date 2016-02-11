@@ -99,6 +99,11 @@ class Home extends CI_Controller {
 		$this->criteria_model->addMetric($metricData);
 	}
 
+	public function disableMetric(){
+		$metricId = $this->input->post('theId');
+		$this->criteria_model->disableMetric($metricId);
+	}
+
 	public function getProgress(){
 		$step = $this->input->post('stepLevel');
 		$metric = $this->input->post('metricLevel');
