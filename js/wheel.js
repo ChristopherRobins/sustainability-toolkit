@@ -1564,7 +1564,7 @@ $("#accept").click(function(event) {
 
 // Dynamically updates content when a new metric/level/step is selected while the form is open
 function switchFormContent(s){
-	m = $('.selected').parent().attr('class');
+	m = $('.selected').parent().attr('data-metric');
 	var getData = {
         theStep: s,
         theMetric: m
