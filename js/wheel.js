@@ -1455,10 +1455,9 @@ function swapMetrics(e){
 	// console.log(metricData);
 
 	var metricData = {
-		metricLevel: $('.selected').parent().attr("class"),
+		metricLevel: $('.selected').parent().attr("data-metric"),
 		stepLevel: 14
 	};
-
 	$.ajax({
 		type: "POST",
 		url: base_url + "index.php/home/getProgress",
