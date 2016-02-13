@@ -1878,7 +1878,7 @@ meta.foundation-mq-topbar {
     height: 1px;
     width: 100%; }
   .top-bar-section ul li {
-    background: #333333; }
+    /*background: #333333;*/ }
     .top-bar-section ul li > a {
       display: block;
       width: 100%;
@@ -1886,7 +1886,7 @@ meta.foundation-mq-topbar {
       padding: 12px 0 12px 0;
       padding-left: 15px;
       font-family: "Helvetica Neue", Helvetica, Roboto, Arial, sans-serif;
-      font-size: 0.8125rem;
+      font-size: 1em;
       font-weight: normal;
       text-transform: none; }
       .top-bar-section ul li > a.button {
@@ -1897,7 +1897,7 @@ meta.foundation-mq-topbar {
         border-color: #464648;
         color: white; }
         .top-bar-section ul li > a.button:hover, .top-bar-section ul li > a.button:focus {
-          background-color: #464648; }
+          /*background-color: #464648;*/ }
         .top-bar-section ul li > a.button:hover, .top-bar-section ul li > a.button:focus {
           color: white; }
       .top-bar-section ul li > a.button.secondary {
@@ -2106,7 +2106,7 @@ meta.foundation-mq-topbar {
     .top-bar-section li:not(.has-form) a:not(.button) {
       padding: 0 15px;
       line-height: 45px;
-      background: #333333; }
+      /*background: #333333;*/ }
       .top-bar-section li:not(.has-form) a:not(.button):hover {
         background-color: #555555;
         background: #272727; }
