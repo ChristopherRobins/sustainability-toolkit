@@ -32,7 +32,6 @@
 		}
 
 		public function userInput($id, $input, $step, $metric) {
-		   $this->db->where('metricstep_responsibility',$id);
 		   $this->db->where('metric_id',$metric);
 		   $this->db->where('step_id',$step);
 		   $query = $this->db->get('tbl_form_input');
@@ -61,16 +60,27 @@
 		}
 
 		public function levelProgress($step, $metric){
-			// $this->db->where('metric_id',$metric);
-			// $this->db->where('step_id <',$step);
-			// $count = $this->db->count_all_results('tbl_form_input');
-			$countA = $this->db->get_where('tbl_form_input', array('metric_id' => $metric, 'step_id < ' => 14));
-			$countAA = $this->db->get_where('tbl_form_input', array('metric_id' => $metric, 'step_id < ' => 27, 'step_id > ' => 13));
-			$countAAA = $this->db->get_where('tbl_form_input', array('metric_id' => $metric, 'step_id <= ' => 39, 'step_id > ' => 26));
+			//LEVEL A
+			$this->db->select('*');
+			$this->db->where('i.metric_id = m.metric_id');
+			$this->db->where('i.metric_id', $metric);
+			$this->db->where('m.metric_disabled', 0);
+			$countA = $this->db->get_where('tbl_form_input i, tbl_metric m', array('i.step_id <' => '14'));
 
-			// $countA->num_rows();
-			// $countAA->num_rows;
-			// $countAAA->num_rows;
+			// LEVEL AA
+			$this->db->select('*');
+			$this->db->where('i.metric_id = m.metric_id');
+			$this->db->where('i.metric_id', $metric);
+			$this->db->where('m.metric_disabled', 0);
+			$countAA = $this->db->get_where('tbl_form_input i, tbl_metric m', array('i.step_id < ' => '27', 'i.step_id > ' => '13'));
+			//print_r($this->db->last_query());
+			// LEVEL AAA
+			$this->db->select('*');
+			$this->db->where('i.metric_id = m.metric_id');
+			$this->db->where('i.metric_id', $metric);
+			$this->db->where('m.metric_disabled', 0);
+			$countAAA = $this->db->get_where('tbl_form_input i, tbl_metric m', array('i.step_id <= ' => '39', 'i.step_id > ' => '26'));
+
 			$count = array(
 				'A' => $countA->num_rows(),
 				'AA' => $countAA->num_rows(),

@@ -1462,12 +1462,13 @@ function swapMetrics(e){
 		type: "POST",
 		url: base_url + "index.php/home/getProgress",
 		data: metricData,
+		dataType: 'json',
 		success: function(data) {
 			console.log("data: "+data);
-			//console.log("metricData works " + metricData);
-			var percentA = parseInt(data[5]);
-			var percentAA = parseInt(data[12]);
-			var percentAAA = parseInt(data[20]);
+			console.log(data['A']);
+			var percentA = data['A'];
+			var percentAA = data['AA'];
+			var percentAAA = data['AAA'];
 
 			var progressA = (percentA/13) * 100;
 			console.log("progress %: "+progressA);
@@ -1539,7 +1540,7 @@ $("#accept").click(function(event) {
                 var formData = {
                 	id: 1,
                 	inputStep: s,
-                	inputMetric: $('.selected').parent().attr("class"),
+                	inputMetric: $('.selected').parent().attr("data-metric"),
                     inputDesc:  $('textarea[name=inputDesc]').val(),
                     inputGAPS:  $('textarea[name=inputGAPS]').val(),
                     inputActions: $('textarea[name=inputActions]').val(),
