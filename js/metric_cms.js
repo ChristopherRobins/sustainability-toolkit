@@ -34,6 +34,7 @@
 				}
 			});
       toggleCmsOff();
+      swapMetrics();
   	}else{
   		console.log('nothing to see here');
   	}

@@ -24,8 +24,8 @@ class Home extends CI_Controller {
 			$data['user_privileges'] = $session_data['user_privileges'];
 			$data['facility_id'] = $session_data['facility_id'];
 			//print_r($session_data);
-			$data['input'] = $this->form_model->getInput($id, 1, 1);
-			$data['progress'] = $this->form_model->levelProgress(1,14);
+			$data['input'] = $this->form_model->getInput($data, 1, 1);
+			//$data['progress'] = $this->form_model->levelProgress(1,14);
 			$this->load->view('head', $data);
 			$this->load->view('header');
 			$this->load->view('flowers');
@@ -48,13 +48,18 @@ class Home extends CI_Controller {
 	// Grabs information to populate the form with
 	public function input() {
 		$session_data = $this->session->userdata('logged_in');
+		$user_data = array(
+			'user_id' => $session_data['user_id'],
+			'facility_id' => $session_data['facility_id'],
+			'company_id' => $session_data['company_id'],
+		);
 		$user_data['user_id'] = $session_data['user_id'];
 		$id = $user_data['user_id'];
 		$step = $this->input->post('theStep');
 		$metric = $this->input->post('theMetric');
 		//$this->form_model->getInput($id, $step, $metric);
 		//$this->form_model->getInput($id, $step, $metric);
-		$query = $this->form_model->getInput($id, $step, $metric);
+		$query = $this->form_model->getInput($user_data, $step, $metric);
 		echo json_encode($query);
 		//$this->load->view('form_view', $data);
 	}
@@ -62,8 +67,14 @@ class Home extends CI_Controller {
 	// Part of the form UPDATE/INSERT process
 	public function formInput(){
 		$session_data = $this->session->userdata('logged_in');
-		$user_data['user_id'] = $session_data['user_id'];
-
+		$user_data = array(
+			'user_id' => $session_data['user_id'],
+			'facility_id' => $session_data['facility_id'],
+			'company_id' => $session_data['company_id'],
+		);
+		// $user_data['user_id'] = $session_data['user_id'];
+		// $user_data['facility_id'] = $session_data['facility_id'];
+		// $user_data['company_id'] = $session_data['company_id'];
 		$id = $user_data['user_id'];
 		$step = $this->input->post('inputStep');
 		$metric = $this->input->post('inputMetric');
@@ -75,9 +86,11 @@ class Home extends CI_Controller {
 			'metricstep_gaps' => $this->input->post('inputGAPS'),
 			'metricstep_actions' => $this->input->post('inputActions'),
 			'metricstep_comments' => $this->input->post('inputComments'),
+			'facility_id' => $user_data['facility_id'],
+			'company_id' => $user_data['company_id'],
 		);
 		//$id = $_POST['data'];
-		$this->form_model->userInput($id, $arrInput, $step, $metric);
+		$this->form_model->userInput($user_data, $arrInput, $step, $metric);
 		//echo "asdokjnfn";
 	}
 
@@ -107,8 +120,14 @@ class Home extends CI_Controller {
 	public function getProgress(){
 		$step = $this->input->post('stepLevel');
 		$metric = $this->input->post('metricLevel');
+		$session_data = $this->session->userdata('logged_in');
+		$user_data = array(
+			'user_id' => $session_data['user_id'],
+			'facility_id' => $session_data['facility_id'],
+			'company_id' => $session_data['company_id'],
+		);
 
-		$query = $this->form_model->levelProgress($step, $metric);
+		$query = $this->form_model->levelProgress($user_data, $step, $metric);
 		echo json_encode($query);
 	}
 

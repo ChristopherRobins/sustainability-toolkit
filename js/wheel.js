@@ -1423,13 +1423,15 @@ function getMetrics(n){
 
 // Applies the selected class to desired metric in order to properly update/pull from database
 function swapMetrics(e){
-	console.log(e.target);
-	for(i=0; i<theMetrics.length; i++){
-		theMetrics[i].classList.remove("selected");
-	}
-	titleMetric.textContent = e.target.innerHTML;
-	if(e.target.innerHTML = titleMetric.textContent){
-		e.target.classList.add("selected");
+	if(e != null){
+		console.log(e.target);
+		for(i=0; i<theMetrics.length; i++){
+			theMetrics[i].classList.remove("selected");
+		}
+		titleMetric.textContent = e.target.innerHTML;
+		if(e.target.innerHTML = titleMetric.textContent){
+			e.target.classList.add("selected");
+		}
 	}
 
 	/*stepLevel
@@ -1485,8 +1487,8 @@ function swapMetrics(e){
 			var progressBarAAA = document.querySelector(".levelAAA div");
 			progressBarAAA.style.width = progressAAA + "%";
 		},
-		error: function(){
-		alert("failed");
+		error: function(data){
+            console.log(data);
 		}
 	});
 	switchFormContent(s);
@@ -1552,13 +1554,14 @@ $("#accept").click(function(event) {
                 type: "POST",
                 url: base_url + "index.php/home/formInput",
                 data: formData,
-                success: function() {
+                success: function(data) {
                 	changeToColour();
-                	console.log(formData);
+                	console.log(data);
                 	//alert("success");
+                	swapMetrics();
                 },
-                error: function(){
-                	alert("failed");
+                error: function(data){
+                	console.log(data);
                 }
                 });
             });
