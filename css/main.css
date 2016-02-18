@@ -1166,6 +1166,14 @@ nav ul li a:hover {
 	padding-right: 10px;
 }
 
+.completionStatus {
+	float: left;
+}
+
+.completionStatus label {
+	display: inline-block;
+}
+
 #desc {
 	margin-top: 20px;
 	font-size: 1.3em;

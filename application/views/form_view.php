@@ -72,6 +72,14 @@
         </div>
         <div class="row">
           <div class="large-12 columns pages">
+            <div class="completionStatus">
+              <label>Complete</label>
+              <?php if($input->metricstep_status == 1): ?>
+              <input name="inputComplete" type="checkbox" value="1" checked>
+              <?php else: ?>
+              <input name="inputComplete" type="checkbox" value="1">
+              <?php endif; ?>
+            </div>
             <span class="prev">&lt;&lt;</span> level <span class="page">A</span><span class="next">&gt;&gt;</span>
             <img id="accept" src="<?php echo base_url();?>images/checkmark.png" alt="accept changes">
           </div>

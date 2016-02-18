@@ -86,6 +86,7 @@ class Home extends CI_Controller {
 			'metricstep_gaps' => $this->input->post('inputGAPS'),
 			'metricstep_actions' => $this->input->post('inputActions'),
 			'metricstep_comments' => $this->input->post('inputComments'),
+			'metricstep_status' => $this->input->post('inputComplete'),
 			'facility_id' => $user_data['facility_id'],
 			'company_id' => $user_data['company_id'],
 		);
