@@ -1,6 +1,6 @@
 var stem, stick, leave, botLeaf, bud, white, active, title;
 
-var base_url = 'http://localhost:8888/sustainability-toolkit/';
+var base_url = 'http://localhost/sustainability-toolkit/';
 
 var criteria = new Array(["Environment","environment",0,"1","colour1"],["Community","community",100,"2","colour2"],["Operating Practices","operatingPractices",50,"3","colour3"],["Products & Services","productsServices",10,"4","colour4"]);
 var metrics = new Array(["0","community","colour1"],["20","environment","colour2"],["50","community","colour1"],["18","operatingPractices","colour3"],["100","productsServices","colour4"],["75","operatingPractices","colour3"],["80","operatingPractices","colour3"],["35","productsServices","colour4"],["25","environment","colour2"],["10","environment","colour2"],["46","community","colour1"],["64","productsServices","colour4"]);
@@ -1473,17 +1473,17 @@ function swapMetrics(e){
 			var percentAAA = data['AAA'];
 
 			var progressA = (percentA/13) * 100;
-			console.log("progress %: "+progressA);
+			//console.log("progress %: "+progressA);
 			var progressBarA = document.querySelector(".levelA div");
 			progressBarA.style.width = progressA + "%";
 
 			var progressAA = (percentAA/13) * 100;
-			console.log("progressAA %: "+progressAA);
+			//console.log("progressAA %: "+progressAA);
 			var progressBarAA = document.querySelector(".levelAA div");
 			progressBarAA.style.width = progressAA + "%";
 
 			var progressAAA = (percentAAA/13) * 100;
-			console.log("progressAAA %: "+progressAAA);
+			//console.log("progressAAA %: "+progressAAA);
 			var progressBarAAA = document.querySelector(".levelAAA div");
 			progressBarAAA.style.width = progressAAA + "%";
 		},
@@ -1539,6 +1539,13 @@ $("#accept").click(function(event) {
                 $('input[name=principle]:checked').each(function(){
                 	arrPrinciples.push($(this).val());
                 });
+                var statusCheck;
+                console.log($('input[name=inputStatus]').val());
+                if($('input[name=inputStatus]').is(':checked')){
+                	statusCheck = 1;
+                }else{
+                	statusCheck = 0;
+                }
                 var formData = {
                 	id: 1,
                 	inputStep: s,
@@ -1547,6 +1554,7 @@ $("#accept").click(function(event) {
                     inputGAPS:  $('textarea[name=inputGAPS]').val(),
                     inputActions: $('textarea[name=inputActions]').val(),
                     inputComments: $('textarea[name=inputComments]').val(),
+                    inputStatus: statusCheck,
                     inputPrinciples: arrPrinciples,
                 };
                 console.log(formData);
@@ -1580,11 +1588,16 @@ function switchFormContent(s){
 		data: getData,
 		dataType: 'json',
 		success: function(data) {
-			console.log(data);
+			//console.log(data);
 			$('textarea[name=inputDesc]').val(data["metricstep_description"]),
         	$('textarea[name=inputGAPS]').val(data["metricstep_gaps"]),
         	$('textarea[name=inputActions]').val(data["metricstep_actions"]),
-        	$('textarea[name=inputComments]').val(data["metricstep_comments"])
+        	$('textarea[name=inputComments]').val(data["metricstep_comments"]);
+        	if(data["metricstep_status"] == 1){
+        		$('input[name=inputStatus').prop("checked", true);
+        	}else{
+        		$('input[name=inputStatus').prop("checked", false);
+        	}
 		},
 		error: function(){
 		alert("failed");

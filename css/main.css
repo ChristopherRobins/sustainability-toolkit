@@ -144,10 +144,12 @@ img {
 }
 
 .companies {
+	float: right;
+	margin-right: 10px;
 }
 
 .companies img {
-	height: 30px;
+	height: 20px;
 	margin-bottom: 5px;
 }
 
@@ -190,7 +192,7 @@ header p {
 	position: absolute;
 	right: 0;
 	z-index: 2;
-	width: 30%;
+	width: 340px;
 	bottom: 0;
 }
 
@@ -1747,10 +1749,6 @@ nav ul li a:hover {
 }
 
 @media screen and (max-width: 1280px) {
-
-	#decor {
-		width: 370px;
-	}
 
 	#metricFlowers {
 		right: 0px;

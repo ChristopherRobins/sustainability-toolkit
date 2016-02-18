@@ -75,9 +75,9 @@
             <div class="completionStatus">
               <label>Complete</label>
               <?php if($input->metricstep_status == 1): ?>
-              <input name="inputComplete" type="checkbox" value="1" checked>
+              <input name="inputStatus" type="checkbox" checked>
               <?php else: ?>
-              <input name="inputComplete" type="checkbox" value="1">
+              <input name="inputStatus" type="checkbox">
               <?php endif; ?>
             </div>
             <span class="prev">&lt;&lt;</span> level <span class="page">A</span><span class="next">&gt;&gt;</span>

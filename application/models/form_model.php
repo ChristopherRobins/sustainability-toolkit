@@ -70,6 +70,7 @@
 			$this->db->where('i.metric_id = m.metric_id');
 			$this->db->where('i.metric_id', $metric);
 			$this->db->where('m.metric_disabled', 0);
+			$this->db->where('i.metricstep_status', 1);
 			$countA = $this->db->get_where('tbl_form_input i, tbl_metric m', array('i.step_id <' => '14'));
 
 			// LEVEL AA
@@ -78,6 +79,7 @@
 			$this->db->where('i.metric_id = m.metric_id');
 			$this->db->where('i.metric_id', $metric);
 			$this->db->where('m.metric_disabled', 0);
+			$this->db->where('i.metricstep_status', 1);
 			$countAA = $this->db->get_where('tbl_form_input i, tbl_metric m', array('i.step_id < ' => '27', 'i.step_id > ' => '13'));
 			//print_r($this->db->last_query());
 			// LEVEL AAA
@@ -86,6 +88,7 @@
 			$this->db->where('i.metric_id = m.metric_id');
 			$this->db->where('i.metric_id', $metric);
 			$this->db->where('m.metric_disabled', 0);
+			$this->db->where('i.metricstep_status', 1);
 			$countAAA = $this->db->get_where('tbl_form_input i, tbl_metric m', array('i.step_id <= ' => '39', 'i.step_id > ' => '26'));
 
 			$count = array(
