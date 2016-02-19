@@ -1,7 +1,6 @@
 <body>
   <nav id="topNav">
         <ul>
-          
           <li><a href="<?php echo base_url('index.php/home/index')?>">Home</a></li>
           <li class="aboutdropdown"><!-- <a data-dropdown="drop1" aria-controls="drop1" aria-expanded="false">About</a>
             <ul id="drop1" class="f-dropdown" data-dropdown-content aria-hidden="true" tabindex="-1">
@@ -34,8 +33,9 @@
           </ul>
         </li>
           <li><a href="<?php echo base_url('index.php/home/logout')?>">Logout</a></li>
+          <li class="companies"><a href="http://tavaresgroupconsulting.com" target="_blank"><img src="<?php echo base_url();?>images/tavares-new.png" alt="Tavares Logo"></a></li>
         </ul>
-        <a href="http://tavaresgroupconsulting.com" target="_blank" class="companies"><img src="<?php echo base_url();?>images/tavares-new.png" alt="Tavares Logo"></a>
+        
       </nav>
   <div id="headerWrap" class="large-12 columns">
     <header id="mainHeader" class="row">

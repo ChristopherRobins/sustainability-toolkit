@@ -147,10 +147,13 @@ img {
 }
 
 .companies {
+	float: right;
+	margin-right: 10px;
 }
 
 .companies img {
-	height: 27px;
+
+	height: 20px;
 	margin-bottom: 5px;
 	float: right;
 	margin-right: 30px;
@@ -195,7 +198,7 @@ header p {
 	position: absolute;
 	right: 0;
 	z-index: 2;
-	width: 25%;
+	width: 340px;
 	bottom: 0;
 }
 
@@ -1172,6 +1175,14 @@ nav ul li a:hover {
 	padding-right: 10px;
 }
 
+.completionStatus {
+	float: left;
+}
+
+.completionStatus label {
+	display: inline-block;
+}
+
 #desc {
 	margin-top: 20px;
 	font-size: 1.3em;
@@ -1745,10 +1756,6 @@ nav ul li a:hover {
 }
 
 @media screen and (max-width: 1280px) {
-
-	#decor {
-		width: 370px;
-	}
 
 	#metricFlowers {
 		right: 0px;

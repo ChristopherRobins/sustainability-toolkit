@@ -1423,13 +1423,15 @@ function getMetrics(n){
 
 // Applies the selected class to desired metric in order to properly update/pull from database
 function swapMetrics(e){
-	console.log(e.target);
-	for(i=0; i<theMetrics.length; i++){
-		theMetrics[i].classList.remove("selected");
-	}
-	titleMetric.textContent = e.target.innerHTML;
-	if(e.target.innerHTML = titleMetric.textContent){
-		e.target.classList.add("selected");
+	if(e != null){
+		console.log(e.target);
+		for(i=0; i<theMetrics.length; i++){
+			theMetrics[i].classList.remove("selected");
+		}
+		titleMetric.textContent = e.target.innerHTML;
+		if(e.target.innerHTML = titleMetric.textContent){
+			e.target.classList.add("selected");
+		}
 	}
 
 	/*stepLevel
@@ -1462,30 +1464,31 @@ function swapMetrics(e){
 		type: "POST",
 		url: base_url + "index.php/home/getProgress",
 		data: metricData,
+		dataType: 'json',
 		success: function(data) {
 			console.log("data: "+data);
-			//console.log("metricData works " + metricData);
-			var percentA = parseInt(data[5]);
-			var percentAA = parseInt(data[12]);
-			var percentAAA = parseInt(data[20]);
+			console.log(data['A']);
+			var percentA = data['A'];
+			var percentAA = data['AA'];
+			var percentAAA = data['AAA'];
 
 			var progressA = (percentA/13) * 100;
-			console.log("progress %: "+progressA);
+			//console.log("progress %: "+progressA);
 			var progressBarA = document.querySelector(".levelA div");
 			progressBarA.style.width = progressA + "%";
 
 			var progressAA = (percentAA/13) * 100;
-			console.log("progressAA %: "+progressAA);
+			//console.log("progressAA %: "+progressAA);
 			var progressBarAA = document.querySelector(".levelAA div");
 			progressBarAA.style.width = progressAA + "%";
 
 			var progressAAA = (percentAAA/13) * 100;
-			console.log("progressAAA %: "+progressAAA);
+			//console.log("progressAAA %: "+progressAAA);
 			var progressBarAAA = document.querySelector(".levelAAA div");
 			progressBarAAA.style.width = progressAAA + "%";
 		},
-		error: function(){
-		alert("failed");
+		error: function(data){
+            console.log(data);
 		}
 	});
 	switchFormContent(s);
@@ -1536,14 +1539,22 @@ $("#accept").click(function(event) {
                 $('input[name=principle]:checked').each(function(){
                 	arrPrinciples.push($(this).val());
                 });
+                var statusCheck;
+                console.log($('input[name=inputStatus]').val());
+                if($('input[name=inputStatus]').is(':checked')){
+                	statusCheck = 1;
+                }else{
+                	statusCheck = 0;
+                }
                 var formData = {
                 	id: 1,
                 	inputStep: s,
-                	inputMetric: $('.selected').parent().attr("class"),
+                	inputMetric: $('.selected').parent().attr("data-metric"),
                     inputDesc:  $('textarea[name=inputDesc]').val(),
                     inputGAPS:  $('textarea[name=inputGAPS]').val(),
                     inputActions: $('textarea[name=inputActions]').val(),
                     inputComments: $('textarea[name=inputComments]').val(),
+                    inputStatus: statusCheck,
                     inputPrinciples: arrPrinciples,
                 };
                 console.log(formData);
@@ -1551,13 +1562,14 @@ $("#accept").click(function(event) {
                 type: "POST",
                 url: base_url + "index.php/home/formInput",
                 data: formData,
-                success: function() {
+                success: function(data) {
                 	changeToColour();
-                	console.log(formData);
+                	console.log(data);
                 	//alert("success");
+                	swapMetrics();
                 },
-                error: function(){
-                	alert("failed");
+                error: function(data){
+                	console.log(data);
                 }
                 });
             });
@@ -1576,11 +1588,16 @@ function switchFormContent(s){
 		data: getData,
 		dataType: 'json',
 		success: function(data) {
-			console.log(data);
+			//console.log(data);
 			$('textarea[name=inputDesc]').val(data["metricstep_description"]),
         	$('textarea[name=inputGAPS]').val(data["metricstep_gaps"]),
         	$('textarea[name=inputActions]').val(data["metricstep_actions"]),
-        	$('textarea[name=inputComments]').val(data["metricstep_comments"])
+        	$('textarea[name=inputComments]').val(data["metricstep_comments"]);
+        	if(data["metricstep_status"] == 1){
+        		$('input[name=inputStatus').prop("checked", true);
+        	}else{
+        		$('input[name=inputStatus').prop("checked", false);
+        	}
 		},
 		error: function(){
 		alert("failed");
