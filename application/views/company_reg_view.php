@@ -1,8 +1,12 @@
-<?php if($user_privileges == 1): ?>
+<?php if($user_privileges == (1 || 2)): ?>
 <?php
    $attributes = array('id' => 'companyForm');
-   echo form_open('verifyregistration/company', $attributes);
-    ?>
+   if($user_privileges == 1):
+   		echo form_open('verifyregistration/company', $attributes);
+   	else:
+   		echo form_open('update/company', $attributes);
+   	endif;
+ ?>
     <h2 id="companyTitle">Company Profile</h2>
 	<div id="innerCompanyForm">
 		<?php echo validation_errors('<p class="errors">'); ?>

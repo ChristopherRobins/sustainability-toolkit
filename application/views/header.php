@@ -19,6 +19,11 @@
               echo base_url('index.php/registration/company');
               echo ">Register Company</a></li>";
             }
+            if(isset($user_privileges) && $user_privileges == 2) {
+              echo "<li><a href=";
+              echo base_url('index.php/registration/company');
+              echo ">Update Company</a></li>";
+            }
             if(isset($user_privileges) && $user_privileges <= 2) {
               echo "<li><a href=";
               echo base_url('index.php/registration/facility');
@@ -28,6 +33,11 @@
               echo "<li><a href=";
               echo base_url('index.php/registration/user');
               echo ">Register User</a></li>";
+            }
+            if(isset($user_privileges) && $user_privileges == 2) {
+              echo "<li><a href=";
+              echo base_url('index.php/metrics');
+              echo ">Metrics</a></li>";
             }
             ?>
           </ul>

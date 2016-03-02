@@ -53,8 +53,14 @@ class Registration extends CI_Controller {
        $this->load->view('header');
        $this->load->view('company_reg_view');
        $this->load->view('close');
-     }else{
-       redirect('home', 'refresh');
+     }else if($data['user_privileges'] == 2){
+       $this->load->helper(array('form'));
+       $this->load->view('head', $data);
+       $this->load->view('header');
+       $this->load->view('company_reg_view');
+       $this->load->view('close');
+     } else {
+      redirect('home', 'refresh');
      }
    } else {
      redirect('login', 'refresh');
