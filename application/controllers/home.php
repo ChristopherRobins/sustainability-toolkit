@@ -16,6 +16,7 @@ class Home extends CI_Controller {
     // Builds page
 	public function index() {
 		if($this->session->userdata('logged_in')) {
+			$message = $this->session->flashdata('message');
 			$session_data = $this->session->userdata('logged_in');
 			//$user_data['user_id'] = $session_data['user_id'];
 			$id = $session_data['user_id'];

@@ -27,6 +27,7 @@
     <?php if($user_privileges == 2): ?>
       <img src="<?php echo base_url();?>images/gear.png" alt="Gear Icon" id="cmsIcon" data-cms="closed">
     <?php endif; ?>
+    <p>Metric List</p>
     <ul id="metrics">
     </ul>
     <?php if($user_privileges == 2): ?>
