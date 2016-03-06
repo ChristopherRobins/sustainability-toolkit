@@ -1,88 +1,63 @@
-<?php 
+<?php
 $attributes = array('id' => 'companyForm');
 echo form_open('metrics/add_metric', $attributes);
   echo '<h2 id="facilityTitle">Metric Suggestions</h2>';
   echo '<div id="innerCompanyForm">';
     echo '<div data-criteria="1">';
       echo '<h3>Environment</h3>';
-      echo '<label for="Air Emissions">Air Emissions ';
-        echo form_checkbox('environmentMetrics[0]', 'Air Emissions', FALSE);
-      echo '</label>';
-      echo '<label for="Biodiversity">Biodiversity ';
-        echo form_checkbox('environmentMetrics[1]', 'Biodiversity', FALSE);
-      echo '</label>';
-      echo '<label for="Energy">Energy ';
-        echo form_checkbox('environmentMetrics[2]', 'Energy', FALSE);
-      echo '</label>';
-      echo '<label for="Greenhouse Gas Emissions">Greenhouse Gas Emissions ';
-        echo form_checkbox('environmentMetrics[3]', 'Greenhouse Gas Emissions', FALSE);
-      echo '</label>';
-      echo '<label for="Hazardous Substances">Hazardous Substances ';
-        echo form_checkbox('environmentMetrics[5]', 'Hazardous Substances', FALSE);
-      echo '</label>';
-      echo '<label for="Materials">Materials ';
-        echo form_checkbox('environmentMetrics[6]', 'Materials', FALSE);
-      echo '</label>';
-      echo '<label for="Waste">Waste ';
-        echo form_checkbox('environmentMetrics[7]', 'Waste', FALSE);
-      echo '</label>';
-      echo '<label for="Water">Water ';
-        echo form_checkbox('environmentMetrics[8]', 'Water', FALSE);
-      echo '</label>';
+      for($i=0;$i<count($suggestedMetrics['environment']);$i++){
+        if(in_array($suggestedMetrics['environment'][$i], $companyMetrics['environment'])){
+          echo '<label for="'.$suggestedMetrics['environment'][$i]['metric_name'].'">'.$suggestedMetrics['environment'][$i]['metric_name'].' ';
+            echo form_checkbox('environmentMetrics['.$i.']', $suggestedMetrics['environment'][$i]['metric_name'], TRUE, 'disabled');
+          echo '</label>';
+        } else {
+          echo '<label for="'.$suggestedMetrics['environment'][$i]['metric_name'].'">'.$suggestedMetrics['environment'][$i]['metric_name'].' ';
+            echo form_checkbox('environmentMetrics['.$i.']', $suggestedMetrics['environment'][$i]['metric_name'], FALSE);
+          echo '</label>';
+        }
+      }
     echo '</div>';
-    echo '<div data-criteria="2">';
+    echo '<div>';
       echo '<h3>Community</h3>';
-      echo '<label for="Stakeholder Engagement">Stakeholder Engagement ';
-        echo form_checkbox('communityMetrics[0]', 'Stakeholder Engagement', FALSE);
-      echo '</label>';
-      echo '<label for="Community Development">Community Development ';
-        echo form_checkbox('communityMetrics[1]', 'Community Development', FALSE);
-      echo '</label>';
-      echo '<label for="Philanthropy">Philanthropy ';
-        echo form_checkbox('communityMetrics[2]', 'Philanthropy', FALSE);
-      echo '</label>';
-      echo '<label for="Volunteerism">Volunteerism ';
-        echo form_checkbox('communityMetrics[3]', 'Volunteerism', FALSE);
-      echo '</label>';
+      for($i=0;$i<count($suggestedMetrics['community']);$i++){
+        if(in_array($suggestedMetrics['community'][$i], $companyMetrics['community'])){
+          echo '<label for="'.$suggestedMetrics['community'][$i]['metric_name'].'">'.$suggestedMetrics['community'][$i]['metric_name'].' ';
+            echo form_checkbox('communityMetrics['.$i.']', $suggestedMetrics['community'][$i]['metric_name'], TRUE, 'disabled');
+          echo '</label>';
+        } else {
+          echo '<label for="'.$suggestedMetrics['community'][$i]['metric_name'].'">'.$suggestedMetrics['community'][$i]['metric_name'].' ';
+            echo form_checkbox('communityMetrics['.$i.']', $suggestedMetrics['community'][$i]['metric_name'], FALSE);
+          echo '</label>';
+        }
+      }
     echo '</div>';
-    echo '<div data-criteria="3">';
+    echo '<div>';
       echo '<h3>Operating Practices</h3>';
-      echo '<label for="Diversity & Equal Opportunity">Diversity & Equal Opportunity ';
-        echo form_checkbox('opMetrics[0]', 'Diversity & Equal Opportunity', FALSE);
-      echo '</label>';
-      echo '<label for="Employment">Employment ';
-        echo form_checkbox('opMetrics[1]', 'Employment', FALSE);
-      echo '</label>';
-      echo '<label for="Ethics">Ethics ';
-        echo form_checkbox('opMetrics[2]', 'Ethics', FALSE);
-      echo '</label>';
-      echo '<label for="Human Rights">Human Rights ';
-        echo form_checkbox('opMetrics[3]', 'Human Rights', FALSE);
-      echo '</label>';
-      echo '<label for="Labor Relations">Labor Relations ';
-        echo form_checkbox('opMetrics[4]', 'Labor Relations', FALSE);
-      echo '</label>';
-      echo '<label for="Occupational Health & Safety">Occupational Health & Safety ';
-        echo form_checkbox('opMetrics[5]', 'Occupational Health & Safety', FALSE);
-      echo '</label>';
-      echo '<label for="Training & Education">Training & Education ';
-        echo form_checkbox('opMetrics[6]', 'Training & Education', FALSE);
-      echo '</label>';
+      for($i=0;$i<count($suggestedMetrics['op']);$i++){
+        if(in_array($suggestedMetrics['op'][$i], $companyMetrics['op'])){
+          echo '<label for="'.$suggestedMetrics['op'][$i]['metric_name'].'">'.$suggestedMetrics['op'][$i]['metric_name'].' ';
+            echo form_checkbox('opMetrics['.$i.']', $suggestedMetrics['op'][$i]['metric_name'], TRUE, 'disabled');
+          echo '</label>';
+        } else {
+          echo '<label for="'.$suggestedMetrics['op'][$i]['metric_name'].'">'.$suggestedMetrics['op'][$i]['metric_name'].' ';
+            echo form_checkbox('opMetrics['.$i.']', $suggestedMetrics['op'][$i]['metric_name'], FALSE);
+          echo '</label>';
+        }
+      }
     echo '</div>';
-    echo '<div data-criteria="4">';
-      echo '<h3>Products & Services</h3>';
-      echo '<label for="Consumer Health & Safety">Consumer Health & Safety ';
-        echo form_checkbox('psMetrics[0]', 'Consumer Health & Safety', FALSE);
-      echo '</label>';
-      echo '<label for="Life Cycle Considerations">Life Cycle Considerations ';
-        echo form_checkbox('psMetrics[1]', 'Life Cycle Considerations', FALSE);
-      echo '</label>';
-      echo '<label for="Responsible Sourcing">Responsible Sourcing ';
-        echo form_checkbox('psMetrics[2]', 'Responsible Sourcing', FALSE);
-      echo '</label>';
-      echo '<label for="Supplier Engagement">Supplier Engagement ';
-        echo form_checkbox('psMetrics[3]', 'Supplier Engagement', FALSE);
-      echo '</label>';
+    echo '<div>';
+      echo '<h3>Prodcucts & Services</h3>';
+      for($i=0;$i<count($suggestedMetrics['pns']);$i++){
+        if(in_array($suggestedMetrics['pns'][$i], $companyMetrics['pns'])){
+          echo '<label for="'.$suggestedMetrics['pns'][$i]['metric_name'].'">'.$suggestedMetrics['pns'][$i]['metric_name'].' ';
+            echo form_checkbox('pnsMetrics['.$i.']', $suggestedMetrics['pns'][$i]['metric_name'], TRUE, 'disabled');
+          echo '</label>';
+        } else {
+          echo '<label for="'.$suggestedMetrics['pns'][$i]['metric_name'].'">'.$suggestedMetrics['pns'][$i]['metric_name'].' ';
+            echo form_checkbox('pnsMetrics['.$i.']', $suggestedMetrics['pns'][$i]['metric_name'], FALSE);
+          echo '</label>';
+        }
+      }
     echo '</div>';
     echo '<input id="metricSend" type="submit" name="submit" value="Submit"></input>';
   echo '</div>';

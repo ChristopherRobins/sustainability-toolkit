@@ -34,18 +34,18 @@
               echo base_url('index.php/registration/user');
               echo ">Register User</a></li>";
             }
-            // if(isset($user_privileges) && $user_privileges == 2) {
-            //   echo "<li><a href=";
-            //   echo base_url('index.php/metrics');
-            //   echo ">Metrics</a></li>";
-            // }
+            if(isset($user_privileges) && $user_privileges == 2) {
+              echo "<li><a href=";
+              echo base_url('index.php/metrics');
+              echo ">Metrics</a></li>";
+            }
             ?>
           </ul>
         </li>
           <li><a href="<?php echo base_url('index.php/home/logout')?>">Logout</a></li>
           <li class="companies"><a href="http://tavaresgroupconsulting.com" target="_blank"><img src="<?php echo base_url();?>images/tavares-new.png" alt="Tavares Logo"></a></li>
         </ul>
-        
+
       </nav>
   <div id="headerWrap" class="large-12 columns">
     <header id="mainHeader" class="row">
@@ -58,4 +58,3 @@
     </header>
   </div>
   <div id="holder">
-    

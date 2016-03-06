@@ -24,7 +24,7 @@ class Metrics extends CI_Controller {
 			$data['facility_id'] = $session_data['facility_id'];
 			$data['suggestedMetrics'] = $this->metric_model->getSuggestedMetrics();
 			$data['companyMetrics'] = $this->metric_model->getMetricsByCompany($session_data['company_id']);
-			$data['comparedMetrics'] = $this->metric_model->getComparedMetrics($data['companyMetrics'], $data['suggestedMetrics']);
+			//$data['comparedMetrics'] = $this->metric_model->getComparedMetrics($data['companyMetrics'], $data['suggestedMetrics']);
 			$this->load->view('head', $data);
 			$this->load->view('header');
 			$this->load->view('metric_suggestions', $data);
@@ -66,10 +66,10 @@ class Metrics extends CI_Controller {
 					);
 				}
 			}
-			if(isset($_POST['psMetrics'])){
-				foreach($_POST['psMetrics'] as $psMetric){
+			if(isset($_POST['pnsMetrics'])){
+				foreach($_POST['pnsMetrics'] as $pnsMetric){
 					$data[] = array(
-						'metric_name' => $psMetric,
+						'metric_name' => $pnsMetric,
 						'criteria_id' => 4,
 						'company_id' => $session_data['company_id']
 					);
