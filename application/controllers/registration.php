@@ -4,7 +4,7 @@ class Registration extends CI_Controller {
 
  function __construct() {
    parent::__construct();
-   $this->load->model('company','',TRUE);
+   $this->load->model('company_model','',TRUE);
    $this->load->model('facility','',TRUE);
  }
 
@@ -19,12 +19,12 @@ class Registration extends CI_Controller {
      $data['facility_name'] = $session_data['facility_id'];
      if($data['user_privileges'] <= 3){
        if($data['user_privileges'] == 1){
-        $data['companies'] = $this->company->getCompanies();
+        $data['companies'] = $this->company_model->getCompanies();
        }else if($data['user_privileges'] == 2){
-        $data['companies'] = $this->company->getCompany($data['company_id']);
+        $data['companies'] = $this->company_model->getCompany($data['company_id']);
         $data['facilities'] = $this->facility->getCompanyFacilities($data['company_id']);
        } else {
-        $data['companies'] = $this->company->getCompany($data['company_id']);
+        $data['companies'] = $this->company_model->getCompany($data['company_id']);
         $data['facilities'] = $this->facility->getFacility($data['facility_id']);
        }
        $this->load->helper(array('form'));
@@ -68,7 +68,7 @@ class Registration extends CI_Controller {
  }
 
  function facility() {
-  $this->load->model('company','',TRUE);
+  $this->load->model('company_model','',TRUE);
    if($this->session->userdata('logged_in')) {
      $session_data = $this->session->userdata('logged_in');
      $id = $session_data['user_id'];
@@ -78,9 +78,9 @@ class Registration extends CI_Controller {
      $data['facility_id'] = $session_data['facility_id'];
      if($data['user_privileges'] <= 2){
        if($data['user_privileges'] == 1){
-        $data['companies'] = $this->company->getCompanies();
+        $data['companies'] = $this->company_model->getCompanies();
        }else{
-        $data['companies'] = $this->company->getCompany($data['company_id']);
+        $data['companies'] = $this->company_model->getCompany($data['company_id']);
        }
        $this->load->helper(array('form'));
        $this->load->view('head', $data);

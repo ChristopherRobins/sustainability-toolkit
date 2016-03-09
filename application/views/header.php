@@ -9,6 +9,12 @@
             <a href="#">About</a>
             <ul class="dropdowncontent">
               <li><a href="#">Resources</a></li>
+              <?php if(isset($user_privileges) && $user_privileges == 1) {
+              echo "<li><a href=";
+              echo base_url('index.php/registration/company');
+              echo ">Companies</a></li>";
+            }
+            ?>
             </ul>
           </li>
           <li class="aboutdropdown">

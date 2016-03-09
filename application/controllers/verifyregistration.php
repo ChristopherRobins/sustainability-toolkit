@@ -5,7 +5,7 @@ class VerifyRegistration extends CI_Controller {
   function __construct() {
     parent::__construct();
     $this->load->model('user','',TRUE);
-    $this->load->model('company','',TRUE);
+    $this->load->model('company_model','',TRUE);
     $this->load->model('facility','',TRUE);
   }
 
@@ -18,12 +18,12 @@ class VerifyRegistration extends CI_Controller {
       $data['company_id'] = $session_data['company_id'];
       $data['facility_id'] = $session_data['facility_id'];
       if($data['user_privileges'] == 1){
-        $data['companies'] = $this->company->getCompanies();
+        $data['companies'] = $this->company_model->getCompanies();
       } else if($data['user_privileges'] == 2) {
-        $data['companies'] = $this->company->getCompany($data['company_id']);
+        $data['companies'] = $this->company_model->getCompany($data['company_id']);
         $data['facilities'] = $this->facility->getCompanyFacilities($data['company_id']);
       } else {
-        $data['companies'] = $this->company->getCompany($data['company_id']);
+        $data['companies'] = $this->company_model->getCompany($data['company_id']);
         $data['facilities'] = $this->facility->getFacility($data['facility_id']);
       }
       $this->load->helper(array('form'));
@@ -62,7 +62,7 @@ class VerifyRegistration extends CI_Controller {
     if($this->form_validation->run() == FALSE) {
       $this->index('company_reg_view');
     }else{
-      $this->company->add_company();
+      $this->company_model->add_company();
       $this->index('form_success');
     }
   }
