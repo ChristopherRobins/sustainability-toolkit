@@ -12,7 +12,7 @@
 		//print_r($result);
 	}
 
-	public function getCompanies() {
+	public function getAllCompanies() {
 		return $this->db->get('tbl_company')->result();
 	}
 

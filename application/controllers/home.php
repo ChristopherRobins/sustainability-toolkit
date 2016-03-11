@@ -5,13 +5,13 @@ session_start();
 class Home extends CI_Controller {
 
 	function __construct(){
-        parent::__construct();
-        $this->load->helper('form');
-        $this->load->model('form_model');
+    parent::__construct();
+    $this->load->helper('form');
+    $this->load->model('form_model');
 		$this->load->model('criteria_model');
 		$this->load->model('facility','',TRUE);
-        $this->load->helper('url');
-    }
+    $this->load->helper('url');
+  }
 
     // Builds page
 	public function index() {

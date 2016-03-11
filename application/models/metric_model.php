@@ -6,6 +6,10 @@
 		parent::__construct();
 	}
 
+	public function getAllMetrics(){
+		return $this->db->get('tbl_metric')->result();
+	}
+
 	public function getSuggestedMetrics(){
 		$data = array();
 		$this->db->select('metric_name, criteria_id');
