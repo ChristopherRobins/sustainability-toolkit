@@ -190,8 +190,8 @@ var titleText = document.querySelector("#text");
 var titleBG = document.querySelector("#metricHeader");
 var titleHeader = document.querySelector("#metricHeader h2");
 var titleMetric = document.querySelector("#metricHeader h3");
-var metricList = document.querySelector("#metrics");
-var theMetrics = document.querySelectorAll("#metrics li a");
+var metricList = document.querySelector(".metrics");
+var theMetrics = document.querySelectorAll(".metrics li a");
 var stepDesc = document.querySelector(".step-desc");
 var midWheel = document.querySelector("#midWheel");
 var innerWheel = document.querySelector("#innerWheel");
@@ -1406,7 +1406,7 @@ function getMetrics(n){
 				anchor.appendChild(textnode);
 				metricList.appendChild(node);
 			}
-			theMetrics = document.querySelectorAll("#metrics li a");
+			theMetrics = document.querySelectorAll(".metrics li a");
 			//console.log(theMetrics);
 
 			[].forEach.call(theMetrics, function(el){

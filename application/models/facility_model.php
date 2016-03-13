@@ -1,6 +1,6 @@
 <?php
 
-	class Facility extends CI_Model {
+	class Facility_model extends CI_Model {
 
     public function __construct(){
 			parent::__construct();

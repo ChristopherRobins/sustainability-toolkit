@@ -11,7 +11,7 @@
               <li><a href="#">Resources</a></li>
               <?php if(isset($user_privileges) && $user_privileges == 1) {
               echo "<li><a href=";
-              echo base_url('index.php/company/');
+              echo base_url('index.php/admin/companies');
               echo ">Companies</a></li>";
             }
             ?>

@@ -12,6 +12,14 @@
 		//print_r($result);
 	}
 
+	public function getCompanyByFacility($id){
+		$this->db->select('*');
+		$this->db->from('tbl_company');
+		$this->db->join('tbl_facility', 'tbl_company.company_id = tbl_facility.company_id');
+		$this->db->where('tbl_facility.facility_id', $id);
+		return $this->db->get()->row();
+	}
+
 	public function getAllCompanies() {
 		return $this->db->get('tbl_company')->result();
 	}

@@ -6,7 +6,7 @@
   var addMetricButton = document.querySelector('#addMetric button');
 
   function openCms(){
-    var customMetrics = document.querySelectorAll("#metrics li:not([data-editable='0'])");
+    var customMetrics = document.querySelectorAll(".metrics li:not([data-editable='0'])");
     if(this.getAttribute('data-cms') == 'closed'){
       toggleCmsOn();
     }else{
@@ -75,7 +75,7 @@
   function toggleCmsOn(){
     cmsButton.setAttribute('data-cms', 'open');
     addMetricDiv.classList.remove('hidden');
-    var customMetrics = document.querySelectorAll("#metrics li:not([data-editable='0'])");
+    var customMetrics = document.querySelectorAll(".metrics li:not([data-editable='0'])");
     for(i=0;i<customMetrics.length;i++){
       console.log(customMetrics[i]);
       var button = document.createElement("button");
@@ -90,7 +90,7 @@
   function toggleCmsOff(){
     addMetricDiv.classList.add('hidden');
     cmsButton.setAttribute('data-cms', 'closed');
-    var customMetrics = document.querySelectorAll("#metrics li:not([data-editable='0'])");
+    var customMetrics = document.querySelectorAll(".metrics li:not([data-editable='0'])");
     for(i=0;i<customMetrics.length;i++){
       customMetrics[i].removeChild(customMetrics[i].childNodes[1]);
     }

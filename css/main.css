@@ -1434,7 +1434,7 @@ nav ul li a:hover {
 	z-index: 7;
 }
 
-#metricWrap {
+.metricWrap {
 	position: relative;
 	z-index: 7;
 	/*margin-top: 40px;*/
@@ -1450,17 +1450,17 @@ nav ul li a:hover {
 	border-radius: 20px;*/
 }
 
-#metrics li {
+.metrics li {
 	margin-top: 5px;
 	list-style-type: none;
 }
 
-#metrics li a {
+.metrics li a {
 	color: #58585a;
 	text-decoration: none;
 }
 
-#metrics ul li:hover a {
+.metrics ul li:hover a {
 	color: #a2ce45;
 }
 
@@ -1500,6 +1500,13 @@ nav ul li a:hover {
 
 .selected {
 	color: #a2ce45 !important;
+}
+
+.companySelect {
+	margin: 10px;
+	margin: 0 auto;
+	width: 80%;
+	background: rgba(206, 206, 206, 0.8);
 }
 
 @media screen and (max-width: 1120px), screen and (max-height: 730px) {

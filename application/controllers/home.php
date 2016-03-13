@@ -9,7 +9,7 @@ class Home extends CI_Controller {
     $this->load->helper('form');
     $this->load->model('form_model');
 		$this->load->model('criteria_model');
-		$this->load->model('facility','',TRUE);
+		$this->load->model('facility_model','',TRUE);
     $this->load->helper('url');
   }
 
@@ -135,7 +135,7 @@ class Home extends CI_Controller {
 
 	public function getFacilities(){
 		$id = $this->input->post('companyId');
-		$query = $this->facility->getCompanyFacilities($id);
+		$query = $this->facility_model->getCompanyFacilities($id);
 		echo json_encode($query);
 	}
 }
