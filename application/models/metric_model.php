@@ -29,7 +29,25 @@
 	}
 
 	public function getMetricsByCompany($id){
-		return $this->db->get_where('tbl_metric', array('company_id' => $id))->result();
+		$data = array();
+		$data['environment'] = array();
+		$data['community'] = array();
+		$data['op'] = array();
+		$data['pns'] = array();
+		$this->db->select('metric_name, criteria_id');
+		$query = $this->db->get_where('tbl_metric', array('company_id' => $id));
+		foreach($query->result_array() as $row){
+			if($row['criteria_id']==1){
+				$data['environment'][] = $row;
+			} else if($row['criteria_id']==2) {
+				$data['community'][] = $row;
+			} else if($row['criteria_id']==3) {
+				$data['op'][] = $row;
+			} else if($row['criteria_id']==4) {
+				$data['pns'][] = $row;
+			}
+		}
+		return $data;
 	}
 
 	public function getComparedMetrics($comArr, $sugArr){
