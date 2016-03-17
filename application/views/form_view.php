@@ -6,7 +6,7 @@
           <h1 id="stage">1. Assess Stakeholder Priorities</h1>
           <p id="close">X</p>
         </div>
-        
+
       </div>
       <div id="form-content">
         <div class="large-12 columns">
@@ -74,11 +74,7 @@
           <div class="large-12 columns pages">
             <div class="completionStatus">
               <label>Complete</label>
-              <?php if($input->metricstep_status == 1): ?>
               <input name="inputStatus" type="checkbox" checked>
-              <?php else: ?>
-              <input name="inputStatus" type="checkbox">
-              <?php endif; ?>
             </div>
             <span class="prev">&lt;&lt;</span> level <span class="page">A</span><span class="next">&gt;&gt;</span>
             <img id="accept" src="<?php echo base_url();?>images/checkmark.png" alt="accept changes">

@@ -9,6 +9,7 @@ class Home extends CI_Controller {
     $this->load->helper('form');
     $this->load->model('form_model');
 		$this->load->model('criteria_model');
+		$this->load->model('metric_model');
 		$this->load->model('facility_model','',TRUE);
     $this->load->helper('url');
   }
@@ -40,6 +41,11 @@ class Home extends CI_Controller {
 		}
 	}
 
+	public function test(){
+		$data = $this->metric_model->getAllStepProgressByCompany(6);
+		print_r($data);die;
+	}
+
 	function logout(){
 	   $this->session->unset_userdata('logged_in');
 	   session_destroy();
@@ -60,8 +66,8 @@ class Home extends CI_Controller {
 		$metric = $this->input->post('theMetric');
 		//$this->form_model->getInput($id, $step, $metric);
 		//$this->form_model->getInput($id, $step, $metric);
-		$query = $this->form_model->getInput($user_data, $step, $metric);
-		echo json_encode($query);
+		$input = $this->form_model->getInput($user_data, $step, $metric);
+		echo json_encode($input);
 		//$this->load->view('form_view', $data);
 	}
 
