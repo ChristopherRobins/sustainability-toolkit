@@ -1,0 +1,256 @@
+body {
+            background-color: #FFFFFF;
+        }
+
+        .hide {
+            display: none !important;
+        }
+
+        #main path {
+            fill: #efefef;
+        }
+
+        #outer {
+            margin-top:40px; 
+            padding:10px;
+            width: 100%;
+        }
+
+        #main {
+            width:600px; 
+            height:200px; 
+        }
+
+        #outer {
+            background:#FFFFFF;
+            border-radius: 5px;
+            color: #000;
+        }
+
+        #aBox, #aaBox, #aaaBox {
+            width: 200px;
+            float: left;
+        }
+
+
+        #div1, #div2, #div3 {
+            width: 33%;
+            height: 200px;
+            box-sizing: border-box;
+            float: left;
+            position: relative;
+            z-index: 1;
+        }
+
+        .rings, #div1, #div2, #div3 {
+            -webkit-filter: grayscale(100%);
+            -moz-filter: grayscale(100%);
+            -ms-filter: grayscale(100%);
+            filter: grayscale(100%);
+        }
+
+        
+
+        #div1 .arc, #div2 .arc, #div3 .arc {
+            fill: #8ecee9;
+        }
+
+        #subdiv1 .arc, #subdiv5 .arc, #subdiv9 .arc {
+            fill: #9acb6d;
+        }
+
+        #subdiv2 .arc, #subdiv6 .arc, #subdiv10 .arc {
+            fill: #e3bb6a;
+        }
+
+        #subdiv3 .arc, #subdiv7 .arc, #subdiv11 .arc {
+            fill: #637da1;
+        }
+
+        #subdiv4 .arc, #subdiv8 .arc, #subdiv12 .arc {
+            fill: #ddda74;
+        }
+
+        
+
+        .rings {
+            z-index: -1;
+        }
+        
+
+
+        .selectedRadial {
+            border-radius: 3px;
+            background: #f4f4f4;
+            color: #000;
+            box-shadow: 0 1px 5px rgba(0,0,0,0.4);
+            -moz-box-shadow: 0 1px 5px rgba(0,0,0,0.4);
+            border: 1px solid rgba(200,200,200,0.85);
+        }
+
+        .radial {
+            border-radius: 3px;
+            background: #FFFFFF;
+            color: #000;
+        }
+
+        /*Dropdown ring animation*/
+
+        .subRing2 {
+            -webkit-animation: slideDown1 0.4s linear 1;
+            -ms-animation: slideDown1 0.4s linear 1;
+            -moz-animation: slideDown1 0.4s linear 1;
+            animation: slideDown1 0.4s linear 1;
+        }
+
+        @-webkit-keyframes slideDown1 {
+            0% { transform: translate(0,-150px); }
+            100% { transform: translate(0,0); }
+        }
+
+        @-ms-keyframes slideDown1 {
+            0% { transform: translate(0,-150px); }
+            100% { transform: translate(0,0); }
+        }
+
+        @-moz-keyframes slideDown1 {
+            0% { transform: translate(0,-150px); }
+            100% { transform: translate(0,0); }
+        }
+
+        @keyframes slideDown1 {
+            0% { transform: translate(0,-150px); }
+            100% { transform: translate(0,0); }
+        }
+
+        .subRing3 {
+            -webkit-animation: slideDown2 0.4s linear 1;
+            -ms-animation: slideDown2 0.4s linear 1;
+            -moz-animation: slideDown2 0.4s linear 1;
+            animation: slideDown2 0.4s linear 1;
+        }
+
+        @-webkit-keyframes slideDown2 {
+            0% { transform: translate(0,-300px); }
+            100% { transform: translate(0,0); }
+        }
+
+        @-ms-keyframes slideDown2 {
+            0% { transform: translate(0,-300px); }
+            100% { transform: translate(0,0); }
+        }
+
+        @-moz-keyframes slideDown2 {
+            0% { transform: translate(0,-300px); }
+            100% { transform: translate(0,0); }
+        }
+
+        @keyframes slideDown2 {
+            0% { transform: translate(0,-300px); }
+            100% { transform: translate(0,0); }
+        }
+
+        .subRing4 {
+            -webkit-animation: slideDown3 0.4s linear 1;
+            -ms-animation: slideDown3 0.4s linear 1;
+            -moz-animation: slideDown3 0.4s linear 1;
+            animation: slideDown3 0.4s linear 1;
+        }
+
+        @-webkit-keyframes slideDown3 {
+            0% { transform: translate(0,-450px); }
+            100% { transform: translate(0,0); }
+        }
+
+        @-ms-keyframes slideDown3 {
+            0% { transform: translate(0,-450px); }
+            100% { transform: translate(0,0); }
+        }
+
+        @-moz-keyframes slideDown3 {
+            0% { transform: translate(0,-450px); }
+            100% { transform: translate(0,0); }
+        }
+
+        @keyframes slideDown3 {
+            0% { transform: translate(0,-450px); }
+            100% { transform: translate(0,0); }
+        }
+
+        
+
+        /*BARCHART*/
+
+        #barchart {
+            display: block;
+            float: right;
+            padding-left: 50px;
+            padding-bottom: 60px;
+        }
+
+        .axis {
+           font: 10px sans-serif;
+         }
+
+         .axis path,
+         .axis line {
+           fill: none;
+           stroke: #000;
+           stroke-width: 2;
+           shape-rendering: crispEdges;
+         }
+
+         .yticks .tick, .yticks .tick text {
+            display: none;
+         }
+
+         .axis text {
+            font-size: 1.3em;
+         }
+
+         #chartTitle {
+            font-size: 1.5em;
+            text-align: center;
+            text-align: center;
+         }
+
+         #barchart .labels {
+            font-size: 1em;
+         }
+
+         #legendCon {
+            /*padding-left: 50px;
+            padding-top: 50px;*/
+            position: absolute !important;
+        }
+
+         .legend {
+            font-size: 12px;
+         }
+
+         .legend rect {
+            stroke-width: 2;
+         }
+
+
+
+         .tip {
+            padding: 10px;
+            font-size: 0.8em;
+            background: #000;
+            color: #fff;
+         }
+
+         .tip:after {
+            box-sizing: border-box;
+            display: inline;
+            font-size: 10px;
+            width: 100%;
+            line-height: 1;
+            color: #000;
+            content: "\25BC";
+            position: absolute;
+            top: 35px;
+            left: 0;
+            text-align: center;
+         }

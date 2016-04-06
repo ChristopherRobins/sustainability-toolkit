@@ -42,9 +42,13 @@ class Home extends CI_Controller {
 	}
 
 	public function test(){
-		$data = $this->metric_model->getAllStepProgressByCompany(6);
-		//$data = $this->metric_model->getAllStepProgressByFacility(9);
+		//$data = $this->metric_model->getAllStepProgressByCompany(6);
+		$data = $this->metric_model->getAllStepProgressByFacility(9);
 		print_r($data);die;
+	}
+
+	public function infographic1(){
+		$this->load->view('infographic_1.html');
 	}
 
 	function logout(){
