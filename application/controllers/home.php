@@ -51,6 +51,10 @@ class Home extends CI_Controller {
 		$this->load->view('infographic_1.html');
 	}
 
+	public function infographic2(){
+		$this->load->view('infographic_2.html');
+	}
+
 	function logout(){
 	   $this->session->unset_userdata('logged_in');
 	   session_destroy();

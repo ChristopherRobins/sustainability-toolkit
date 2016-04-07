@@ -149,62 +149,78 @@
 		// Total percentage of each COMPLETED metric by criteria
 		$environmentMetricsList = $this->db->select('*')->from('tbl_metric m')->join('tbl_facility f', 'f.company_id=m.company_id')->where(array('f.facility_id' => $id, 'm.criteria_id' => 1, 'm.metric_disabled' => 0))->get();
 		foreach($environmentMetricsList->result_array() as $row){
+			$data['facility']['environment']['metrics']['total'][] = array(
+				'name' => $row['metric_name'],
+				'value' => round(($this->db->select('*')->from('tbl_form_input i')->join('tbl_metric m', 'i.metric_id=m.metric_id')->where(array('i.facility_id' => $id, 'i.metricstep_status' => 1, 'm.metric_disabled' => 0, 'm.metric_name' => $row['metric_name'], 'm.criteria_id' => 1))->get()->num_rows()) / 39 * 100)
+				);
 			$data['facility']['environment']['metrics']['A'][] = array(
 				'name' => $row['metric_name'],
-				'value' => (($this->db->select('*')->from('tbl_form_input i')->join('tbl_metric m', 'i.metric_id=m.metric_id')->where(array('i.facility_id' => $id, 'i.metricstep_status' => 1, 'i.step_id <' => 14, 'm.metric_disabled' => 0, 'm.metric_name' => $row['metric_name'], 'm.criteria_id' => 1))->get()->num_rows()) / 13 * 100)
+				'value' => round(($this->db->select('*')->from('tbl_form_input i')->join('tbl_metric m', 'i.metric_id=m.metric_id')->where(array('i.facility_id' => $id, 'i.metricstep_status' => 1, 'i.step_id <' => 14, 'm.metric_disabled' => 0, 'm.metric_name' => $row['metric_name'], 'm.criteria_id' => 1))->get()->num_rows()) / 13 * 100)
 				);
 			$data['facility']['environment']['metrics']['AA'][] = array(
 				'name' => $row['metric_name'],
-				'value' => (($this->db->select('*')->from('tbl_form_input i')->join('tbl_metric m', 'i.metric_id=m.metric_id')->where(array('i.facility_id' => $id, 'i.metricstep_status' => 1, 'i.step_id < ' => 27, 'i.step_id > ' => 13, 'm.metric_disabled' => 0, 'm.metric_name' => $row['metric_name'], 'm.criteria_id' => 1))->get()->num_rows()) / 13 * 100)
+				'value' => round(($this->db->select('*')->from('tbl_form_input i')->join('tbl_metric m', 'i.metric_id=m.metric_id')->where(array('i.facility_id' => $id, 'i.metricstep_status' => 1, 'i.step_id < ' => 27, 'i.step_id > ' => 13, 'm.metric_disabled' => 0, 'm.metric_name' => $row['metric_name'], 'm.criteria_id' => 1))->get()->num_rows()) / 13 * 100)
 				);
 			$data['facility']['environment']['metrics']['AAA'][] = array(
 				'name' => $row['metric_name'],
-				'value' => (($this->db->select('*')->from('tbl_form_input i')->join('tbl_metric m', 'i.metric_id=m.metric_id')->where(array('i.facility_id' => $id, 'i.metricstep_status' => 1, 'i.step_id <= ' => 39, 'i.step_id > ' => 26, 'm.metric_disabled' => 0, 'm.metric_name' => $row['metric_name'], 'm.criteria_id' => 1))->get()->num_rows()) / 13 * 100)
+				'value' => round(($this->db->select('*')->from('tbl_form_input i')->join('tbl_metric m', 'i.metric_id=m.metric_id')->where(array('i.facility_id' => $id, 'i.metricstep_status' => 1, 'i.step_id <= ' => 39, 'i.step_id > ' => 26, 'm.metric_disabled' => 0, 'm.metric_name' => $row['metric_name'], 'm.criteria_id' => 1))->get()->num_rows()) / 13 * 100)
 				);
 		}
 		$communityMetricsList = $this->db->select('*')->from('tbl_metric m')->join('tbl_facility f', 'f.company_id=m.company_id')->where(array('f.facility_id' => $id, 'm.criteria_id' => 2, 'm.metric_disabled' => 0))->get();
 		foreach($communityMetricsList->result_array() as $row){
+			$data['facility']['community']['metrics']['total'][] = array(
+				'name' => $row['metric_name'],
+				'value' => round(($this->db->select('*')->from('tbl_form_input i')->join('tbl_metric m', 'i.metric_id=m.metric_id')->where(array('i.facility_id' => $id, 'i.metricstep_status' => 1, 'm.metric_disabled' => 0, 'm.metric_name' => $row['metric_name'], 'm.criteria_id' => 2))->get()->num_rows()) / 39 * 100)
+				);
 			$data['facility']['community']['metrics']['A'][] = array(
 				'name' => $row['metric_name'],
-				'value' => (($this->db->select('*')->from('tbl_form_input i')->join('tbl_metric m', 'i.metric_id=m.metric_id')->where(array('i.facility_id' => $id, 'i.metricstep_status' => 1, 'i.step_id <' => 14, 'm.metric_disabled' => 0, 'm.metric_name' => $row['metric_name'], 'm.criteria_id' => 2))->get()->num_rows()) / 13 * 100)
+				'value' => round(($this->db->select('*')->from('tbl_form_input i')->join('tbl_metric m', 'i.metric_id=m.metric_id')->where(array('i.facility_id' => $id, 'i.metricstep_status' => 1, 'i.step_id <' => 14, 'm.metric_disabled' => 0, 'm.metric_name' => $row['metric_name'], 'm.criteria_id' => 2))->get()->num_rows()) / 13 * 100)
 				);
 			$data['facility']['community']['metrics']['AA'][] = array(
 				'name' => $row['metric_name'],
-				'value' => (($this->db->select('*')->from('tbl_form_input i')->join('tbl_metric m', 'i.metric_id=m.metric_id')->where(array('i.facility_id' => $id, 'i.metricstep_status' => 1, 'i.step_id < ' => 27, 'i.step_id > ' => 13, 'm.metric_disabled' => 0, 'm.metric_name' => $row['metric_name'], 'm.criteria_id' => 2))->get()->num_rows()) / 13 * 100)
+				'value' => round(($this->db->select('*')->from('tbl_form_input i')->join('tbl_metric m', 'i.metric_id=m.metric_id')->where(array('i.facility_id' => $id, 'i.metricstep_status' => 1, 'i.step_id < ' => 27, 'i.step_id > ' => 13, 'm.metric_disabled' => 0, 'm.metric_name' => $row['metric_name'], 'm.criteria_id' => 2))->get()->num_rows()) / 13 * 100)
 				);
 			$data['facility']['community']['metrics']['AAA'][] = array(
 				'name' => $row['metric_name'],
-				'value' => (($this->db->select('*')->from('tbl_form_input i')->join('tbl_metric m', 'i.metric_id=m.metric_id')->where(array('i.facility_id' => $id, 'i.metricstep_status' => 1, 'i.step_id <= ' => 39, 'i.step_id > ' => 26, 'm.metric_disabled' => 0, 'm.metric_name' => $row['metric_name'], 'm.criteria_id' => 2))->get()->num_rows()) / 13 * 100)
+				'value' => round(($this->db->select('*')->from('tbl_form_input i')->join('tbl_metric m', 'i.metric_id=m.metric_id')->where(array('i.facility_id' => $id, 'i.metricstep_status' => 1, 'i.step_id <= ' => 39, 'i.step_id > ' => 26, 'm.metric_disabled' => 0, 'm.metric_name' => $row['metric_name'], 'm.criteria_id' => 2))->get()->num_rows()) / 13 * 100)
 				);
 		}
 		$operatingMetricsList = $this->db->select('*')->from('tbl_metric m')->join('tbl_facility f', 'f.company_id=m.company_id')->where(array('f.facility_id' => $id, 'm.criteria_id' => 3, 'm.metric_disabled' => 0))->get();
 		foreach($operatingMetricsList->result_array() as $row){
+			$data['facility']['operating']['metrics']['total'][] = array(
+				'name' => $row['metric_name'],
+				'value' => round(($this->db->select('*')->from('tbl_form_input i')->join('tbl_metric m', 'i.metric_id=m.metric_id')->where(array('i.facility_id' => $id, 'i.metricstep_status' => 1, 'm.metric_disabled' => 0, 'm.metric_name' => $row['metric_name'], 'm.criteria_id' => 3))->get()->num_rows()) / 39 * 100)
+				);
 			$data['facility']['operating']['metrics']['A'][] = array(
 				'name' => $row['metric_name'],
-				'value' => (($this->db->select('*')->from('tbl_form_input i')->join('tbl_metric m', 'i.metric_id=m.metric_id')->where(array('i.facility_id' => $id, 'i.metricstep_status' => 1, 'i.step_id <' => 14, 'm.metric_disabled' => 0, 'm.metric_name' => $row['metric_name'], 'm.criteria_id' => 3))->get()->num_rows()) / 13 * 100)
+				'value' => round(($this->db->select('*')->from('tbl_form_input i')->join('tbl_metric m', 'i.metric_id=m.metric_id')->where(array('i.facility_id' => $id, 'i.metricstep_status' => 1, 'i.step_id <' => 14, 'm.metric_disabled' => 0, 'm.metric_name' => $row['metric_name'], 'm.criteria_id' => 3))->get()->num_rows()) / 13 * 100)
 				);
 			$data['facility']['operating']['metrics']['AA'][] = array(
 				'name' => $row['metric_name'],
-				'value' => (($this->db->select('*')->from('tbl_form_input i')->join('tbl_metric m', 'i.metric_id=m.metric_id')->where(array('i.facility_id' => $id, 'i.metricstep_status' => 1, 'i.step_id < ' => 27, 'i.step_id > ' => 13, 'm.metric_disabled' => 0, 'm.metric_name' => $row['metric_name'], 'm.criteria_id' => 3))->get()->num_rows()) / 13 * 100)
+				'value' => round(($this->db->select('*')->from('tbl_form_input i')->join('tbl_metric m', 'i.metric_id=m.metric_id')->where(array('i.facility_id' => $id, 'i.metricstep_status' => 1, 'i.step_id < ' => 27, 'i.step_id > ' => 13, 'm.metric_disabled' => 0, 'm.metric_name' => $row['metric_name'], 'm.criteria_id' => 3))->get()->num_rows()) / 13 * 100)
 				);
 			$data['facility']['operating']['metrics']['AAA'][] = array(
 				'name' => $row['metric_name'],
-				'value' => (($this->db->select('*')->from('tbl_form_input i')->join('tbl_metric m', 'i.metric_id=m.metric_id')->where(array('i.facility_id' => $id, 'i.metricstep_status' => 1, 'i.step_id <= ' => 39, 'i.step_id > ' => 26, 'm.metric_disabled' => 0, 'm.metric_name' => $row['metric_name'], 'm.criteria_id' => 3))->get()->num_rows()) / 13 * 100)
+				'value' => round(($this->db->select('*')->from('tbl_form_input i')->join('tbl_metric m', 'i.metric_id=m.metric_id')->where(array('i.facility_id' => $id, 'i.metricstep_status' => 1, 'i.step_id <= ' => 39, 'i.step_id > ' => 26, 'm.metric_disabled' => 0, 'm.metric_name' => $row['metric_name'], 'm.criteria_id' => 3))->get()->num_rows()) / 13 * 100)
 				);
 		}
 		$productsMetricsList = $this->db->select('*')->from('tbl_metric m')->join('tbl_facility f', 'f.company_id=m.company_id')->where(array('f.facility_id' => $id, 'm.criteria_id' => 4, 'm.metric_disabled' => 0))->get();
 		foreach($productsMetricsList->result_array() as $row){
+			$data['facility']['products']['metrics']['total'][] = array(
+				'name' => $row['metric_name'],
+				'value' => round(($this->db->select('*')->from('tbl_form_input i')->join('tbl_metric m', 'i.metric_id=m.metric_id')->where(array('i.facility_id' => $id, 'i.metricstep_status' => 1, 'm.metric_disabled' => 0, 'm.metric_name' => $row['metric_name'], 'm.criteria_id' => 4))->get()->num_rows()) / 39 * 100)
+				);
 			$data['facility']['products']['metrics']['A'][] = array(
 				'name' => $row['metric_name'],
-				'value' => (($this->db->select('*')->from('tbl_form_input i')->join('tbl_metric m', 'i.metric_id=m.metric_id')->where(array('i.facility_id' => $id, 'i.metricstep_status' => 1, 'i.step_id <' => 14, 'm.metric_disabled' => 0, 'm.metric_name' => $row['metric_name'], 'm.criteria_id' => 4))->get()->num_rows()) / 13 * 100)
+				'value' => round(($this->db->select('*')->from('tbl_form_input i')->join('tbl_metric m', 'i.metric_id=m.metric_id')->where(array('i.facility_id' => $id, 'i.metricstep_status' => 1, 'i.step_id <' => 14, 'm.metric_disabled' => 0, 'm.metric_name' => $row['metric_name'], 'm.criteria_id' => 4))->get()->num_rows()) / 13 * 100)
 				);
 			$data['facility']['products']['metrics']['AA'][] = array(
 				'name' => $row['metric_name'],
-				'value' => (($this->db->select('*')->from('tbl_form_input i')->join('tbl_metric m', 'i.metric_id=m.metric_id')->where(array('i.facility_id' => $id, 'i.metricstep_status' => 1, 'i.step_id < ' => 27, 'i.step_id > ' => 13, 'm.metric_disabled' => 0, 'm.metric_name' => $row['metric_name'], 'm.criteria_id' => 4))->get()->num_rows()) / 13 * 100)
+				'value' => round(($this->db->select('*')->from('tbl_form_input i')->join('tbl_metric m', 'i.metric_id=m.metric_id')->where(array('i.facility_id' => $id, 'i.metricstep_status' => 1, 'i.step_id < ' => 27, 'i.step_id > ' => 13, 'm.metric_disabled' => 0, 'm.metric_name' => $row['metric_name'], 'm.criteria_id' => 4))->get()->num_rows()) / 13 * 100)
 				);
 			$data['facility']['products']['metrics']['AAA'][] = array(
 				'name' => $row['metric_name'],
-				'value' => (($this->db->select('*')->from('tbl_form_input i')->join('tbl_metric m', 'i.metric_id=m.metric_id')->where(array('i.facility_id' => $id, 'i.metricstep_status' => 1, 'i.step_id <= ' => 39, 'i.step_id > ' => 26, 'm.metric_disabled' => 0, 'm.metric_name' => $row['metric_name'], 'm.criteria_id' => 4))->get()->num_rows()) / 13 * 100)
+				'value' => round(($this->db->select('*')->from('tbl_form_input i')->join('tbl_metric m', 'i.metric_id=m.metric_id')->where(array('i.facility_id' => $id, 'i.metricstep_status' => 1, 'i.step_id <= ' => 39, 'i.step_id > ' => 26, 'm.metric_disabled' => 0, 'm.metric_name' => $row['metric_name'], 'm.criteria_id' => 4))->get()->num_rows()) / 13 * 100)
 				);
 		}
 

@@ -1,4 +1,4 @@
-var base_url = 'http://localhost/sustainability-toolkit/';
+var base_url = 'http://localhost:8888/sustainability-toolkit/';
 
 //circles
     var aBox = document.querySelector("#aBox"),
